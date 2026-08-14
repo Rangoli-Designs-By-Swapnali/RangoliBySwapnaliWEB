@@ -3,485 +3,1279 @@
 
 <head>
 
-  <meta charset="utf-8">
+<meta charset="utf-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1"
+>
 
-  <title>Swapnali's Rangoli</title>
+<title>Swapnali's Rangoli</title>
 
+<style>
 
-  <style>
+/* =========================================================
+   GLOBAL
+========================================================= */
 
-    * {
-      box-sizing: border-box;
-    }
+* {
+  box-sizing: border-box;
+}
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
 
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+body {
 
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-    body {
+  background:
+    radial-gradient(
+      circle at top,
+      #fff8fb 0%,
+      #f8edf2 45%,
+      #f2e3e9 100%
+    );
 
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+  color: #3d2030;
 
-      background:
-        radial-gradient(
-          circle at top,
-          #fff8fb 0%,
-          #f8edf2 45%,
-          #f2e3e9 100%
-        );
+  padding-bottom: 100px;
+}
 
-      color: #3d2030;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+/* =========================================================
+   MAIN PAGE
+========================================================= */
 
-      min-height: 100vh;
-    }
+.page {
 
+  width: 100%;
+  max-width: 850px;
 
-    /* =========================
-       MAIN CARD
-       ========================= */
+  margin: auto;
 
-    .page {
+  padding: 18px 14px 120px;
+}
 
-      width: 100%;
-      max-width: 650px;
 
-      min-height: 100vh;
+/* =========================================================
+   HEADER CARD
+========================================================= */
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+.card {
 
-      padding: 20px;
-    }
+  width: 100%;
 
+  background:
+    rgba(255,255,255,0.97);
 
-    .card {
+  border-radius: 24px;
 
-      width: 100%;
+  padding: 25px 24px;
 
-      background: rgba(255,255,255,0.96);
+  text-align: center;
 
-      border-radius: 24px;
+  box-shadow:
+    0 15px 45px rgba(91,23,56,0.16);
 
-      padding: 28px 30px;
+  border:
+    1px solid rgba(155,45,98,0.12);
 
-      text-align: center;
+  position: relative;
 
-      box-shadow:
-        0 15px 45px rgba(91,23,56,0.18);
+  overflow: hidden;
 
-      border: 1px solid rgba(155,45,98,0.12);
+  margin-bottom: 18px;
+}
 
-      position: relative;
 
-      overflow: hidden;
-    }
+.card::before {
 
+  content: "";
 
-    /* Decorative top line */
+  position: absolute;
 
-    .card::before {
+  top: 0;
+  left: 0;
 
-      content: "";
+  width: 100%;
+  height: 5px;
 
-      position: absolute;
+  background:
+    linear-gradient(
+      90deg,
+      #f58529,
+      #dd2a7b,
+      #8134af,
+      #9b2d62
+    );
+}
 
-      top: 0;
-      left: 0;
 
-      width: 100%;
-      height: 5px;
+/* =========================================================
+   LOGO
+========================================================= */
 
-      background:
-        linear-gradient(
-          90deg,
-          #f58529,
-          #dd2a7b,
-          #8134af,
-          #9b2d62
-        );
-    }
+.logo {
 
+  width: 125px;
+  height: 125px;
 
-    /* =========================
-       LOGO
-       ========================= */
+  object-fit: contain;
 
-    .logo {
+  display: block;
 
-      width: 145px;
-      height: 145px;
+  margin: 0 auto 7px;
 
-      object-fit: contain;
+  filter:
+    drop-shadow(
+      0 6px 10px rgba(60,20,40,0.20)
+    );
+}
 
-      display: block;
 
-      margin: 0 auto 8px;
+/* =========================================================
+   BRAND
+========================================================= */
 
-      filter:
-        drop-shadow(
-          0 6px 10px rgba(60,20,40,0.20)
-        );
-    }
+.brand-name {
 
+  margin: 0;
 
-    /* =========================
-       BUSINESS NAME
-       ========================= */
+  color: #5b1738;
 
-    .brand-name {
+  font-size: 27px;
 
-      margin: 0;
+  font-weight: 700;
 
-      color: #5b1738;
+  letter-spacing: 0.3px;
+}
 
-      font-size: 27px;
 
-      font-weight: 700;
+.tagline {
 
-      letter-spacing: 0.3px;
-    }
+  margin: 6px 0 17px;
 
+  color: #806b74;
 
-    .tagline {
+  font-size: 13px;
 
-      margin: 6px 0 18px;
+  line-height: 1.5;
+}
 
-      color: #806b74;
 
-      font-size: 13px;
+/* =========================================================
+   TOP ACTION BUTTONS
+========================================================= */
 
-      line-height: 1.5;
-    }
+.actions {
 
+  display: grid;
 
-    /* =========================
-       BUTTONS
-       ========================= */
+  grid-template-columns:
+    1fr 1fr;
 
-    .actions {
+  gap: 9px;
 
-      display: grid;
+  max-width: 550px;
 
-      grid-template-columns: 1fr 1fr;
+  margin: auto;
+}
 
-      gap: 10px;
 
-      max-width: 500px;
+.btn {
 
-      margin: 0 auto;
-    }
+  min-height: 45px;
 
+  display: flex;
 
-    .btn {
+  align-items: center;
 
-      min-height: 48px;
+  justify-content: center;
 
-      display: flex;
+  gap: 7px;
 
-      align-items: center;
+  padding: 9px 10px;
 
-      justify-content: center;
+  border-radius: 10px;
 
-      gap: 8px;
+  text-decoration: none;
 
-      padding: 10px 12px;
+  font-size: 12px;
 
-      border-radius: 10px;
+  font-weight: 700;
 
-      text-decoration: none;
+  transition: 0.2s ease;
 
-      font-size: 13px;
+  border: none;
 
-      font-weight: 700;
+  cursor: pointer;
+}
 
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
 
-      border: none;
+.btn:hover {
 
-      cursor: pointer;
-    }
+  transform: translateY(-2px);
 
+  box-shadow:
+    0 7px 18px rgba(0,0,0,0.15);
+}
 
-    .btn:hover {
 
-      transform: translateY(-2px);
+.view-btn {
 
-      box-shadow:
-        0 7px 18px rgba(0,0,0,0.15);
-    }
+  background: #6f1d45;
 
+  color: white;
+}
 
-    /* View */
 
-    .view-btn {
+.download-btn {
 
-      background: #6f1d45;
+  background: #f3e7ed;
 
-      color: white;
-    }
+  color: #6f1d45;
 
+  border:
+    1px solid #e2ccd6;
+}
 
-    /* Download */
 
-    .download-btn {
+.instagram-btn {
 
-      background: #f3e7ed;
+  background:
+    linear-gradient(
+      45deg,
+      #f58529,
+      #dd2a7b,
+      #8134af
+    );
 
-      color: #6f1d45;
+  color: white;
+}
 
-      border:
-        1px solid #e2ccd6;
-    }
 
+.whatsapp-btn {
 
-    /* Instagram */
+  background: #25D366;
 
-    .instagram-btn {
+  color: white;
+}
 
-      background:
-        linear-gradient(
-          45deg,
-          #f58529,
-          #dd2a7b,
-          #8134af
-        );
 
-      color: white;
-    }
+.btn img {
 
+  width: 21px;
+  height: 21px;
 
-    /* WhatsApp */
+  object-fit: contain;
+}
 
-    .whatsapp-btn {
 
-      background: #25D366;
+/* =========================================================
+   ORDER MESSAGE
+========================================================= */
 
-      color: white;
-    }
+.order-message {
 
+  margin-top: 15px;
 
-    .btn img {
+  padding: 10px 13px;
 
-      width: 24px;
-      height: 24px;
+  background: #fff8f1;
 
-      object-fit: contain;
+  border:
+    1px solid #f1dfc9;
 
-      display: block;
-    }
+  border-radius: 10px;
 
+  color: #73534a;
 
-    /* =========================
-       ORDER MESSAGE
-       ========================= */
+  font-size: 11px;
 
-    .order-message {
+  line-height: 1.5;
+}
 
-      margin-top: 18px;
 
-      padding: 11px 15px;
+.order-message strong {
 
-      background: #fff8f1;
+  color: #5b1738;
+}
 
-      border:
-        1px solid #f1dfc9;
 
-      border-radius: 10px;
+/* =========================================================
+   CATALOG HEADER
+========================================================= */
 
-      color: #73534a;
+.catalog-header {
 
-      font-size: 12px;
+  display: flex;
 
-      line-height: 1.5;
-    }
+  justify-content: space-between;
 
+  align-items: center;
 
-    .order-message strong {
+  margin: 18px 2px 10px;
+}
 
-      color: #5b1738;
-    }
 
+.catalog-title {
 
-    /* =========================
-       FOOTER
-       ========================= */
+  margin: 0;
 
-    .footer {
+  color: #5b1738;
 
-      margin-top: 16px;
+  font-size: 21px;
+}
 
-      font-size: 10px;
 
-      color: #9a858d;
-    }
+.catalog-subtitle {
 
+  margin: 3px 0 0;
 
-    .footer a {
+  color: #8d7880;
 
-      color: #c02a6d;
+  font-size: 11px;
+}
 
-      text-decoration: none;
 
-      font-weight: 700;
-    }
+/* =========================================================
+   DESIGN GRID
+========================================================= */
 
+.design-grid {
 
-    /* =========================
-       MOBILE
-       ========================= */
+  display: grid;
 
-    @media (max-width: 600px) {
+  grid-template-columns:
+    repeat(2, 1fr);
 
-      .page {
+  gap: 12px;
+}
 
-        padding: 12px;
-      }
 
+/* =========================================================
+   DESIGN CARD
+========================================================= */
 
-      .card {
+.design-card {
 
-        padding: 22px 16px;
+  background: white;
 
-        border-radius: 20px;
-      }
+  border-radius: 16px;
 
+  overflow: hidden;
 
-      .logo {
+  border:
+    2px solid transparent;
 
-        width: 120px;
-        height: 120px;
+  box-shadow:
+    0 6px 18px rgba(91,23,56,0.10);
 
-        margin-bottom: 5px;
-      }
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 
+  position: relative;
+}
 
-      .brand-name {
 
-        font-size: 21px;
-      }
+.design-card:hover {
 
+  transform: translateY(-2px);
 
-      .tagline {
+  box-shadow:
+    0 10px 25px rgba(91,23,56,0.14);
+}
 
-        font-size: 11px;
 
-        margin-bottom: 15px;
-      }
+.design-card.selected {
 
+  border-color: #9b2d62;
 
-      .actions {
+  box-shadow:
+    0 8px 25px rgba(155,45,98,0.20);
+}
 
-        grid-template-columns: 1fr 1fr;
 
-        gap: 8px;
-      }
+/* =========================================================
+   IMAGE
+========================================================= */
 
+.design-image-wrap {
 
-      .btn {
+  position: relative;
 
-        min-height: 46px;
+  width: 100%;
 
-        font-size: 11px;
+  aspect-ratio: 1 / 1;
 
-        padding: 8px 5px;
-      }
+  background: #f6edf1;
 
+  overflow: hidden;
+}
 
-      .btn img {
 
-        width: 22px;
-        height: 22px;
-      }
+.design-image {
 
+  width: 100%;
+  height: 100%;
 
-      .order-message {
+  object-fit: cover;
 
-        margin-top: 14px;
+  display: block;
+}
 
-        font-size: 10px;
 
-        padding: 9px 10px;
-      }
+/* Design number */
 
+.design-number {
 
-      .footer {
+  position: absolute;
 
-        margin-top: 12px;
+  top: 8px;
+  left: 8px;
 
-        font-size: 9px;
-      }
+  background:
+    rgba(91,23,56,0.88);
 
-    }
+  color: white;
 
+  padding: 5px 8px;
 
-    /* =========================
-       VERY SMALL PHONES
-       ========================= */
+  border-radius: 7px;
 
-    @media (max-height: 650px) {
+  font-size: 10px;
 
-      .card {
+  font-weight: bold;
+}
 
-        padding-top: 16px;
-        padding-bottom: 16px;
-      }
 
+/* =========================================================
+   SELECT CHECKBOX
+========================================================= */
 
-      .logo {
+.select-design {
 
-        width: 95px;
-        height: 95px;
-      }
+  position: absolute;
 
+  top: 8px;
+  right: 8px;
 
-      .brand-name {
+  width: 30px;
+  height: 30px;
 
-        font-size: 19px;
-      }
+  border-radius: 50%;
 
+  background:
+    rgba(255,255,255,0.94);
 
-      .tagline {
+  display: flex;
 
-        margin-bottom: 10px;
-      }
+  align-items: center;
 
+  justify-content: center;
 
-      .order-message {
+  box-shadow:
+    0 3px 10px rgba(0,0,0,0.15);
 
-        margin-top: 10px;
-      }
+  cursor: pointer;
+}
 
 
-      .footer {
+.select-design input {
 
-        margin-top: 8px;
-      }
+  width: 18px;
+  height: 18px;
 
-    }
+  accent-color: #9b2d62;
 
-  </style>
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   CARD DETAILS
+========================================================= */
+
+.design-info {
+
+  padding: 10px;
+}
+
+
+.design-name {
+
+  margin: 0 0 5px;
+
+  color: #5b1738;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+.design-price {
+
+  color: #9b2d62;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   QUANTITY AREA
+========================================================= */
+
+.quantity-area {
+
+  margin-top: 9px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 5px;
+}
+
+
+.quantity-label {
+
+  color: #8b777f;
+
+  font-size: 10px;
+}
+
+
+.quantity-controls {
+
+  display: flex;
+
+  align-items: center;
+
+  border:
+    1px solid #ead8e0;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  background: #fff9fb;
+}
+
+
+.quantity-btn {
+
+  width: 28px;
+  height: 28px;
+
+  border: none;
+
+  background: #f5e9ef;
+
+  color: #6f1d45;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+.quantity-btn:hover {
+
+  background: #ead5df;
+}
+
+
+.quantity-value {
+
+  width: 28px;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  color: #5b1738;
+}
+
+
+/* =========================================================
+   CART BOTTOM BAR
+========================================================= */
+
+.bottom-cart {
+
+  position: fixed;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 1000;
+
+  background:
+    rgba(255,255,255,0.97);
+
+  backdrop-filter:
+    blur(12px);
+
+  border-top:
+    1px solid #ead8e0;
+
+  box-shadow:
+    0 -7px 25px rgba(91,23,56,0.15);
+
+  padding:
+    10px max(12px, calc((100vw - 850px) / 2 + 14px));
+
+}
+
+
+.bottom-inner {
+
+  max-width: 850px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr 1fr;
+
+  gap: 8px;
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   CART TOTAL
+========================================================= */
+
+.cart-box {
+
+  min-height: 50px;
+
+  border-radius: 11px;
+
+  background: #f7edf2;
+
+  color: #5b1738;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  font-weight: 700;
+
+  border:
+    1px solid #ead5df;
+}
+
+
+.cart-icon {
+
+  font-size: 20px;
+}
+
+
+.cart-total {
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   BOTTOM BUTTONS
+========================================================= */
+
+.bottom-btn {
+
+  min-height: 50px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  padding: 8px 5px;
+
+  transition: 0.2s ease;
+}
+
+
+.bottom-btn:hover {
+
+  transform: translateY(-1px);
+}
+
+
+.preview-btn {
+
+  background: #6f1d45;
+
+  color: white;
+}
+
+
+.place-btn {
+
+  background: #25D366;
+
+  color: white;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 2000;
+
+  background:
+    rgba(44,15,30,0.60);
+
+  display: none;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 15px;
+}
+
+
+.modal.show {
+
+  display: flex;
+}
+
+
+.modal-box {
+
+  width: 100%;
+
+  max-width: 550px;
+
+  max-height: 88vh;
+
+  background: white;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.30);
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.modal-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 15px 17px;
+
+  background: #faf0f4;
+
+  border-bottom:
+    1px solid #ead8e0;
+}
+
+
+.modal-title {
+
+  margin: 0;
+
+  color: #5b1738;
+
+  font-size: 18px;
+}
+
+
+.close-modal {
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #ead8e0;
+
+  color: #5b1738;
+
+  font-size: 19px;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   ORDER ITEMS
+========================================================= */
+
+.order-items {
+
+  padding: 12px 15px;
+
+  overflow-y: auto;
+
+  flex: 1;
+}
+
+
+.order-item {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 9px 0;
+
+  border-bottom:
+    1px solid #eee3e7;
+}
+
+
+.order-thumb {
+
+  width: 55px;
+  height: 55px;
+
+  border-radius: 9px;
+
+  object-fit: cover;
+}
+
+
+.order-details {
+
+  flex: 1;
+}
+
+
+.order-design {
+
+  margin: 0 0 4px;
+
+  color: #5b1738;
+
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+
+.order-qty {
+
+  color: #806b74;
+
+  font-size: 11px;
+}
+
+
+.order-price {
+
+  color: #9b2d62;
+
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+========================================================= */
+
+.modal-footer {
+
+  padding: 13px 15px;
+
+  border-top:
+    1px solid #ead8e0;
+
+  background: #fffafd;
+}
+
+
+.summary-row {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 10px;
+}
+
+
+.summary-label {
+
+  color: #806b74;
+
+  font-size: 12px;
+}
+
+
+.summary-total {
+
+  color: #5b1738;
+
+  font-size: 19px;
+
+  font-weight: 700;
+}
+
+
+.modal-actions {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 8px;
+}
+
+
+.modal-action {
+
+  min-height: 43px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+.continue-btn {
+
+  background: #f3e7ed;
+
+  color: #6f1d45;
+}
+
+
+.modal-place-btn {
+
+  background: #25D366;
+
+  color: white;
+}
+
+
+/* =========================================================
+   EMPTY CART
+========================================================= */
+
+.empty-cart {
+
+  text-align: center;
+
+  padding: 30px 15px;
+
+  color: #8d7880;
+
+  font-size: 13px;
+}
+
+
+.empty-cart-icon {
+
+  font-size: 35px;
+
+  margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+  margin-top: 17px;
+
+  text-align: center;
+
+  font-size: 10px;
+
+  color: #9a858d;
+}
+
+
+.footer a {
+
+  color: #c02a6d;
+
+  text-decoration: none;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .page {
+
+    padding:
+      10px
+      10px
+      120px;
+  }
+
+
+  .card {
+
+    padding:
+      22px 14px;
+
+    border-radius: 20px;
+  }
+
+
+  .logo {
+
+    width: 105px;
+    height: 105px;
+  }
+
+
+  .brand-name {
+
+    font-size: 21px;
+  }
+
+
+  .tagline {
+
+    font-size: 11px;
+
+    margin-bottom: 14px;
+  }
+
+
+  .actions {
+
+    gap: 7px;
+  }
+
+
+  .btn {
+
+    min-height: 43px;
+
+    font-size: 10px;
+
+    padding:
+      7px 4px;
+  }
+
+
+  .btn img {
+
+    width: 20px;
+    height: 20px;
+  }
+
+
+  .catalog-title {
+
+    font-size: 18px;
+  }
+
+
+  .catalog-subtitle {
+
+    font-size: 10px;
+  }
+
+
+  .design-grid {
+
+    gap: 9px;
+  }
+
+
+  .design-info {
+
+    padding: 8px;
+  }
+
+
+  .design-name {
+
+    font-size: 11px;
+  }
+
+
+  .design-price {
+
+    font-size: 12px;
+  }
+
+
+  .quantity-label {
+
+    display: none;
+  }
+
+
+  .quantity-btn {
+
+    width: 27px;
+    height: 27px;
+  }
+
+
+  .quantity-value {
+
+    width: 26px;
+  }
+
+
+  .bottom-cart {
+
+    padding:
+      8px 9px;
+  }
+
+
+  .bottom-inner {
+
+    gap: 6px;
+  }
+
+
+  .cart-box,
+  .bottom-btn {
+
+    min-height: 48px;
+  }
+
+
+  .cart-total {
+
+    font-size: 12px;
+  }
+
+
+  .cart-icon {
+
+    font-size: 18px;
+  }
+
+
+  .bottom-btn {
+
+    font-size: 10px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .design-grid {
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap: 7px;
+  }
+
+
+  .design-name {
+
+    font-size: 10px;
+  }
+
+
+  .design-price {
+
+    font-size: 11px;
+  }
+
+
+  .bottom-inner {
+
+    gap: 4px;
+  }
+
+
+  .bottom-btn {
+
+    font-size: 9px;
+  }
+
+}
+
+</style>
 
 </head>
 
@@ -489,155 +1283,947 @@
 <body>
 
 
-  <main class="page">
+<main class="page">
 
 
-    <section class="card">
+<!-- =====================================================
+     BUSINESS HEADER
+===================================================== -->
+
+<section class="card">
 
 
-      <!-- =========================
-           LOGO
-           ========================= -->
+  <img
+    src="logo.png"
+    alt="Swapnali's Rangoli Logo"
+    class="logo"
+  >
+
+
+  <h1 class="brand-name">
+    Swapnali's Rangoli
+  </h1>
+
+
+  <p class="tagline">
+    Beautiful • Traditional • Ready-Made Rangoli Designs
+  </p>
+
+
+  <div class="actions">
+
+
+    <!-- VIEW PDF -->
+
+    <a
+      href="Rangoli_Designs_By_Swapnali.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn view-btn"
+    >
+      📖 View PDF
+    </a>
+
+
+    <!-- DOWNLOAD -->
+
+    <a
+      href="Rangoli_Designs_By_Swapnali.pdf"
+      download="Rangoli_Designs_By_Swapnali.pdf"
+      class="btn download-btn"
+    >
+      ⬇️ Download PDF
+    </a>
+
+
+    <!-- INSTAGRAM -->
+
+    <a
+      href="https://www.instagram.com/rangoli_by_swapnali?igsh=NDVwNHVsZm9ramhz"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn instagram-btn"
+    >
 
       <img
-        src="logo.png"
-        alt="Swapnali's Rangoli Logo"
-        class="logo"
+        src="instagram.png"
+        alt="Instagram"
       >
 
+      Instagram
 
-      <!-- =========================
-           BUSINESS NAME
-           ========================= -->
-
-      <h1 class="brand-name">
-        Swapnali's Rangoli
-      </h1>
+    </a>
 
 
-      <p class="tagline">
-        Beautiful • Traditional • Ready-Made Rangoli Designs
-      </p>
+    <!-- WHATSAPP -->
+
+    <a
+      href="https://wa.me/917972313283?text=Hi%20Swapnali%20%F0%9F%91%8B%20I%20saw%20your%20Rangoli%20catalogue%20and%20would%20like%20to%20place%20an%20order."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn whatsapp-btn"
+    >
+
+      <img
+        src="whatsapp.png"
+        alt="WhatsApp"
+      >
+
+      Order on WhatsApp
+
+    </a>
 
 
-      <!-- =========================
-           ACTION BUTTONS
-           ========================= -->
-
-      <div class="actions">
+  </div>
 
 
-        <!-- VIEW PDF -->
+  <div class="order-message">
 
-        <a
-          href="Rangoli_Designs_By_Swapnali.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn view-btn"
+    ✨ <strong>Choose your favourite designs</strong><br>
+
+    Select a design, adjust quantity and preview your
+    complete order before placing it on WhatsApp.
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CATALOG HEADER
+===================================================== -->
+
+<div class="catalog-header">
+
+  <div>
+
+    <h2 class="catalog-title">
+      Our Designs
+    </h2>
+
+    <p class="catalog-subtitle">
+      Select your favourite design and add it to your order
+    </p>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     DESIGN GRID
+===================================================== -->
+
+<div
+  class="design-grid"
+  id="designGrid"
+>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+  © Swapnali's Rangoli
+
+  &nbsp; • &nbsp;
+
+  <a
+    href="https://www.instagram.com/rangoli_by_swapnali"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    @rangoli_by_swapnali
+  </a>
+
+  &nbsp; • &nbsp;
+
+  <a
+    href="https://wa.me/917972313283"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    WhatsApp: 7972313283
+  </a>
+
+</div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FIXED CART BAR
+===================================================== -->
+
+<div class="bottom-cart">
+
+  <div class="bottom-inner">
+
+
+    <!-- CART -->
+
+    <div
+      class="cart-box"
+      onclick="openPreview()"
+    >
+
+      <span class="cart-icon">
+        🛒
+      </span>
+
+      <span
+        class="cart-total"
+        id="cartTotal"
+      >
+        ₹0
+      </span>
+
+    </div>
+
+
+    <!-- PREVIEW -->
+
+    <button
+      class="bottom-btn preview-btn"
+      onclick="openPreview()"
+    >
+
+      👁 Preview Order
+
+    </button>
+
+
+    <!-- PLACE ORDER -->
+
+    <button
+      class="bottom-btn place-btn"
+      onclick="placeOrder()"
+    >
+
+      📲 Place Order
+
+    </button>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ORDER PREVIEW MODAL
+===================================================== -->
+
+<div
+  class="modal"
+  id="orderModal"
+>
+
+
+  <div class="modal-box">
+
+
+    <div class="modal-header">
+
+      <h2 class="modal-title">
+        Your Order
+      </h2>
+
+      <button
+        class="close-modal"
+        onclick="closePreview()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="order-items"
+      id="orderItems"
+    >
+
+    </div>
+
+
+    <div class="modal-footer">
+
+
+      <div class="summary-row">
+
+        <span class="summary-label">
+          Total
+        </span>
+
+        <span
+          class="summary-total"
+          id="modalTotal"
         >
-          📖 View PDF
-        </a>
+          ₹0
+        </span>
+
+      </div>
 
 
-        <!-- DOWNLOAD -->
+      <div class="modal-actions">
 
-        <a
-          href="Rangoli_Designs_By_Swapnali.pdf"
-          download="Rangoli_Designs_By_Swapnali.pdf"
-          class="btn download-btn"
+
+        <button
+          class="modal-action continue-btn"
+          onclick="closePreview()"
         >
-          ⬇️ Download PDF
-        </a>
+          Continue Shopping
+        </button>
 
 
-        <!-- INSTAGRAM -->
+        <button
+          class="modal-action modal-place-btn"
+          onclick="placeOrder()"
+        >
+          📲 Place Order
+        </button>
 
-        <a
-          href="https://www.instagram.com/rangoli_by_swapnali?igsh=NDVwNHVsZm9ramhz"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn instagram-btn"
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<script>
+
+
+/* =========================================================
+   SAMPLE PRODUCTS
+========================================================= */
+
+const designs = [
+
+  {
+    id: 1,
+    name: "Traditional Floral Rangoli",
+    price: 299,
+    image:
+      "https://images.unsplash.com/photo-1605651531144-4a382bba8f7b?auto=format&fit=crop&w=800&q=85"
+  },
+
+  {
+    id: 2,
+    name: "Elegant Peacock Rangoli",
+    price: 349,
+    image:
+      "https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=800&q=85"
+  },
+
+  {
+    id: 3,
+    name: "Festive Flower Rangoli",
+    price: 399,
+    image:
+      "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=85"
+  },
+
+  {
+    id: 4,
+    name: "Classic Diwali Rangoli",
+    price: 449,
+    image:
+      "https://images.unsplash.com/photo-1604608672516-f1b9e6b3c7f8?auto=format&fit=crop&w=800&q=85"
+  },
+
+  {
+    id: 5,
+    name: "Lotus Rangoli",
+    price: 299,
+    image:
+      "https://images.unsplash.com/photo-1594736797933-d0e501ba2fe6?auto=format&fit=crop&w=800&q=85"
+  },
+
+  {
+    id: 6,
+    name: "Colourful Celebration",
+    price: 379,
+    image:
+      "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=800&q=85"
+  },
+
+  {
+    id: 7,
+    name: "Mandala Rangoli",
+    price: 499,
+    image:
+      "https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=800&q=85"
+  },
+
+  {
+    id: 8,
+    name: "Royal Peacock Design",
+    price: 549,
+    image:
+      "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=85"
+  },
+
+  {
+    id: 9,
+    name: "Simple Floral Design",
+    price: 249,
+    image:
+      "https://images.unsplash.com/photo-1580136608188-8b0d4b0d8c37?auto=format&fit=crop&w=800&q=85"
+  },
+
+  {
+    id: 10,
+    name: "Premium Festival Rangoli",
+    price: 599,
+    image:
+      "https://images.unsplash.com/photo-1598520106830-8c45c2035460?auto=format&fit=crop&w=800&q=85"
+  }
+
+];
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+const cart = {};
+
+
+/* =========================================================
+   RENDER DESIGNS
+========================================================= */
+
+function renderDesigns() {
+
+  const grid =
+    document.getElementById("designGrid");
+
+  grid.innerHTML = "";
+
+
+  designs.forEach(design => {
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "design-card";
+
+    card.id =
+      `card-${design.id}`;
+
+
+    card.innerHTML = `
+
+      <div class="design-image-wrap">
+
+        <img
+          class="design-image"
+          src="${design.image}"
+          alt="${design.name}"
+          loading="lazy"
         >
 
-          <img
-            src="instagram.png"
-            alt="Instagram"
+        <div class="design-number">
+          Design #${design.id}
+        </div>
+
+        <label class="select-design">
+
+          <input
+            type="checkbox"
+            onchange="toggleDesign(${design.id}, this.checked)"
           >
 
-          Instagram
-
-        </a>
-
-
-        <!-- WHATSAPP -->
-
-        <a
-          href="https://wa.me/917972313283?text=Hi%20Swapnali%20%F0%9F%91%8B%20I%20saw%20your%20Rangoli%20catalogue%20and%20would%20like%20to%20place%20an%20order.%20Please%20share%20the%20available%20designs."
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn whatsapp-btn"
-        >
-
-          <img
-            src="whatsapp.png"
-            alt="WhatsApp"
-          >
-
-          Order on WhatsApp
-
-        </a>
+        </label>
 
       </div>
 
 
-      <!-- =========================
-           ORDER MESSAGE
-           ========================= -->
+      <div class="design-info">
 
-      <div class="order-message">
+        <p class="design-name">
+          ${design.name}
+        </p>
 
-        ✨ <strong>Looking for a Rangoli?</strong><br>
+        <div class="design-price">
+          ₹${design.price}
+        </div>
 
-        Browse our Designs, choose your favourite design,
-        and <strong>WhatsApp us to place your order.</strong>
+
+        <div class="quantity-area">
+
+          <span class="quantity-label">
+            Quantity
+          </span>
+
+          <div class="quantity-controls">
+
+            <button
+              class="quantity-btn"
+              onclick="changeQuantity(${design.id}, -1)"
+            >
+              −
+            </button>
+
+            <span
+              class="quantity-value"
+              id="qty-${design.id}"
+            >
+              0
+            </span>
+
+            <button
+              class="quantity-btn"
+              onclick="changeQuantity(${design.id}, 1)"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
 
       </div>
 
+    `;
 
-      <!-- =========================
-           FOOTER
-           ========================= -->
 
-      <div class="footer">
+    grid.appendChild(card);
 
-        © Swapnali's Rangoli
-        &nbsp; • &nbsp;
+  });
 
-        <a
-          href="https://www.instagram.com/rangoli_by_swapnali?igsh=ZDZpZzR2MTNoMWo0"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @rangoli_by_swapnali
-        </a>
+}
 
-        &nbsp; • &nbsp;
 
-        <a
-          href="https://wa.me/917972313283"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          WhatsApp: 7972313283
-        </a>
+/* =========================================================
+   SELECT DESIGN
+========================================================= */
+
+function toggleDesign(id, selected) {
+
+  if (selected) {
+
+    cart[id] = 1;
+
+  }
+  else {
+
+    delete cart[id];
+
+  }
+
+
+  updateCard(id);
+
+  updateCart();
+
+}
+
+
+/* =========================================================
+   CHANGE QUANTITY
+========================================================= */
+
+function changeQuantity(id, amount) {
+
+  if (!cart[id]) {
+
+    cart[id] = 1;
+
+  }
+
+
+  cart[id] += amount;
+
+
+  if (cart[id] <= 0) {
+
+    delete cart[id];
+
+    const checkbox =
+      document.querySelector(
+        `#card-${id} input[type="checkbox"]`
+      );
+
+    if (checkbox) {
+
+      checkbox.checked = false;
+
+    }
+
+  }
+
+
+  updateCard(id);
+
+  updateCart();
+
+}
+
+
+/* =========================================================
+   UPDATE CARD
+========================================================= */
+
+function updateCard(id) {
+
+  const card =
+    document.getElementById(`card-${id}`);
+
+  const qty =
+    document.getElementById(`qty-${id}`);
+
+  const checkbox =
+    card.querySelector(
+      'input[type="checkbox"]'
+    );
+
+
+  const quantity =
+    cart[id] || 0;
+
+
+  qty.textContent =
+    quantity;
+
+
+  checkbox.checked =
+    quantity > 0;
+
+
+  if (quantity > 0) {
+
+    card.classList.add("selected");
+
+  }
+  else {
+
+    card.classList.remove("selected");
+
+  }
+
+}
+
+
+/* =========================================================
+   CALCULATE TOTAL
+========================================================= */
+
+function getCartTotal() {
+
+  let total = 0;
+
+  designs.forEach(design => {
+
+    const quantity =
+      cart[design.id] || 0;
+
+    total +=
+      design.price * quantity;
+
+  });
+
+  return total;
+
+}
+
+
+/* =========================================================
+   CART ITEM COUNT
+========================================================= */
+
+function getCartItemCount() {
+
+  let count = 0;
+
+  Object.values(cart)
+    .forEach(quantity => {
+
+      count += quantity;
+
+    });
+
+  return count;
+
+}
+
+
+/* =========================================================
+   UPDATE CART BAR
+========================================================= */
+
+function updateCart() {
+
+  const total =
+    getCartTotal();
+
+  const count =
+    getCartItemCount();
+
+
+  document.getElementById(
+    "cartTotal"
+  ).textContent =
+    `🛒 ${count}  ₹${total}`;
+
+
+  document.getElementById(
+    "modalTotal"
+  ).textContent =
+    `₹${total}`;
+
+}
+
+
+/* =========================================================
+   OPEN PREVIEW
+========================================================= */
+
+function openPreview() {
+
+  const orderItems =
+    document.getElementById(
+      "orderItems"
+    );
+
+
+  orderItems.innerHTML = "";
+
+
+  if (Object.keys(cart).length === 0) {
+
+    orderItems.innerHTML = `
+
+      <div class="empty-cart">
+
+        <div class="empty-cart-icon">
+          🛒
+        </div>
+
+        Your cart is empty.
+
+        <br>
+
+        Select a design to start your order.
 
       </div>
 
+    `;
 
-    </section>
+  }
+  else {
+
+    designs.forEach(design => {
+
+      const quantity =
+        cart[design.id];
 
 
-  </main>
+      if (!quantity) return;
+
+
+      const itemTotal =
+        design.price * quantity;
+
+
+      const item =
+        document.createElement("div");
+
+      item.className =
+        "order-item";
+
+
+      item.innerHTML = `
+
+        <img
+          class="order-thumb"
+          src="${design.image}"
+          alt="${design.name}"
+        >
+
+
+        <div class="order-details">
+
+          <p class="order-design">
+            Design #${design.id}
+            <br>
+            ${design.name}
+          </p>
+
+          <span class="order-qty">
+            Quantity: ${quantity}
+          </span>
+
+        </div>
+
+
+        <div class="order-price">
+
+          ₹${itemTotal}
+
+        </div>
+
+      `;
+
+
+      orderItems.appendChild(item);
+
+    });
+
+  }
+
+
+  updateCart();
+
+
+  document
+    .getElementById("orderModal")
+    .classList.add("show");
+
+}
+
+
+/* =========================================================
+   CLOSE PREVIEW
+========================================================= */
+
+function closePreview() {
+
+  document
+    .getElementById("orderModal")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   PLACE ORDER ON WHATSAPP
+========================================================= */
+
+function placeOrder() {
+
+  if (
+    Object.keys(cart).length === 0
+  ) {
+
+    alert(
+      "Please select at least one design before placing your order."
+    );
+
+    return;
+
+  }
+
+
+  let message =
+    "Hi Swapnali 👋\n\n";
+
+  message +=
+    "I would like to place an order for the following Rangoli designs:\n\n";
+
+
+  designs.forEach(design => {
+
+    const quantity =
+      cart[design.id];
+
+
+    if (!quantity) return;
+
+
+    const itemTotal =
+      design.price * quantity;
+
+
+    message +=
+      `Design #${design.id} - ${design.name}\n`;
+
+    message +=
+      `Quantity: ${quantity}\n`;
+
+    message +=
+      `Price: ₹${design.price} each\n`;
+
+    message +=
+      `Subtotal: ₹${itemTotal}\n\n`;
+
+  });
+
+
+  const total =
+    getCartTotal();
+
+
+  message +=
+    `Total Order Value: ₹${total}\n\n`;
+
+  message +=
+    "Please confirm availability and delivery details. Thank you! 🌸";
+
+
+  const whatsappURL =
+    "https://wa.me/917972313283?text=" +
+    encodeURIComponent(message);
+
+
+  window.open(
+    whatsappURL,
+    "_blank"
+  );
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+========================================================= */
+
+document
+  .getElementById("orderModal")
+  .addEventListener(
+    "click",
+    function(event) {
+
+      if (
+        event.target === this
+      ) {
+
+        closePreview();
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderDesigns();
+
+updateCart();
+
+</script>
 
 
 </body>
