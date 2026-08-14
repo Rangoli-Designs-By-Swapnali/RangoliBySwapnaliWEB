@@ -47,7 +47,7 @@ body {
 
   color: #3d2030;
 
-  padding-bottom: 100px;
+  padding-bottom: 90px;
 }
 
 
@@ -58,11 +58,15 @@ body {
 .page {
 
   width: 100%;
+
   max-width: 850px;
 
   margin: auto;
 
-  padding: 18px 14px 120px;
+  padding:
+    18px
+    14px
+    110px;
 }
 
 
@@ -79,7 +83,9 @@ body {
 
   border-radius: 24px;
 
-  padding: 25px 24px;
+  padding:
+    25px
+    24px;
 
   text-align: center;
 
@@ -93,7 +99,7 @@ body {
 
   overflow: hidden;
 
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 
@@ -127,13 +133,17 @@ body {
 .logo {
 
   width: 125px;
+
   height: 125px;
 
   object-fit: contain;
 
   display: block;
 
-  margin: 0 auto 7px;
+  margin:
+    0
+    auto
+    7px;
 
   filter:
     drop-shadow(
@@ -162,7 +172,10 @@ body {
 
 .tagline {
 
-  margin: 6px 0 17px;
+  margin:
+    6px
+    0
+    17px;
 
   color: #806b74;
 
@@ -173,7 +186,7 @@ body {
 
 
 /* =========================================================
-   TOP ACTION BUTTONS
+   TOP BUTTONS
 ========================================================= */
 
 .actions {
@@ -181,7 +194,8 @@ body {
   display: grid;
 
   grid-template-columns:
-    1fr 1fr;
+    1fr
+    1fr;
 
   gap: 9px;
 
@@ -203,7 +217,9 @@ body {
 
   gap: 7px;
 
-  padding: 9px 10px;
+  padding:
+    9px
+    10px;
 
   border-radius: 10px;
 
@@ -213,7 +229,9 @@ body {
 
   font-weight: 700;
 
-  transition: 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 
   border: none;
 
@@ -223,20 +241,17 @@ body {
 
 .btn:hover {
 
-  transform: translateY(-2px);
+  transform:
+    translateY(-2px);
 
   box-shadow:
     0 7px 18px rgba(0,0,0,0.15);
 }
 
 
-.view-btn {
-
-  background: #6f1d45;
-
-  color: white;
-}
-
+/* =========================================================
+   DOWNLOAD
+========================================================= */
 
 .download-btn {
 
@@ -245,9 +260,15 @@ body {
   color: #6f1d45;
 
   border:
-    1px solid #e2ccd6;
+    1px
+    solid
+    #e2ccd6;
 }
 
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
 
 .instagram-btn {
 
@@ -263,17 +284,10 @@ body {
 }
 
 
-.whatsapp-btn {
-
-  background: #25D366;
-
-  color: white;
-}
-
-
 .btn img {
 
   width: 21px;
+
   height: 21px;
 
   object-fit: contain;
@@ -281,19 +295,23 @@ body {
 
 
 /* =========================================================
-   ORDER MESSAGE
+   MESSAGE
 ========================================================= */
 
 .order-message {
 
   margin-top: 15px;
 
-  padding: 10px 13px;
+  padding:
+    10px
+    13px;
 
   background: #fff8f1;
 
   border:
-    1px solid #f1dfc9;
+    1px
+    solid
+    #f1dfc9;
 
   border-radius: 10px;
 
@@ -312,42 +330,6 @@ body {
 
 
 /* =========================================================
-   CATALOG HEADER
-========================================================= */
-
-.catalog-header {
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  margin: 18px 2px 10px;
-}
-
-
-.catalog-title {
-
-  margin: 0;
-
-  color: #5b1738;
-
-  font-size: 21px;
-}
-
-
-.catalog-subtitle {
-
-  margin: 3px 0 0;
-
-  color: #8d7880;
-
-  font-size: 11px;
-}
-
-
-/* =========================================================
    DESIGN GRID
 ========================================================= */
 
@@ -356,9 +338,12 @@ body {
   display: grid;
 
   grid-template-columns:
-    repeat(2, 1fr);
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
 
-  gap: 12px;
+  gap: 14px;
 }
 
 
@@ -368,33 +353,42 @@ body {
 
 .design-card {
 
-  background: white;
+  background: #ffffff;
 
-  border-radius: 16px;
+  border-radius: 18px;
 
   overflow: hidden;
 
   border:
-    2px solid transparent;
+    2px
+    solid
+    transparent;
 
   box-shadow:
-    0 6px 18px rgba(91,23,56,0.10);
+    0
+    6px
+    18px
+    rgba(91,23,56,0.10);
 
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 
-  position: relative;
+  min-width: 0;
 }
 
 
 .design-card:hover {
 
-  transform: translateY(-2px);
+  transform:
+    translateY(-2px);
 
   box-shadow:
-    0 10px 25px rgba(91,23,56,0.14);
+    0
+    10px
+    25px
+    rgba(91,23,56,0.15);
 }
 
 
@@ -403,123 +397,65 @@ body {
   border-color: #9b2d62;
 
   box-shadow:
-    0 8px 25px rgba(155,45,98,0.20);
+    0
+    8px
+    25px
+    rgba(155,45,98,0.20);
 }
 
 
 /* =========================================================
-   IMAGE
+   DESIGN IMAGE
 ========================================================= */
-
-.design-image-wrap {
-
-  position: relative;
-
-  width: 100%;
-
-  aspect-ratio: 1 / 1;
-
-  background: #f6edf1;
-
-  overflow: hidden;
-}
-
 
 .design-image {
 
   width: 100%;
-  height: 100%;
 
-  object-fit: cover;
+  height: auto;
 
   display: block;
-}
 
+  object-fit: contain;
 
-/* Design number */
-
-.design-number {
-
-  position: absolute;
-
-  top: 8px;
-  left: 8px;
-
-  background:
-    rgba(91,23,56,0.88);
-
-  color: white;
-
-  padding: 5px 8px;
-
-  border-radius: 7px;
-
-  font-size: 10px;
-
-  font-weight: bold;
+  background: #f5f0f1;
 }
 
 
 /* =========================================================
-   SELECT CHECKBOX
+   DESIGN INFORMATION
 ========================================================= */
 
-.select-design {
+.design-bottom {
 
-  position: absolute;
+  padding:
+    9px
+    10px
+    10px;
 
-  top: 8px;
-  right: 8px;
+  background: #ffffff;
+}
 
-  width: 30px;
-  height: 30px;
 
-  border-radius: 50%;
-
-  background:
-    rgba(255,255,255,0.94);
+.design-info-row {
 
   display: flex;
 
   align-items: center;
 
-  justify-content: center;
+  justify-content: space-between;
 
-  box-shadow:
-    0 3px 10px rgba(0,0,0,0.15);
+  gap: 8px;
 
-  cursor: pointer;
+  margin-bottom: 8px;
 }
 
 
-.select-design input {
+.design-number {
 
-  width: 18px;
-  height: 18px;
+  color: #6f1d45;
 
-  accent-color: #9b2d62;
-
-  cursor: pointer;
-}
-
-
-/* =========================================================
-   CARD DETAILS
-========================================================= */
-
-.design-info {
-
-  padding: 10px;
-}
-
-
-.design-name {
-
-  margin: 0 0 5px;
-
-  color: #5b1738;
-
-  font-size: 13px;
+  font-size: 12px;
 
   font-weight: 700;
 }
@@ -536,12 +472,10 @@ body {
 
 
 /* =========================================================
-   QUANTITY AREA
+   QUANTITY ROW
 ========================================================= */
 
-.quantity-area {
-
-  margin-top: 9px;
+.quantity-row {
 
   display: flex;
 
@@ -549,17 +483,56 @@ body {
 
   justify-content: space-between;
 
-  gap: 5px;
+  gap: 8px;
 }
 
 
-.quantity-label {
+/* =========================================================
+   CHECKBOX
+========================================================= */
 
-  color: #8b777f;
+.select-label {
 
-  font-size: 10px;
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 34px;
+
+  height: 34px;
+
+  border-radius: 9px;
+
+  background: #f8edf2;
+
+  border:
+    1px
+    solid
+    #ead5df;
+
+  cursor: pointer;
 }
 
+
+.select-label input {
+
+  width: 19px;
+
+  height: 19px;
+
+  margin: 0;
+
+  accent-color: #9b2d62;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   QUANTITY CONTROLS
+========================================================= */
 
 .quantity-controls {
 
@@ -568,9 +541,11 @@ body {
   align-items: center;
 
   border:
-    1px solid #ead8e0;
+    1px
+    solid
+    #ead5df;
 
-  border-radius: 8px;
+  border-radius: 9px;
 
   overflow: hidden;
 
@@ -580,20 +555,27 @@ body {
 
 .quantity-btn {
 
-  width: 28px;
-  height: 28px;
+  width: 32px;
+
+  height: 32px;
 
   border: none;
 
-  background: #f5e9ef;
+  background: #f5e8ef;
 
   color: #6f1d45;
 
-  font-size: 17px;
+  font-size: 18px;
 
-  font-weight: bold;
+  font-weight: 700;
 
   cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 }
 
 
@@ -605,20 +587,20 @@ body {
 
 .quantity-value {
 
-  width: 28px;
+  width: 30px;
 
   text-align: center;
 
-  font-size: 12px;
-
-  font-weight: bold;
-
   color: #5b1738;
+
+  font-size: 13px;
+
+  font-weight: 700;
 }
 
 
 /* =========================================================
-   CART BOTTOM BAR
+   FIXED BOTTOM CART
 ========================================================= */
 
 .bottom-cart {
@@ -626,7 +608,9 @@ body {
   position: fixed;
 
   left: 0;
+
   right: 0;
+
   bottom: 0;
 
   z-index: 1000;
@@ -638,14 +622,19 @@ body {
     blur(12px);
 
   border-top:
-    1px solid #ead8e0;
+    1px
+    solid
+    #ead8e0;
 
   box-shadow:
-    0 -7px 25px rgba(91,23,56,0.15);
+    0
+    -7px
+    25px
+    rgba(91,23,56,0.15);
 
   padding:
-    10px max(12px, calc((100vw - 850px) / 2 + 14px));
-
+    9px
+    14px;
 }
 
 
@@ -658,23 +647,27 @@ body {
   display: grid;
 
   grid-template-columns:
-    1fr 1fr 1fr;
+    1fr
+    1.35fr;
 
   gap: 8px;
-
-  align-items: stretch;
 }
 
 
 /* =========================================================
-   CART TOTAL
+   CART BUTTON
 ========================================================= */
 
-.cart-box {
+.cart-button {
 
   min-height: 50px;
 
   border-radius: 11px;
+
+  border:
+    1px
+    solid
+    #ead5df;
 
   background: #f7edf2;
 
@@ -686,32 +679,45 @@ body {
 
   justify-content: center;
 
-  gap: 7px;
+  gap: 8px;
 
   font-weight: 700;
 
-  border:
-    1px solid #ead5df;
+  cursor: pointer;
+
+  padding:
+    5px
+    10px;
 }
 
 
 .cart-icon {
 
-  font-size: 20px;
+  font-size: 21px;
+}
+
+
+.cart-count {
+
+  font-size: 11px;
+
+  color: #806b74;
 }
 
 
 .cart-total {
 
   font-size: 14px;
+
+  color: #5b1738;
 }
 
 
 /* =========================================================
-   BOTTOM BUTTONS
+   PLACE ORDER
 ========================================================= */
 
-.bottom-btn {
+.place-btn {
 
   min-height: 50px;
 
@@ -719,42 +725,30 @@ body {
 
   border-radius: 11px;
 
-  font-size: 12px;
+  background: #25D366;
+
+  color: white;
+
+  font-size: 13px;
 
   font-weight: 700;
 
   cursor: pointer;
 
-  padding: 8px 5px;
-
-  transition: 0.2s ease;
+  transition:
+    transform 0.2s ease;
 }
 
 
-.bottom-btn:hover {
+.place-btn:hover {
 
-  transform: translateY(-1px);
-}
-
-
-.preview-btn {
-
-  background: #6f1d45;
-
-  color: white;
-}
-
-
-.place-btn {
-
-  background: #25D366;
-
-  color: white;
+  transform:
+    translateY(-1px);
 }
 
 
 /* =========================================================
-   MODAL
+   CART MODAL
 ========================================================= */
 
 .modal {
@@ -799,7 +793,10 @@ body {
   overflow: hidden;
 
   box-shadow:
-    0 20px 60px rgba(0,0,0,0.30);
+    0
+    20px
+    60px
+    rgba(0,0,0,0.30);
 
   display: flex;
 
@@ -819,12 +816,16 @@ body {
 
   align-items: center;
 
-  padding: 15px 17px;
+  padding:
+    15px
+    17px;
 
   background: #faf0f4;
 
   border-bottom:
-    1px solid #ead8e0;
+    1px
+    solid
+    #ead8e0;
 }
 
 
@@ -841,6 +842,7 @@ body {
 .close-modal {
 
   width: 32px;
+
   height: 32px;
 
   border: none;
@@ -863,7 +865,9 @@ body {
 
 .order-items {
 
-  padding: 12px 15px;
+  padding:
+    12px
+    15px;
 
   overflow-y: auto;
 
@@ -879,17 +883,22 @@ body {
 
   gap: 10px;
 
-  padding: 9px 0;
+  padding:
+    9px
+    0;
 
   border-bottom:
-    1px solid #eee3e7;
+    1px
+    solid
+    #eee3e7;
 }
 
 
 .order-thumb {
 
-  width: 55px;
-  height: 55px;
+  width: 58px;
+
+  height: 58px;
 
   border-radius: 9px;
 
@@ -905,7 +914,10 @@ body {
 
 .order-design {
 
-  margin: 0 0 4px;
+  margin:
+    0
+    0
+    4px;
 
   color: #5b1738;
 
@@ -939,10 +951,14 @@ body {
 
 .modal-footer {
 
-  padding: 13px 15px;
+  padding:
+    13px
+    15px;
 
   border-top:
-    1px solid #ead8e0;
+    1px
+    solid
+    #ead8e0;
 
   background: #fffafd;
 }
@@ -955,8 +971,6 @@ body {
   justify-content: space-between;
 
   align-items: center;
-
-  margin-bottom: 10px;
 }
 
 
@@ -972,24 +986,17 @@ body {
 
   color: #5b1738;
 
-  font-size: 19px;
+  font-size: 20px;
 
   font-weight: 700;
 }
 
 
-.modal-actions {
+.modal-place-btn {
 
-  display: grid;
+  width: 100%;
 
-  grid-template-columns:
-    1fr 1fr;
-
-  gap: 8px;
-}
-
-
-.modal-action {
+  margin-top: 11px;
 
   min-height: 43px;
 
@@ -997,27 +1004,15 @@ body {
 
   border-radius: 9px;
 
+  background: #25D366;
+
+  color: white;
+
   font-size: 12px;
 
   font-weight: bold;
 
   cursor: pointer;
-}
-
-
-.continue-btn {
-
-  background: #f3e7ed;
-
-  color: #6f1d45;
-}
-
-
-.modal-place-btn {
-
-  background: #25D366;
-
-  color: white;
 }
 
 
@@ -1029,7 +1024,9 @@ body {
 
   text-align: center;
 
-  padding: 30px 15px;
+  padding:
+    30px
+    15px;
 
   color: #8d7880;
 
@@ -1082,14 +1079,15 @@ body {
     padding:
       10px
       10px
-      120px;
+      105px;
   }
 
 
   .card {
 
     padding:
-      22px 14px;
+      21px
+      14px;
 
     border-radius: 20px;
   }
@@ -1098,6 +1096,7 @@ body {
   .logo {
 
     width: 105px;
+
     height: 105px;
   }
 
@@ -1129,26 +1128,16 @@ body {
     font-size: 10px;
 
     padding:
-      7px 4px;
+      7px
+      4px;
   }
 
 
   .btn img {
 
     width: 20px;
+
     height: 20px;
-  }
-
-
-  .catalog-title {
-
-    font-size: 18px;
-  }
-
-
-  .catalog-subtitle {
-
-    font-size: 10px;
   }
 
 
@@ -1158,15 +1147,16 @@ body {
   }
 
 
-  .design-info {
+  .design-bottom {
 
-    padding: 8px;
+    padding:
+      8px;
   }
 
 
-  .design-name {
+  .design-number {
 
-    font-size: 11px;
+    font-size: 10px;
   }
 
 
@@ -1176,29 +1166,43 @@ body {
   }
 
 
-  .quantity-label {
+  .select-label {
 
-    display: none;
+    width: 31px;
+
+    height: 31px;
+  }
+
+
+  .select-label input {
+
+    width: 17px;
+
+    height: 17px;
   }
 
 
   .quantity-btn {
 
-    width: 27px;
-    height: 27px;
+    width: 28px;
+
+    height: 30px;
   }
 
 
   .quantity-value {
 
-    width: 26px;
+    width: 27px;
+
+    font-size: 12px;
   }
 
 
   .bottom-cart {
 
     padding:
-      8px 9px;
+      8px
+      9px;
   }
 
 
@@ -1208,10 +1212,10 @@ body {
   }
 
 
-  .cart-box,
-  .bottom-btn {
+  .cart-button,
+  .place-btn {
 
-    min-height: 48px;
+    min-height: 47px;
   }
 
 
@@ -1221,15 +1225,15 @@ body {
   }
 
 
-  .cart-icon {
+  .cart-count {
 
-    font-size: 18px;
+    font-size: 10px;
   }
 
 
-  .bottom-btn {
+  .place-btn {
 
-    font-size: 10px;
+    font-size: 11px;
   }
 
 }
@@ -1243,16 +1247,20 @@ body {
 
   .design-grid {
 
-    grid-template-columns:
-      1fr 1fr;
-
     gap: 7px;
   }
 
 
-  .design-name {
+  .design-bottom {
 
-    font-size: 10px;
+    padding:
+      7px;
+  }
+
+
+  .design-number {
+
+    font-size: 9px;
   }
 
 
@@ -1262,15 +1270,21 @@ body {
   }
 
 
-  .bottom-inner {
+  .quantity-btn {
 
-    gap: 4px;
+    width: 26px;
   }
 
 
-  .bottom-btn {
+  .quantity-value {
 
-    font-size: 9px;
+    width: 24px;
+  }
+
+
+  .bottom-inner {
+
+    gap: 5px;
   }
 
 }
@@ -1283,15 +1297,21 @@ body {
 <body>
 
 
+<!-- =====================================================
+     MAIN PAGE
+===================================================== -->
+
 <main class="page">
 
 
 <!-- =====================================================
-     BUSINESS HEADER
+     HEADER CARD
 ===================================================== -->
 
 <section class="card">
 
+
+  <!-- LOGO -->
 
   <img
     src="logo.png"
@@ -1300,46 +1320,42 @@ body {
   >
 
 
+  <!-- BUSINESS NAME -->
+
   <h1 class="brand-name">
     Swapnali's Rangoli
   </h1>
 
+
+  <!-- TAGLINE -->
 
   <p class="tagline">
     Beautiful • Traditional • Ready-Made Rangoli Designs
   </p>
 
 
+  <!-- ONLY DOWNLOAD + INSTAGRAM -->
+
   <div class="actions">
 
 
-    <!-- VIEW PDF -->
-
-    <a
-      href="Rangoli_Designs_By_Swapnali.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn view-btn"
-    >
-      📖 View PDF
-    </a>
-
-
-    <!-- DOWNLOAD -->
+    <!-- DOWNLOAD PDF -->
 
     <a
       href="Rangoli_Designs_By_Swapnali.pdf"
       download="Rangoli_Designs_By_Swapnali.pdf"
       class="btn download-btn"
     >
+
       ⬇️ Download PDF
+
     </a>
 
 
     <!-- INSTAGRAM -->
 
     <a
-      href="https://www.instagram.com/rangoli_by_swapnali?igsh=NDVwNHVsZm9ramhz"
+      href="https://www.instagram.com/rangoli_by_swapnali"
       target="_blank"
       rel="noopener noreferrer"
       class="btn instagram-btn"
@@ -1350,66 +1366,27 @@ body {
         alt="Instagram"
       >
 
-      Instagram
-
-    </a>
-
-
-    <!-- WHATSAPP -->
-
-    <a
-      href="https://wa.me/917972313283?text=Hi%20Swapnali%20%F0%9F%91%8B%20I%20saw%20your%20Rangoli%20catalogue%20and%20would%20like%20to%20place%20an%20order."
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn whatsapp-btn"
-    >
-
-      <img
-        src="whatsapp.png"
-        alt="WhatsApp"
-      >
-
-      Order on WhatsApp
+      @rangoli_by_swapnali
 
     </a>
 
 
   </div>
 
+
+  <!-- MESSAGE -->
 
   <div class="order-message">
 
     ✨ <strong>Choose your favourite designs</strong><br>
 
-    Select a design, adjust quantity and preview your
-    complete order before placing it on WhatsApp.
+    Select a design, choose the quantity and place your
+    order directly on WhatsApp.
 
   </div>
 
 
 </section>
-
-
-
-<!-- =====================================================
-     CATALOG HEADER
-===================================================== -->
-
-<div class="catalog-header">
-
-  <div>
-
-    <h2 class="catalog-title">
-      Our Designs
-    </h2>
-
-    <p class="catalog-subtitle">
-      Select your favourite design and add it to your order
-    </p>
-
-  </div>
-
-</div>
 
 
 
@@ -1421,7 +1398,6 @@ body {
   class="design-grid"
   id="designGrid"
 >
-
 </div>
 
 
@@ -1462,7 +1438,7 @@ body {
 
 
 <!-- =====================================================
-     FIXED CART BAR
+     FIXED BOTTOM BAR
 ===================================================== -->
 
 <div class="bottom-cart">
@@ -1472,13 +1448,20 @@ body {
 
     <!-- CART -->
 
-    <div
-      class="cart-box"
-      onclick="openPreview()"
+    <button
+      class="cart-button"
+      onclick="openCart()"
     >
 
       <span class="cart-icon">
         🛒
+      </span>
+
+      <span
+        class="cart-count"
+        id="cartCount"
+      >
+        0 items
       </span>
 
       <span
@@ -1488,25 +1471,13 @@ body {
         ₹0
       </span>
 
-    </div>
-
-
-    <!-- PREVIEW -->
-
-    <button
-      class="bottom-btn preview-btn"
-      onclick="openPreview()"
-    >
-
-      👁 Preview Order
-
     </button>
 
 
     <!-- PLACE ORDER -->
 
     <button
-      class="bottom-btn place-btn"
+      class="place-btn"
       onclick="placeOrder()"
     >
 
@@ -1522,7 +1493,7 @@ body {
 
 
 <!-- =====================================================
-     ORDER PREVIEW MODAL
+     CART MODAL
 ===================================================== -->
 
 <div
@@ -1534,15 +1505,18 @@ body {
   <div class="modal-box">
 
 
+    <!-- MODAL HEADER -->
+
     <div class="modal-header">
 
       <h2 class="modal-title">
-        Your Order
+        Your Cart
       </h2>
+
 
       <button
         class="close-modal"
-        onclick="closePreview()"
+        onclick="closeCart()"
       >
         ×
       </button>
@@ -1550,13 +1524,16 @@ body {
     </div>
 
 
+    <!-- ORDER ITEMS -->
+
     <div
       class="order-items"
       id="orderItems"
     >
-
     </div>
 
+
+    <!-- MODAL FOOTER -->
 
     <div class="modal-footer">
 
@@ -1564,7 +1541,7 @@ body {
       <div class="summary-row">
 
         <span class="summary-label">
-          Total
+          Total Order Value
         </span>
 
         <span
@@ -1577,26 +1554,14 @@ body {
       </div>
 
 
-      <div class="modal-actions">
+      <button
+        class="modal-place-btn"
+        onclick="placeOrder()"
+      >
 
+        📲 Place Order on WhatsApp
 
-        <button
-          class="modal-action continue-btn"
-          onclick="closePreview()"
-        >
-          Continue Shopping
-        </button>
-
-
-        <button
-          class="modal-action modal-place-btn"
-          onclick="placeOrder()"
-        >
-          📲 Place Order
-        </button>
-
-
-      </div>
+      </button>
 
 
     </div>
@@ -1612,89 +1577,79 @@ body {
 
 
 /* =========================================================
-   SAMPLE PRODUCTS
+   DESIGN DATA
 ========================================================= */
 
 const designs = [
 
   {
     id: 1,
-    name: "Traditional Floral Rangoli",
     price: 299,
     image:
-      "https://images.unsplash.com/photo-1605651531144-4a382bba8f7b?auto=format&fit=crop&w=800&q=85"
+      "https://images.unsplash.com/photo-1605651531144-4a382bba8f7b?auto=format&fit=crop&w=900&q=90"
   },
 
   {
     id: 2,
-    name: "Elegant Peacock Rangoli",
     price: 349,
     image:
-      "https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=800&q=85"
+      "https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=900&q=90"
   },
 
   {
     id: 3,
-    name: "Festive Flower Rangoli",
     price: 399,
     image:
-      "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=85"
+      "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=90"
   },
 
   {
     id: 4,
-    name: "Classic Diwali Rangoli",
     price: 449,
     image:
-      "https://images.unsplash.com/photo-1604608672516-f1b9e6b3c7f8?auto=format&fit=crop&w=800&q=85"
+      "https://images.unsplash.com/photo-1604608672516-f1b9e6b3c7f8?auto=format&fit=crop&w=900&q=90"
   },
 
   {
     id: 5,
-    name: "Lotus Rangoli",
     price: 299,
     image:
-      "https://images.unsplash.com/photo-1594736797933-d0e501ba2fe6?auto=format&fit=crop&w=800&q=85"
+      "https://images.unsplash.com/photo-1594736797933-d0e501ba2fe6?auto=format&fit=crop&w=900&q=90"
   },
 
   {
     id: 6,
-    name: "Colourful Celebration",
     price: 379,
     image:
-      "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=800&q=85"
+      "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=900&q=90"
   },
 
   {
     id: 7,
-    name: "Mandala Rangoli",
     price: 499,
     image:
-      "https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=800&q=85"
+      "https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=900&q=90"
   },
 
   {
     id: 8,
-    name: "Royal Peacock Design",
     price: 549,
     image:
-      "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=800&q=85"
+      "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=90"
   },
 
   {
     id: 9,
-    name: "Simple Floral Design",
     price: 249,
     image:
-      "https://images.unsplash.com/photo-1580136608188-8b0d4b0d8c37?auto=format&fit=crop&w=800&q=85"
+      "https://images.unsplash.com/photo-1580136608188-8b0d4b0d8c37?auto=format&fit=crop&w=900&q=90"
   },
 
   {
     id: 10,
-    name: "Premium Festival Rangoli",
     price: 599,
     image:
-      "https://images.unsplash.com/photo-1598520106830-8c45c2035460?auto=format&fit=crop&w=800&q=85"
+      "https://images.unsplash.com/photo-1598520106830-8c45c2035460?auto=format&fit=crop&w=900&q=90"
   }
 
 ];
@@ -1713,19 +1668,28 @@ const cart = {};
 
 function renderDesigns() {
 
+
   const grid =
-    document.getElementById("designGrid");
+    document.getElementById(
+      "designGrid"
+    );
+
 
   grid.innerHTML = "";
 
 
   designs.forEach(design => {
 
+
     const card =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
+
 
     card.className =
       "design-card";
+
 
     card.id =
       `card-${design.id}`;
@@ -1733,56 +1697,74 @@ function renderDesigns() {
 
     card.innerHTML = `
 
-      <div class="design-image-wrap">
+      <!-- FULL IMAGE -->
 
-        <img
-          class="design-image"
-          src="${design.image}"
-          alt="${design.name}"
-          loading="lazy"
-        >
+      <img
+        class="design-image"
+        src="${design.image}"
+        alt="Design ${design.id}"
+        loading="lazy"
+      >
 
-        <div class="design-number">
-          Design #${design.id}
+
+      <!-- INFORMATION -->
+
+      <div class="design-bottom">
+
+
+        <div class="design-info-row">
+
+          <span class="design-number">
+            Design #${design.id}
+          </span>
+
+          <span class="design-price">
+            ₹${design.price}
+          </span>
+
         </div>
 
-        <label class="select-design">
 
-          <input
-            type="checkbox"
-            onchange="toggleDesign(${design.id}, this.checked)"
+        <div class="quantity-row">
+
+
+          <!-- CHECKBOX -->
+
+          <label
+            class="select-label"
+            title="Select design"
           >
 
-        </label>
+            <input
+              type="checkbox"
+              onchange="
+                toggleDesign(
+                  ${design.id},
+                  this.checked
+                )
+              "
+            >
 
-      </div>
-
-
-      <div class="design-info">
-
-        <p class="design-name">
-          ${design.name}
-        </p>
-
-        <div class="design-price">
-          ₹${design.price}
-        </div>
+          </label>
 
 
-        <div class="quantity-area">
-
-          <span class="quantity-label">
-            Quantity
-          </span>
+          <!-- QUANTITY -->
 
           <div class="quantity-controls">
 
+
             <button
               class="quantity-btn"
-              onclick="changeQuantity(${design.id}, -1)"
+              onclick="
+                changeQuantity(
+                  ${design.id},
+                  -1
+                )
+              "
             >
               −
             </button>
+
 
             <span
               class="quantity-value"
@@ -1791,16 +1773,25 @@ function renderDesigns() {
               0
             </span>
 
+
             <button
               class="quantity-btn"
-              onclick="changeQuantity(${design.id}, 1)"
+              onclick="
+                changeQuantity(
+                  ${design.id},
+                  1
+                )
+              "
             >
               +
             </button>
 
+
           </div>
 
+
         </div>
+
 
       </div>
 
@@ -1809,18 +1800,29 @@ function renderDesigns() {
 
     grid.appendChild(card);
 
+
   });
 
 }
 
 
 /* =========================================================
-   SELECT DESIGN
+   CHECKBOX
 ========================================================= */
 
-function toggleDesign(id, selected) {
+function toggleDesign(
+  id,
+  selected
+) {
+
 
   if (selected) {
+
+    /*
+      IMPORTANT:
+      First selection always starts
+      with quantity 1.
+    */
 
     cart[id] = 1;
 
@@ -1840,29 +1842,55 @@ function toggleDesign(id, selected) {
 
 
 /* =========================================================
-   CHANGE QUANTITY
+   QUANTITY
 ========================================================= */
 
-function changeQuantity(id, amount) {
+function changeQuantity(
+  id,
+  amount
+) {
 
-  if (!cart[id]) {
+
+  /*
+    If user presses + on an
+    unselected design,
+    start with quantity 1.
+  */
+
+  if (
+    !cart[id] &&
+    amount > 0
+  ) {
 
     cart[id] = 1;
 
   }
+  else if (cart[id]) {
+
+    cart[id] += amount;
+
+  }
 
 
-  cart[id] += amount;
+  /*
+    If quantity reaches zero,
+    remove item and uncheck it.
+  */
 
+  if (
+    cart[id] !== undefined &&
+    cart[id] <= 0
+  ) {
 
-  if (cart[id] <= 0) {
 
     delete cart[id];
+
 
     const checkbox =
       document.querySelector(
         `#card-${id} input[type="checkbox"]`
       );
+
 
     if (checkbox) {
 
@@ -1886,11 +1914,18 @@ function changeQuantity(id, amount) {
 
 function updateCard(id) {
 
+
   const card =
-    document.getElementById(`card-${id}`);
+    document.getElementById(
+      `card-${id}`
+    );
+
 
   const qty =
-    document.getElementById(`qty-${id}`);
+    document.getElementById(
+      `qty-${id}`
+    );
+
 
   const checkbox =
     card.querySelector(
@@ -1912,12 +1947,16 @@ function updateCard(id) {
 
   if (quantity > 0) {
 
-    card.classList.add("selected");
+    card.classList.add(
+      "selected"
+    );
 
   }
   else {
 
-    card.classList.remove("selected");
+    card.classList.remove(
+      "selected"
+    );
 
   }
 
@@ -1925,22 +1964,29 @@ function updateCard(id) {
 
 
 /* =========================================================
-   CALCULATE TOTAL
+   TOTAL
 ========================================================= */
 
 function getCartTotal() {
 
+
   let total = 0;
 
+
   designs.forEach(design => {
+
 
     const quantity =
       cart[design.id] || 0;
 
+
     total +=
-      design.price * quantity;
+      design.price *
+      quantity;
+
 
   });
+
 
   return total;
 
@@ -1948,12 +1994,14 @@ function getCartTotal() {
 
 
 /* =========================================================
-   CART ITEM COUNT
+   ITEM COUNT
 ========================================================= */
 
 function getCartItemCount() {
 
+
   let count = 0;
+
 
   Object.values(cart)
     .forEach(quantity => {
@@ -1962,28 +2010,39 @@ function getCartItemCount() {
 
     });
 
+
   return count;
 
 }
 
 
 /* =========================================================
-   UPDATE CART BAR
+   UPDATE CART
 ========================================================= */
 
 function updateCart() {
 
+
   const total =
     getCartTotal();
+
 
   const count =
     getCartItemCount();
 
 
   document.getElementById(
+    "cartCount"
+  ).textContent =
+    count === 1
+      ? "1 item"
+      : `${count} items`;
+
+
+  document.getElementById(
     "cartTotal"
   ).textContent =
-    `🛒 ${count}  ₹${total}`;
+    `₹${total}`;
 
 
   document.getElementById(
@@ -1995,10 +2054,11 @@ function updateCart() {
 
 
 /* =========================================================
-   OPEN PREVIEW
+   OPEN CART
 ========================================================= */
 
-function openPreview() {
+function openCart() {
+
 
   const orderItems =
     document.getElementById(
@@ -2009,7 +2069,10 @@ function openPreview() {
   orderItems.innerHTML = "";
 
 
-  if (Object.keys(cart).length === 0) {
+  if (
+    Object.keys(cart).length === 0
+  ) {
+
 
     orderItems.innerHTML = `
 
@@ -2021,9 +2084,10 @@ function openPreview() {
 
         Your cart is empty.
 
-        <br>
+        <br><br>
 
-        Select a design to start your order.
+        Select a design to start
+        your order.
 
       </div>
 
@@ -2032,21 +2096,31 @@ function openPreview() {
   }
   else {
 
+
     designs.forEach(design => {
+
 
       const quantity =
         cart[design.id];
 
 
-      if (!quantity) return;
+      if (!quantity) {
+
+        return;
+
+      }
 
 
       const itemTotal =
-        design.price * quantity;
+        design.price *
+        quantity;
 
 
       const item =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
+
 
       item.className =
         "order-item";
@@ -2057,7 +2131,7 @@ function openPreview() {
         <img
           class="order-thumb"
           src="${design.image}"
-          alt="${design.name}"
+          alt="Design ${design.id}"
         >
 
 
@@ -2065,8 +2139,6 @@ function openPreview() {
 
           <p class="order-design">
             Design #${design.id}
-            <br>
-            ${design.name}
           </p>
 
           <span class="order-qty">
@@ -2077,15 +2149,16 @@ function openPreview() {
 
 
         <div class="order-price">
-
           ₹${itemTotal}
-
         </div>
 
       `;
 
 
-      orderItems.appendChild(item);
+      orderItems.appendChild(
+        item
+      );
+
 
     });
 
@@ -2096,38 +2169,48 @@ function openPreview() {
 
 
   document
-    .getElementById("orderModal")
+    .getElementById(
+      "orderModal"
+    )
     .classList.add("show");
 
 }
 
 
 /* =========================================================
-   CLOSE PREVIEW
+   CLOSE CART
 ========================================================= */
 
-function closePreview() {
+function closeCart() {
+
 
   document
-    .getElementById("orderModal")
-    .classList.remove("show");
+    .getElementById(
+      "orderModal"
+    )
+    .classList.remove(
+      "show"
+    );
 
 }
 
 
 /* =========================================================
-   PLACE ORDER ON WHATSAPP
+   PLACE ORDER
 ========================================================= */
 
 function placeOrder() {
+
 
   if (
     Object.keys(cart).length === 0
   ) {
 
+
     alert(
       "Please select at least one design before placing your order."
     );
+
 
     return;
 
@@ -2137,25 +2220,32 @@ function placeOrder() {
   let message =
     "Hi Swapnali 👋\n\n";
 
+
   message +=
-    "I would like to place an order for the following Rangoli designs:\n\n";
+    "I would like to place an order for these Rangoli designs:\n\n";
 
 
   designs.forEach(design => {
+
 
     const quantity =
       cart[design.id];
 
 
-    if (!quantity) return;
+    if (!quantity) {
+
+      return;
+
+    }
 
 
-    const itemTotal =
-      design.price * quantity;
+    const subtotal =
+      design.price *
+      quantity;
 
 
     message +=
-      `Design #${design.id} - ${design.name}\n`;
+      `Design #${design.id}\n`;
 
     message +=
       `Quantity: ${quantity}\n`;
@@ -2164,7 +2254,8 @@ function placeOrder() {
       `Price: ₹${design.price} each\n`;
 
     message +=
-      `Subtotal: ₹${itemTotal}\n\n`;
+      `Subtotal: ₹${subtotal}\n\n`;
+
 
   });
 
@@ -2176,13 +2267,16 @@ function placeOrder() {
   message +=
     `Total Order Value: ₹${total}\n\n`;
 
+
   message +=
     "Please confirm availability and delivery details. Thank you! 🌸";
 
 
   const whatsappURL =
     "https://wa.me/917972313283?text=" +
-    encodeURIComponent(message);
+    encodeURIComponent(
+      message
+    );
 
 
   window.open(
@@ -2194,20 +2288,23 @@ function placeOrder() {
 
 
 /* =========================================================
-   CLOSE MODAL WHEN CLICKING OUTSIDE
+   CLOSE MODAL OUTSIDE
 ========================================================= */
 
 document
-  .getElementById("orderModal")
+  .getElementById(
+    "orderModal"
+  )
   .addEventListener(
     "click",
     function(event) {
+
 
       if (
         event.target === this
       ) {
 
-        closePreview();
+        closeCart();
 
       }
 
