@@ -47,7 +47,7 @@ body {
 
   color: #3d2030;
 
-  padding-bottom: 90px;
+  padding-bottom: 85px;
 }
 
 
@@ -153,7 +153,7 @@ body {
 
 
 /* =========================================================
-   BRAND
+   BUSINESS NAME
 ========================================================= */
 
 .brand-name {
@@ -186,7 +186,7 @@ body {
 
 
 /* =========================================================
-   TOP BUTTONS
+   HEADER BUTTONS
 ========================================================= */
 
 .actions {
@@ -250,7 +250,7 @@ body {
 
 
 /* =========================================================
-   DOWNLOAD
+   DOWNLOAD BUTTON
 ========================================================= */
 
 .download-btn {
@@ -260,14 +260,12 @@ body {
   color: #6f1d45;
 
   border:
-    1px
-    solid
-    #e2ccd6;
+    1px solid #e2ccd6;
 }
 
 
 /* =========================================================
-   INSTAGRAM
+   INSTAGRAM BUTTON
 ========================================================= */
 
 .instagram-btn {
@@ -295,7 +293,7 @@ body {
 
 
 /* =========================================================
-   MESSAGE
+   ORDER MESSAGE
 ========================================================= */
 
 .order-message {
@@ -338,10 +336,7 @@ body {
   display: grid;
 
   grid-template-columns:
-    repeat(
-      2,
-      minmax(0, 1fr)
-    );
+    repeat(2, minmax(0, 1fr));
 
   gap: 14px;
 }
@@ -405,7 +400,9 @@ body {
 
 
 /* =========================================================
-   DESIGN IMAGE
+   IMAGE
+   NO OVERLAY
+   NO CROPPING
 ========================================================= */
 
 .design-image {
@@ -418,12 +415,12 @@ body {
 
   object-fit: contain;
 
-  background: #f5f0f1;
+  background: #f7f2f4;
 }
 
 
 /* =========================================================
-   DESIGN INFORMATION
+   INFORMATION BELOW IMAGE
 ========================================================= */
 
 .design-bottom {
@@ -436,6 +433,10 @@ body {
   background: #ffffff;
 }
 
+
+/* =========================================================
+   DESIGN NUMBER + PRICE
+========================================================= */
 
 .design-info-row {
 
@@ -600,7 +601,7 @@ body {
 
 
 /* =========================================================
-   FIXED BOTTOM CART
+   FIXED BOTTOM BAR
 ========================================================= */
 
 .bottom-cart {
@@ -638,6 +639,10 @@ body {
 }
 
 
+/* =========================================================
+   BOTTOM INNER
+========================================================= */
+
 .bottom-inner {
 
   max-width: 850px;
@@ -655,7 +660,7 @@ body {
 
 
 /* =========================================================
-   CART BUTTON
+   SINGLE CART
 ========================================================= */
 
 .cart-button {
@@ -679,7 +684,7 @@ body {
 
   justify-content: center;
 
-  gap: 8px;
+  gap: 7px;
 
   font-weight: 700;
 
@@ -693,13 +698,13 @@ body {
 
 .cart-icon {
 
-  font-size: 21px;
+  font-size: 20px;
 }
 
 
 .cart-count {
 
-  font-size: 11px;
+  font-size: 10px;
 
   color: #806b74;
 }
@@ -1034,14 +1039,6 @@ body {
 }
 
 
-.empty-cart-icon {
-
-  font-size: 35px;
-
-  margin-bottom: 8px;
-}
-
-
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -1334,7 +1331,7 @@ body {
   </p>
 
 
-  <!-- ONLY DOWNLOAD + INSTAGRAM -->
+  <!-- ONLY TWO HEADER BUTTONS -->
 
   <div class="actions">
 
@@ -1374,7 +1371,7 @@ body {
   </div>
 
 
-  <!-- MESSAGE -->
+  <!-- SMALL INFORMATION MESSAGE -->
 
   <div class="order-message">
 
@@ -1446,7 +1443,7 @@ body {
   <div class="bottom-inner">
 
 
-    <!-- CART -->
+    <!-- SINGLE CART -->
 
     <button
       class="cart-button"
@@ -1518,7 +1515,9 @@ body {
         class="close-modal"
         onclick="closeCart()"
       >
+
         ×
+
       </button>
 
     </div>
@@ -1578,79 +1577,90 @@ body {
 
 /* =========================================================
    DESIGN DATA
+   Images are loaded from:
+
+   Images/SampleDesign1
+   Images/SampleDesign2
+   ...
+   Images/SampleDesign11
+
+   The script automatically checks:
+   JPG
+   JPEG
+   PNG
+   WEBP
 ========================================================= */
 
 const designs = [
 
   {
     id: 1,
-    price: 299,
-    image:
-      "https://images.unsplash.com/photo-1605651531144-4a382bba8f7b?auto=format&fit=crop&w=900&q=90"
+    price: 299
   },
 
   {
     id: 2,
-    price: 349,
-    image:
-      "https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=900&q=90"
+    price: 349
   },
 
   {
     id: 3,
-    price: 399,
-    image:
-      "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=90"
+    price: 399
   },
 
   {
     id: 4,
-    price: 449,
-    image:
-      "https://images.unsplash.com/photo-1604608672516-f1b9e6b3c7f8?auto=format&fit=crop&w=900&q=90"
+    price: 449
   },
 
   {
     id: 5,
-    price: 299,
-    image:
-      "https://images.unsplash.com/photo-1594736797933-d0e501ba2fe6?auto=format&fit=crop&w=900&q=90"
+    price: 299
   },
 
   {
     id: 6,
-    price: 379,
-    image:
-      "https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=900&q=90"
+    price: 379
   },
 
   {
     id: 7,
-    price: 499,
-    image:
-      "https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=900&q=90"
+    price: 499
   },
 
   {
     id: 8,
-    price: 549,
-    image:
-      "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=90"
+    price: 549
   },
 
   {
     id: 9,
-    price: 249,
-    image:
-      "https://images.unsplash.com/photo-1580136608188-8b0d4b0d8c37?auto=format&fit=crop&w=900&q=90"
+    price: 249
   },
 
   {
     id: 10,
-    price: 599,
-    image:
-      "https://images.unsplash.com/photo-1598520106830-8c45c2035460?auto=format&fit=crop&w=900&q=90"
+    price: 599
+  },
+
+  {
+    id: 11,
+    price: 449
   }
+
+];
+
+
+/* =========================================================
+   IMAGE EXTENSIONS
+========================================================= */
+
+const imageExtensions = [
+
+  ".jpg",
+  ".jpeg",
+  ".png",
+  ".webp"
 
 ];
 
@@ -1660,6 +1670,59 @@ const designs = [
 ========================================================= */
 
 const cart = {};
+
+
+/* =========================================================
+   GET IMAGE URL
+========================================================= */
+
+function getImageUrl(id) {
+
+  return `Images/SampleDesign${id}.jpg`;
+
+}
+
+
+/* =========================================================
+   IMAGE FALLBACK
+========================================================= */
+
+function setupImageFallback(img, id) {
+
+  let extensionIndex = 0;
+
+
+  img.onerror = function() {
+
+    extensionIndex++;
+
+
+    if (
+      extensionIndex <
+      imageExtensions.length
+    ) {
+
+      img.src =
+        `Images/SampleDesign${id}` +
+        imageExtensions[extensionIndex];
+
+    }
+    else {
+
+      img.onerror = null;
+
+      img.style.display = "none";
+
+    }
+
+  };
+
+
+  img.src =
+    `Images/SampleDesign${id}` +
+    imageExtensions[extensionIndex];
+
+}
 
 
 /* =========================================================
@@ -1701,16 +1764,17 @@ function renderDesigns() {
 
       <img
         class="design-image"
-        src="${design.image}"
-        alt="Design ${design.id}"
+        alt="Rangoli Design ${design.id}"
         loading="lazy"
       >
 
 
-      <!-- INFORMATION -->
+      <!-- INFORMATION BELOW IMAGE -->
 
       <div class="design-bottom">
 
+
+        <!-- DESIGN NUMBER + PRICE -->
 
         <div class="design-info-row">
 
@@ -1724,6 +1788,8 @@ function renderDesigns() {
 
         </div>
 
+
+        <!-- CHECKBOX + QUANTITY -->
 
         <div class="quantity-row">
 
@@ -1754,6 +1820,7 @@ function renderDesigns() {
 
 
             <button
+              type="button"
               class="quantity-btn"
               onclick="
                 changeQuantity(
@@ -1762,7 +1829,9 @@ function renderDesigns() {
                 )
               "
             >
+
               −
+
             </button>
 
 
@@ -1770,11 +1839,14 @@ function renderDesigns() {
               class="quantity-value"
               id="qty-${design.id}"
             >
+
               0
+
             </span>
 
 
             <button
+              type="button"
               class="quantity-btn"
               onclick="
                 changeQuantity(
@@ -1783,7 +1855,9 @@ function renderDesigns() {
                 )
               "
             >
+
               +
+
             </button>
 
 
@@ -1801,13 +1875,25 @@ function renderDesigns() {
     grid.appendChild(card);
 
 
+    const image =
+      card.querySelector(
+        ".design-image"
+      );
+
+
+    setupImageFallback(
+      image,
+      design.id
+    );
+
   });
 
 }
 
 
 /* =========================================================
-   CHECKBOX
+   SELECT DESIGN
+   CHECKBOX ALWAYS STARTS AT 1
 ========================================================= */
 
 function toggleDesign(
@@ -1817,12 +1903,6 @@ function toggleDesign(
 
 
   if (selected) {
-
-    /*
-      IMPORTANT:
-      First selection always starts
-      with quantity 1.
-    */
 
     cart[id] = 1;
 
@@ -1842,7 +1922,7 @@ function toggleDesign(
 
 
 /* =========================================================
-   QUANTITY
+   CHANGE QUANTITY
 ========================================================= */
 
 function changeQuantity(
@@ -1851,11 +1931,8 @@ function changeQuantity(
 ) {
 
 
-  /*
-    If user presses + on an
-    unselected design,
-    start with quantity 1.
-  */
+  /* If + is pressed while
+     design is not selected */
 
   if (
     !cart[id] &&
@@ -1872,10 +1949,7 @@ function changeQuantity(
   }
 
 
-  /*
-    If quantity reaches zero,
-    remove item and uncheck it.
-  */
+  /* Remove at zero */
 
   if (
     cart[id] !== undefined &&
@@ -1894,7 +1968,8 @@ function changeQuantity(
 
     if (checkbox) {
 
-      checkbox.checked = false;
+      checkbox.checked =
+        false;
 
     }
 
@@ -1909,7 +1984,7 @@ function changeQuantity(
 
 
 /* =========================================================
-   UPDATE CARD
+   UPDATE DESIGN CARD
 ========================================================= */
 
 function updateCard(id) {
@@ -1921,7 +1996,7 @@ function updateCard(id) {
     );
 
 
-  const qty =
+  const quantityElement =
     document.getElementById(
       `qty-${id}`
     );
@@ -1937,7 +2012,7 @@ function updateCard(id) {
     cart[id] || 0;
 
 
-  qty.textContent =
+  quantityElement.textContent =
     quantity;
 
 
@@ -1964,7 +2039,7 @@ function updateCard(id) {
 
 
 /* =========================================================
-   TOTAL
+   GET TOTAL
 ========================================================= */
 
 function getCartTotal() {
@@ -1973,19 +2048,21 @@ function getCartTotal() {
   let total = 0;
 
 
-  designs.forEach(design => {
+  designs.forEach(
+    design => {
 
 
-    const quantity =
-      cart[design.id] || 0;
+      const quantity =
+        cart[design.id] || 0;
 
 
-    total +=
-      design.price *
-      quantity;
+      total +=
+        design.price *
+        quantity;
 
 
-  });
+    }
+  );
 
 
   return total;
@@ -1994,7 +2071,7 @@ function getCartTotal() {
 
 
 /* =========================================================
-   ITEM COUNT
+   GET ITEM COUNT
 ========================================================= */
 
 function getCartItemCount() {
@@ -2004,11 +2081,13 @@ function getCartItemCount() {
 
 
   Object.values(cart)
-    .forEach(quantity => {
+    .forEach(
+      quantity => {
 
-      count += quantity;
+        count += quantity;
 
-    });
+      }
+    );
 
 
   return count;
@@ -2034,6 +2113,7 @@ function updateCart() {
   document.getElementById(
     "cartCount"
   ).textContent =
+
     count === 1
       ? "1 item"
       : `${count} items`;
@@ -2069,6 +2149,8 @@ function openCart() {
   orderItems.innerHTML = "";
 
 
+  /* EMPTY CART */
+
   if (
     Object.keys(cart).length === 0
   ) {
@@ -2077,10 +2159,6 @@ function openCart() {
     orderItems.innerHTML = `
 
       <div class="empty-cart">
-
-        <div class="empty-cart-icon">
-          🛒
-        </div>
 
         Your cart is empty.
 
@@ -2093,74 +2171,92 @@ function openCart() {
 
     `;
 
+
   }
+
+
+  /* CART HAS ITEMS */
+
   else {
 
 
-    designs.forEach(design => {
+    designs.forEach(
+      design => {
 
 
-      const quantity =
-        cart[design.id];
+        const quantity =
+          cart[design.id];
 
 
-      if (!quantity) {
+        if (!quantity) {
 
-        return;
+          return;
 
-      }
-
-
-      const itemTotal =
-        design.price *
-        quantity;
+        }
 
 
-      const item =
-        document.createElement(
-          "div"
+        const itemTotal =
+          design.price *
+          quantity;
+
+
+        const item =
+          document.createElement(
+            "div"
+          );
+
+
+        item.className =
+          "order-item";
+
+
+        item.innerHTML = `
+
+          <img
+            class="order-thumb"
+            alt="Design ${design.id}"
+          >
+
+
+          <div class="order-details">
+
+            <p class="order-design">
+              Design #${design.id}
+            </p>
+
+            <span class="order-qty">
+              Quantity: ${quantity}
+            </span>
+
+          </div>
+
+
+          <div class="order-price">
+            ₹${itemTotal}
+          </div>
+
+        `;
+
+
+        orderItems.appendChild(
+          item
         );
 
 
-      item.className =
-        "order-item";
+        const thumbnail =
+          item.querySelector(
+            ".order-thumb"
+          );
 
 
-      item.innerHTML = `
-
-        <img
-          class="order-thumb"
-          src="${design.image}"
-          alt="Design ${design.id}"
-        >
+        setupImageFallback(
+          thumbnail,
+          design.id
+        );
 
 
-        <div class="order-details">
-
-          <p class="order-design">
-            Design #${design.id}
-          </p>
-
-          <span class="order-qty">
-            Quantity: ${quantity}
-          </span>
-
-        </div>
-
-
-        <div class="order-price">
-          ₹${itemTotal}
-        </div>
-
-      `;
-
-
-      orderItems.appendChild(
-        item
-      );
-
-
-    });
+      }
+    );
 
   }
 
@@ -2172,7 +2268,9 @@ function openCart() {
     .getElementById(
       "orderModal"
     )
-    .classList.add("show");
+    .classList.add(
+      "show"
+    );
 
 }
 
@@ -2225,39 +2323,44 @@ function placeOrder() {
     "I would like to place an order for these Rangoli designs:\n\n";
 
 
-  designs.forEach(design => {
+  designs.forEach(
+    design => {
 
 
-    const quantity =
-      cart[design.id];
+      const quantity =
+        cart[design.id];
 
 
-    if (!quantity) {
+      if (!quantity) {
 
-      return;
+        return;
+
+      }
+
+
+      const subtotal =
+        design.price *
+        quantity;
+
+
+      message +=
+        `Design #${design.id}\n`;
+
+
+      message +=
+        `Quantity: ${quantity}\n`;
+
+
+      message +=
+        `Price: ₹${design.price} each\n`;
+
+
+      message +=
+        `Subtotal: ₹${subtotal}\n\n`;
+
 
     }
-
-
-    const subtotal =
-      design.price *
-      quantity;
-
-
-    message +=
-      `Design #${design.id}\n`;
-
-    message +=
-      `Quantity: ${quantity}\n`;
-
-    message +=
-      `Price: ₹${design.price} each\n`;
-
-    message +=
-      `Subtotal: ₹${subtotal}\n\n`;
-
-
-  });
+  );
 
 
   const total =
@@ -2273,7 +2376,9 @@ function placeOrder() {
 
 
   const whatsappURL =
+
     "https://wa.me/917972313283?text=" +
+
     encodeURIComponent(
       message
     );
@@ -2288,7 +2393,7 @@ function placeOrder() {
 
 
 /* =========================================================
-   CLOSE MODAL OUTSIDE
+   CLOSE MODAL WHEN CLICKING OUTSIDE
 ========================================================= */
 
 document
@@ -2319,6 +2424,7 @@ document
 renderDesigns();
 
 updateCart();
+
 
 </script>
 
