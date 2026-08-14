@@ -12,6 +12,7 @@
 
 <title>Swapnali's Rangoli</title>
 
+
 <style>
 
 /* =========================================================
@@ -47,7 +48,7 @@ body {
 
   color: #3d2030;
 
-  padding-bottom: 85px;
+  padding-bottom: 90px;
 }
 
 
@@ -250,7 +251,7 @@ body {
 
 
 /* =========================================================
-   DOWNLOAD BUTTON
+   DOWNLOAD
 ========================================================= */
 
 .download-btn {
@@ -265,7 +266,7 @@ body {
 
 
 /* =========================================================
-   INSTAGRAM BUTTON
+   INSTAGRAM
 ========================================================= */
 
 .instagram-btn {
@@ -328,17 +329,36 @@ body {
 
 
 /* =========================================================
-   DESIGN GRID
+   MASONRY DESIGN GRID
 ========================================================= */
+
+/*
+   IMPORTANT:
+
+   Instead of CSS grid, we use CSS columns.
+
+   This allows every card to keep its own natural height.
+
+   Therefore:
+
+   BIG IMAGE
+   ↓
+   CARD HEIGHT = IMAGE HEIGHT
+
+   SMALL IMAGE
+   ↓
+   CARD HEIGHT = IMAGE HEIGHT
+
+   No empty whitespace is created beside smaller images.
+*/
 
 .design-grid {
 
-  display: grid;
+  column-count: 2;
 
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  column-gap: 14px;
 
-  gap: 14px;
+  width: 100%;
 }
 
 
@@ -347,6 +367,21 @@ body {
 ========================================================= */
 
 .design-card {
+
+  display: inline-block;
+
+  width: 100%;
+
+  margin:
+    0
+    0
+    14px;
+
+  break-inside: avoid;
+
+  -webkit-column-break-inside: avoid;
+
+  page-break-inside: avoid;
 
   background: #ffffff;
 
@@ -369,8 +404,6 @@ body {
     transform 0.2s ease,
     border-color 0.2s ease,
     box-shadow 0.2s ease;
-
-  min-width: 0;
 }
 
 
@@ -401,9 +434,15 @@ body {
 
 /* =========================================================
    IMAGE
-   NO OVERLAY
-   NO CROPPING
 ========================================================= */
+
+/*
+   NO fixed height.
+
+   The browser uses the ORIGINAL image aspect ratio.
+
+   This is the important part for your requirement.
+*/
 
 .design-image {
 
@@ -660,7 +699,7 @@ body {
 
 
 /* =========================================================
-   SINGLE CART
+   CART
 ========================================================= */
 
 .cart-button {
@@ -1071,6 +1110,7 @@ body {
 
 @media (max-width: 600px) {
 
+
   .page {
 
     padding:
@@ -1138,9 +1178,21 @@ body {
   }
 
 
+  /* KEEP TWO COLUMNS ON MOBILE */
+
   .design-grid {
 
-    gap: 9px;
+    column-count: 2;
+
+    column-gap: 9px;
+  }
+
+
+  .design-card {
+
+    margin-bottom: 9px;
+
+    border-radius: 14px;
   }
 
 
@@ -1242,9 +1294,18 @@ body {
 
 @media (max-width: 360px) {
 
+
   .design-grid {
 
-    gap: 7px;
+    column-gap: 7px;
+  }
+
+
+  .design-card {
+
+    margin-bottom: 7px;
+
+    border-radius: 12px;
   }
 
 
@@ -1302,7 +1363,7 @@ body {
 
 
 <!-- =====================================================
-     HEADER CARD
+     HEADER
 ===================================================== -->
 
 <section class="card">
@@ -1331,7 +1392,7 @@ body {
   </p>
 
 
-  <!-- ONLY TWO HEADER BUTTONS -->
+  <!-- HEADER BUTTONS -->
 
   <div class="actions">
 
@@ -1371,7 +1432,7 @@ body {
   </div>
 
 
-  <!-- SMALL INFORMATION MESSAGE -->
+  <!-- MESSAGE -->
 
   <div class="order-message">
 
@@ -1388,7 +1449,7 @@ body {
 
 
 <!-- =====================================================
-     DESIGN GRID
+     MASONRY DESIGN GRID
 ===================================================== -->
 
 <div
@@ -1443,7 +1504,7 @@ body {
   <div class="bottom-inner">
 
 
-    <!-- SINGLE CART -->
+    <!-- CART -->
 
     <button
       class="cart-button"
@@ -1577,18 +1638,6 @@ body {
 
 /* =========================================================
    DESIGN DATA
-   Images are loaded from:
-
-   Images/SampleDesign1
-   Images/SampleDesign2
-   ...
-   Images/SampleDesign11
-
-   The script automatically checks:
-   JPG
-   JPEG
-   PNG
-   WEBP
 ========================================================= */
 
 const designs = [
@@ -1673,26 +1722,20 @@ const cart = {};
 
 
 /* =========================================================
-   GET IMAGE URL
-========================================================= */
-
-function getImageUrl(id) {
-
-  return `Images/SampleDesign${id}.jpg`;
-
-}
-
-
-/* =========================================================
    IMAGE FALLBACK
 ========================================================= */
 
-function setupImageFallback(img, id) {
+function setupImageFallback(
+  img,
+  id
+) {
+
 
   let extensionIndex = 0;
 
 
   img.onerror = function() {
+
 
     extensionIndex++;
 
@@ -1702,16 +1745,20 @@ function setupImageFallback(img, id) {
       imageExtensions.length
     ) {
 
+
       img.src =
         `Images/SampleDesign${id}` +
         imageExtensions[extensionIndex];
 
+
     }
     else {
 
+
       img.onerror = null;
 
-      img.style.display = "none";
+      img.style.display =
+        "none";
 
     }
 
@@ -1720,7 +1767,9 @@ function setupImageFallback(img, id) {
 
   img.src =
     `Images/SampleDesign${id}` +
-    imageExtensions[extensionIndex];
+    imageExtensions[
+      extensionIndex
+    ];
 
 }
 
@@ -1741,124 +1790,128 @@ function renderDesigns() {
   grid.innerHTML = "";
 
 
-  designs.forEach(design => {
+  designs.forEach(
+    design => {
 
 
-    const card =
-      document.createElement(
-        "div"
-      );
+      const card =
+        document.createElement(
+          "div"
+        );
 
 
-    card.className =
-      "design-card";
+      card.className =
+        "design-card";
 
 
-    card.id =
-      `card-${design.id}`;
+      card.id =
+        `card-${design.id}`;
 
 
-    card.innerHTML = `
+      card.innerHTML = `
 
-      <!-- FULL IMAGE -->
+        <!-- IMAGE -->
 
-      <img
-        class="design-image"
-        alt="Rangoli Design ${design.id}"
-        loading="lazy"
-      >
-
-
-      <!-- INFORMATION BELOW IMAGE -->
-
-      <div class="design-bottom">
+        <img
+          class="design-image"
+          alt="Rangoli Design ${design.id}"
+          loading="lazy"
+        >
 
 
-        <!-- DESIGN NUMBER + PRICE -->
+        <!-- INFORMATION -->
 
-        <div class="design-info-row">
-
-          <span class="design-number">
-            Design #${design.id}
-          </span>
-
-          <span class="design-price">
-            ₹${design.price}
-          </span>
-
-        </div>
+        <div class="design-bottom">
 
 
-        <!-- CHECKBOX + QUANTITY -->
+          <!-- DESIGN + PRICE -->
 
-        <div class="quantity-row">
+          <div class="design-info-row">
 
-
-          <!-- CHECKBOX -->
-
-          <label
-            class="select-label"
-            title="Select design"
-          >
-
-            <input
-              type="checkbox"
-              onchange="
-                toggleDesign(
-                  ${design.id},
-                  this.checked
-                )
-              "
-            >
-
-          </label>
-
-
-          <!-- QUANTITY -->
-
-          <div class="quantity-controls">
-
-
-            <button
-              type="button"
-              class="quantity-btn"
-              onclick="
-                changeQuantity(
-                  ${design.id},
-                  -1
-                )
-              "
-            >
-
-              −
-
-            </button>
-
-
-            <span
-              class="quantity-value"
-              id="qty-${design.id}"
-            >
-
-              0
-
+            <span class="design-number">
+              Design #${design.id}
             </span>
 
+            <span class="design-price">
+              ₹${design.price}
+            </span>
 
-            <button
-              type="button"
-              class="quantity-btn"
-              onclick="
-                changeQuantity(
-                  ${design.id},
-                  1
-                )
-              "
+          </div>
+
+
+          <!-- CHECKBOX + QUANTITY -->
+
+          <div class="quantity-row">
+
+
+            <!-- CHECKBOX -->
+
+            <label
+              class="select-label"
+              title="Select design"
             >
 
-              +
+              <input
+                type="checkbox"
+                onchange="
+                  toggleDesign(
+                    ${design.id},
+                    this.checked
+                  )
+                "
+              >
 
-            </button>
+            </label>
+
+
+            <!-- QUANTITY -->
+
+            <div class="quantity-controls">
+
+
+              <button
+                type="button"
+                class="quantity-btn"
+                onclick="
+                  changeQuantity(
+                    ${design.id},
+                    -1
+                  )
+                "
+              >
+
+                −
+
+              </button>
+
+
+              <span
+                class="quantity-value"
+                id="qty-${design.id}"
+              >
+
+                0
+
+              </span>
+
+
+              <button
+                type="button"
+                class="quantity-btn"
+                onclick="
+                  changeQuantity(
+                    ${design.id},
+                    1
+                  )
+                "
+              >
+
+                +
+
+              </button>
+
+
+            </div>
 
 
           </div>
@@ -1866,34 +1919,31 @@ function renderDesigns() {
 
         </div>
 
-
-      </div>
-
-    `;
+      `;
 
 
-    grid.appendChild(card);
+      grid.appendChild(card);
 
 
-    const image =
-      card.querySelector(
-        ".design-image"
+      const image =
+        card.querySelector(
+          ".design-image"
+        );
+
+
+      setupImageFallback(
+        image,
+        design.id
       );
 
-
-    setupImageFallback(
-      image,
-      design.id
-    );
-
-  });
+    }
+  );
 
 }
 
 
 /* =========================================================
    SELECT DESIGN
-   CHECKBOX ALWAYS STARTS AT 1
 ========================================================= */
 
 function toggleDesign(
@@ -1904,10 +1954,16 @@ function toggleDesign(
 
   if (selected) {
 
+
+    /* IMPORTANT:
+       First selection ALWAYS starts at 1 */
+
     cart[id] = 1;
+
 
   }
   else {
+
 
     delete cart[id];
 
@@ -1931,25 +1987,30 @@ function changeQuantity(
 ) {
 
 
-  /* If + is pressed while
-     design is not selected */
+  /*
+     If user presses + on an
+     unselected design, start at 1.
+  */
 
   if (
     !cart[id] &&
     amount > 0
   ) {
 
+
     cart[id] = 1;
+
 
   }
   else if (cart[id]) {
+
 
     cart[id] += amount;
 
   }
 
 
-  /* Remove at zero */
+  /* Remove when quantity reaches 0 */
 
   if (
     cart[id] !== undefined &&
@@ -1984,7 +2045,7 @@ function changeQuantity(
 
 
 /* =========================================================
-   UPDATE DESIGN CARD
+   UPDATE CARD
 ========================================================= */
 
 function updateCard(id) {
@@ -2022,12 +2083,15 @@ function updateCard(id) {
 
   if (quantity > 0) {
 
+
     card.classList.add(
       "selected"
     );
 
+
   }
   else {
+
 
     card.classList.remove(
       "selected"
@@ -2059,7 +2123,6 @@ function getCartTotal() {
       total +=
         design.price *
         quantity;
-
 
     }
   );
@@ -2149,8 +2212,6 @@ function openCart() {
   orderItems.innerHTML = "";
 
 
-  /* EMPTY CART */
-
   if (
     Object.keys(cart).length === 0
   ) {
@@ -2173,10 +2234,6 @@ function openCart() {
 
 
   }
-
-
-  /* CART HAS ITEMS */
-
   else {
 
 
@@ -2253,7 +2310,6 @@ function openCart() {
           thumbnail,
           design.id
         );
-
 
       }
     );
@@ -2358,7 +2414,6 @@ function placeOrder() {
       message +=
         `Subtotal: ₹${subtotal}\n\n`;
 
-
     }
   );
 
@@ -2393,7 +2448,7 @@ function placeOrder() {
 
 
 /* =========================================================
-   CLOSE MODAL WHEN CLICKING OUTSIDE
+   CLOSE MODAL ON OUTSIDE CLICK
 ========================================================= */
 
 document
