@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Swapnali's Rangoli</title>
+<title>Rangoli_By_Swapnali</title>
 
 <style>
 
@@ -287,6 +288,43 @@ body {
 
 
 .order-message strong {
+  color: #5b1738;
+}
+
+
+/* =========================================================
+   DISPATCH NOTE
+========================================================= */
+
+.dispatch-note {
+  margin-top: 10px;
+
+  padding:
+    9px
+    12px;
+
+  background: #f8edf2;
+
+  border:
+    1px
+    solid
+    #ead5df;
+
+  border-radius: 10px;
+
+  color: #73534a;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+
+.dispatch-note strong {
   color: #5b1738;
 }
 
@@ -917,9 +955,6 @@ body {
 
 /* =========================================================
    CART THUMBNAIL
-
-   IMPORTANT:
-   Small image preview in cart
 ========================================================= */
 
 .order-thumb-wrapper {
@@ -1068,6 +1103,39 @@ body {
   font-size: 10px;
 
   font-style: italic;
+}
+
+
+.modal-dispatch-note {
+  margin-top: 8px;
+
+  padding:
+    8px
+    10px;
+
+  background: #f8edf2;
+
+  border:
+    1px
+    solid
+    #ead5df;
+
+  border-radius: 8px;
+
+  color: #73534a;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  text-align: center;
+
+  line-height: 1.4;
+}
+
+
+.modal-dispatch-note strong {
+  color: #5b1738;
 }
 
 
@@ -1284,8 +1352,6 @@ body {
   }
 
 
-  /* MOBILE CART THUMBNAIL */
-
   .order-item {
     grid-template-columns:
       55px
@@ -1419,7 +1485,7 @@ body {
 
 
   <h1 class="brand-name">
-    Swapnali's Rangoli
+    Rangoli by Swapnali
   </h1>
 
 
@@ -1468,6 +1534,13 @@ body {
 
     Select a design, choose the size and quantity,
     then place your order directly on WhatsApp.
+
+  </div>
+
+
+  <div class="dispatch-note">
+
+    📦 <strong>Order will be dispatched within 10 to 12 days</strong>
 
   </div>
 
@@ -1649,6 +1722,12 @@ body {
 
       </div>
 
+      <div class="modal-dispatch-note">
+
+        📦 <strong>Order will be dispatched within 10 to 12 days</strong>
+
+      </div>
+
 
       <button
         class="modal-place-btn"
@@ -1669,6 +1748,7 @@ body {
 
 
 <script>
+
 
 /* =========================================================
    DESIGN DATA
@@ -1905,6 +1985,7 @@ function setupImageFallback(
         ];
 
     }
+
     else {
 
       img.onerror = null;
@@ -2222,6 +2303,7 @@ function toggleVariant(
     cart[key] = 1;
 
   }
+
   else {
 
     delete cart[key];
@@ -2276,6 +2358,7 @@ function changeQuantity(
     delete cart[key];
 
   }
+
   else {
 
     cart[key] =
@@ -2588,6 +2671,7 @@ function openCart() {
     `;
 
   }
+
   else {
 
     designs.forEach(
@@ -2630,15 +2714,6 @@ function openCart() {
               variant.price *
               quantity;
 
-
-            /*
-              CART ITEM
-
-              Thumbnail is now inside
-              its own fixed-size wrapper
-              so every image looks clean
-              regardless of original dimensions.
-            */
 
             const item =
               document.createElement(
@@ -2709,11 +2784,6 @@ function openCart() {
             );
 
 
-            /*
-              Load same design image
-              into the cart thumbnail.
-            */
-
             const thumbnail =
               item.querySelector(
                 ".order-thumb"
@@ -2749,7 +2819,7 @@ function openCart() {
 
 
 /* =========================================================
-   CLOSE CART
+   CLOSE MODAL
 ========================================================= */
 
 function closeCart() {
@@ -2785,7 +2855,7 @@ function placeOrder() {
 
 
   let message =
-    "Hi Swapnali 👋\n\n";
+    "Hi @rangoli_by_swapnali 👋\n\n";
 
 
   message +=
@@ -2878,6 +2948,10 @@ function placeOrder() {
 
 
   message +=
+    "📦 Order will be dispatched within 10 to 12 days.\n\n";
+
+
+  message +=
     "Please confirm availability and final shipping charges. Thank you! 🌸";
 
 
@@ -2933,3 +3007,4 @@ updateCart();
 </body>
 
 </html>
+```
