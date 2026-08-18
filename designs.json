@@ -3,77 +3,128 @@
     "design": "Design1",
     "image": "Design1.jpg",
     "variants": [
-      { "size": "18 inch", "price": 300 },
-      { "size": "8 inch", "price": 200 }
+      {
+        "size": "18 inch",
+        "price": 300
+      },
+      {
+        "size": "8 inch",
+        "price": 200
+      }
     ]
   },
   {
     "design": "Design2",
     "image": "Design2.jpg",
     "variants": [
-      { "size": "15 inch", "price": 599 }
+      {
+        "size": "15 inch",
+        "price": 599
+      }
     ]
   },
   {
     "design": "Design3",
     "image": "Design3.jpg",
     "variants": [
-      { "size": "10 inch", "price": 350 },
-      { "size": "20 inch", "price": 850 }
+      {
+        "size": "10 inch",
+        "price": 350
+      },
+      {
+        "size": "20 inch",
+        "price": 850
+      }
     ]
   },
   {
     "design": "Design4",
     "image": "Design4.jpg",
     "variants": [
-      { "size": "12 inch", "price": 450 }
+      {
+        "size": "12 inch",
+        "price": 450
+      }
     ]
   },
   {
     "design": "Design5",
     "image": "Design5.jpg",
     "variants": [
-      { "size": "8 inch", "price": 299 },
-      { "size": "15 inch", "price": 599 },
-      { "size": "18 inch", "price": 799 }
+      {
+        "size": "8 inch",
+        "price": 299
+      },
+      {
+        "size": "15 inch",
+        "price": 599
+      },
+      {
+        "size": "18 inch",
+        "price": 799
+      }
     ]
   },
   {
     "design": "Design6",
     "image": "Design6.jpg",
     "variants": [
-      { "size": "6 inch", "price": 150 },
-      { "size": "12 inch", "price": 400 }
+      {
+        "size": "6 inch",
+        "price": 150
+      },
+      {
+        "size": "12 inch",
+        "price": 400
+      }
     ]
   },
   {
     "design": "Design7",
     "image": "Design7.jpg",
     "variants": [
-      { "size": "24 inch", "price": 999 }
+      {
+        "size": "24 inch",
+        "price": 999
+      }
     ]
   },
   {
     "design": "Design8",
     "image": "Design8.jpg",
     "variants": [
-      { "size": "10 inch", "price": 280 },
-      { "size": "16 inch", "price": 620 }
+      {
+        "size": "10 inch",
+        "price": 280
+      },
+      {
+        "size": "16 inch",
+        "price": 620
+      }
     ]
   },
   {
     "design": "Design9",
     "image": "Design9.jpg",
     "variants": [
-      { "size": "14 inch", "price": 510 }
+      {
+        "size": "14 inch",
+        "price": 510
+      }
     ]
   },
   {
     "design": "Design10",
     "image": "Design10.jpg",
     "variants": [
-      { "size": "8 inch", "price": 220 },
-      { "size": "18 inch", "price": 750 }
+      {
+        "size": "8 inch",
+        "price": 220
+      },
+      {
+        "size": "18 inch",
+        "price": 750
+      }
     ]
   }
 ]
