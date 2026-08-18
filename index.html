@@ -443,6 +443,14 @@ body {
    DESIGN INFORMATION
 ========================================================= */
 
+.design-title {
+  padding: 8px 10px 4px;
+  text-align: center;
+  font-weight: 700;
+  color: #6e2f4b;
+  font-size: 14px;
+}
+
 .design-bottom {
   padding:
     9px
@@ -455,7 +463,7 @@ body {
 
 .variant-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) max-content max-content;
+  grid-template-columns: minmax(0, 1fr) max-content max-content minmax(78px, auto);
   align-items: center;
   column-gap: clamp(8px, 2vw, 18px);
   width: 100%;
@@ -1508,6 +1516,87 @@ body {
 
 }
 
+
+.design-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.design-title {
+  padding: 8px 10px 4px;
+  text-align: center;
+  font-weight: 700;
+  color: #6e2f4b;
+  font-size: 14px;
+}
+
+.variant-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.design-number,
+.design-size,
+.design-price {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.design-number {
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+.design-size {
+  text-align: center;
+  text-overflow: clip;
+}
+
+.design-price {
+  text-align: right;
+  text-overflow: clip;
+  font-weight: 700;
+}
+
+.image-missing {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9a858d;
+  font-size: 11px;
+  text-align: center;
+  background: #f7f2f4;
+}
+
+@media (max-width: 600px) {
+  .variant-row {
+    grid-template-columns: minmax(0, 1fr) max-content max-content minmax(72px, auto);
+    column-gap: clamp(5px, 1.5vw, 10px);
+  }
+
+  .variant-actions {
+    gap: 4px;
+  }
+}
+
+@media (max-width: 380px) {
+  .variant-row {
+    grid-template-columns: minmax(0, 1fr) max-content max-content minmax(62px, auto);
+    column-gap: 4px;
+  }
+
+  .variant-actions {
+    gap: 2px;
+  }
+}
+
 </style>
 
 </head>
@@ -1782,195 +1871,219 @@ body {
 
 /* =========================================================
    JSON-DRIVEN DESIGN DATA
-   designs.json example:
+
+   designs.json format:
+
    [
-     "Design1 #18 inch # 300.jpg",
-     "Design1 #8 inch # 200.jpg",
-     "Design2 #15 inch # 599.jpg"
+     {
+       "design": "Design5",
+       "image": "Design5.jpg",
+       "variants": [
+         {
+           "size": "8 inch",
+           "price": 299
+         },
+         {
+           "size": "15 inch",
+           "price": 599
+         },
+         {
+           "size": "18 inch",
+           "price": 799
+         }
+       ]
+     }
    ]
 
-   Each filename is parsed as:
-   Design Name # Size # Price.ext
+   One image is used for each design.
+   Multiple sizes/prices are stored as variants.
 ========================================================= */
 
 let designs = [];
-
-const cart = {};
-
 /* =========================================================
-   IMAGE / JSON LOADING
+   LOAD designs.json
 ========================================================= */
 
 async function loadDesigns() {
+
   try {
-    const response = await fetch("designs.json", { cache: "no-store" });
+
+    const response =
+      await fetch(
+        "designs.json",
+        { cache: "no-store" }
+      );
+
 
     if (!response.ok) {
-      throw new Error(`Unable to load designs.json (${response.status})`);
+
+      throw new Error(
+        `Unable to load designs.json (${response.status})`
+      );
+
     }
 
-    const filenames = await response.json();
 
-    if (!Array.isArray(filenames)) {
-      throw new Error("designs.json must contain a JSON array of filenames.");
+    const data =
+      await response.json();
+
+
+    if (!Array.isArray(data)) {
+
+      throw new Error(
+        "designs.json must contain a JSON array."
+      );
+
     }
 
-    designs = buildDesignsFromFilenames(filenames);
+
+    designs =
+      normalizeDesigns(data);
+
 
     renderDesigns();
+
     updateCart();
 
-  } catch (error) {
+
+  }
+
+  catch (error) {
+
     console.error(error);
 
-    const grid = document.getElementById("designGrid");
+
+    const grid =
+      document.getElementById(
+        "designGrid"
+      );
+
 
     grid.innerHTML = `
+
       <div style="
-        grid-column: 1 / -1;
-        padding: 25px;
-        text-align: center;
-        background: #fff;
-        border-radius: 16px;
-        color: #8b5268;
-        box-shadow: 0 6px 18px rgba(91,23,56,0.10);
+        grid-column:1/-1;
+        padding:25px;
+        text-align:center;
+        background:#fff;
+        border-radius:16px;
+        color:#8b5268;
+        box-shadow:0 6px 18px rgba(91,23,56,.10);
       ">
-        <strong>Unable to load designs.</strong>
+
+        <strong>
+          Unable to load designs.
+        </strong>
+
         <br><br>
-        Please make sure <b>designs.json</b> is in the same folder as this HTML
-        and the website is opened through a local web server.
+
+        Make sure
+        <b>designs.json</b>
+        is in the same folder as this HTML.
+
         <br><br>
-        <small>${escapeHtml(error.message)}</small>
+
+        <small>
+          ${escapeHtml(error.message)}
+        </small>
+
       </div>
+
     `;
+
   }
+
 }
 
 
 /* =========================================================
-   PARSE FILENAMES
+   NORMALIZE JSON
 ========================================================= */
 
-function buildDesignsFromFilenames(filenames) {
+function normalizeDesigns(data) {
 
-  const grouped = new Map();
+  return data
+    .map((item, index) => {
 
-  filenames.forEach((filename) => {
-
-    if (typeof filename !== "string") {
-      return;
-    }
-
-    const cleanFilename = filename.trim();
-
-    if (!cleanFilename) {
-      return;
-    }
-
-    const parsed = parseFilename(cleanFilename);
-
-    if (!parsed) {
-      console.warn(
-        "Skipping invalid design filename:",
-        cleanFilename
-      );
-      return;
-    }
-
-    if (!grouped.has(parsed.designName)) {
-
-      grouped.set(
-        parsed.designName,
-        {
-          id: parsed.designName,
-          name: parsed.designName,
-          image: cleanFilename,
-          variants: []
-        }
-      );
-
-    }
-
-    const design = grouped.get(parsed.designName);
-
-    design.variants.push({
-      suffix: "",
-      size: parsed.size,
-      price: parsed.price,
-      filename: cleanFilename
-    });
-
-  });
-
-  return Array.from(grouped.values()).map(
-    (design, index) => {
-
-      design.id = index + 1;
-
-      return design;
-    }
-  );
-}
+      if (!item || typeof item !== "object") {
+        return null;
+      }
 
 
-/* =========================================================
-   PARSE ONE FILENAME
+      const designName =
+        String(
+          item.design || ""
+        ).trim();
 
-   Example:
-   Design1 #18 inch # 300.jpg
 
-   Result:
-   {
-      designName: "Design1",
-      size: "18 inch",
-      price: 300
-   }
-========================================================= */
+      const image =
+        String(
+          item.image || ""
+        ).trim();
 
-function parseFilename(filename) {
 
-  const lastDot = filename.lastIndexOf(".");
+      if (!designName || !image) {
+        return null;
+      }
 
-  const withoutExtension =
-    lastDot > -1
-      ? filename.substring(0, lastDot)
-      : filename;
 
-  const parts =
-    withoutExtension
-      .split("#")
-      .map(part => part.trim());
+      const variants =
+        Array.isArray(item.variants)
+          ? item.variants
+              .map(variant => {
 
-  if (parts.length < 3) {
-    return null;
-  }
+                if (
+                  !variant ||
+                  typeof variant !== "object"
+                ) {
+                  return null;
+                }
 
-  const designName = parts[0];
-  const size = parts[1];
 
-  const priceText = parts.slice(2).join("#").trim();
+                const size =
+                  String(
+                    variant.size || "Standard"
+                  ).trim();
 
-  const priceMatch =
-    priceText.match(/[\d,.]+/);
 
-  if (!designName || !priceMatch) {
-    return null;
-  }
+                const price =
+                  Number(
+                    String(
+                      variant.price ?? ""
+                    )
+                      .replace(/,/g, "")
+                      .replace(/[₹$]/g, "")
+                      .trim()
+                  );
 
-  const price =
-    Number(
-      priceMatch[0].replace(/,/g, "")
-    );
 
-  if (!Number.isFinite(price)) {
-    return null;
-  }
+                if (
+                  !Number.isFinite(price)
+                ) {
+                  return null;
+                }
 
-  return {
-    designName,
-    size: size || "Standard",
-    price
-  };
+
+                return {
+                  size,
+                  price
+                };
+
+              })
+              .filter(Boolean)
+          : [];
+
+
+      return {
+        id: index + 1,
+        name: designName,
+        image,
+        variants
+      };
+
+    })
+    .filter(Boolean);
+
 }
 
 
@@ -1986,55 +2099,71 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+
 }
 
 
 /* =========================================================
    IMAGE LOADING
+
+   Images are expected inside:
+   Images/
 ========================================================= */
 
-function setupImageFallback(img, filename) {
+function setupImageFallback(
+  img,
+  filename
+) {
 
   img.src =
     "Images/" +
-    encodeURIComponent(filename);
+    encodeURIComponent(
+      filename
+    );
 
-  img.onerror = function() {
 
-    img.onerror = null;
+  img.onerror =
+    function() {
 
-    img.style.display = "none";
+      img.onerror = null;
 
-    const wrapper =
-      img.parentElement;
+      img.style.display = "none";
 
-    if (wrapper) {
 
-      wrapper.classList.add(
-        "image-missing"
-      );
+      const wrapper =
+        img.parentElement;
 
-      wrapper.innerHTML += `
-        <span>Image unavailable</span>
-      `;
-    }
 
-  };
+      if (wrapper) {
+
+        wrapper.classList.add(
+          "image-missing"
+        );
+
+
+        const message =
+          document.createElement(
+            "span"
+          );
+
+
+        message.textContent =
+          "Image unavailable";
+
+
+        wrapper.appendChild(
+          message
+        );
+
+      }
+
+    };
+
 }
 
 
 /* =========================================================
-   DESIGN LABEL
-========================================================= */
-
-function getDesignLabel(design, variant) {
-
-  return design.name;
-}
-
-
-/* =========================================================
-   RENDER DESIGN GRID
+   RENDER DESIGNS
 ========================================================= */
 
 function renderDesigns() {
@@ -2044,34 +2173,61 @@ function renderDesigns() {
       "designGrid"
     );
 
+
   grid.innerHTML = "";
+
 
   designs.forEach(
     design => {
 
       const card =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
+
 
       card.className =
         "design-card";
+
 
       card.id =
         `card-${design.id}`;
 
 
+      /* IMAGE */
+
+      const imageWrapper =
+        document.createElement(
+          "div"
+        );
+
+
+      imageWrapper.className =
+        "design-image-wrapper";
+
+
       const image =
-        document.createElement("img");
+        document.createElement(
+          "img"
+        );
+
 
       image.className =
         "design-image";
 
+
       image.alt =
         design.name;
+
 
       image.loading =
         "lazy";
 
-      card.appendChild(image);
+
+      imageWrapper.appendChild(
+        image
+      );
+
 
       setupImageFallback(
         image,
@@ -2079,8 +2235,39 @@ function renderDesigns() {
       );
 
 
+      card.appendChild(
+        imageWrapper
+      );
+
+
+      /* DESIGN NAME */
+
+      const title =
+        document.createElement(
+          "div"
+        );
+
+
+      title.className =
+        "design-title";
+
+
+      title.textContent =
+        design.name;
+
+
+      card.appendChild(
+        title
+      );
+
+
+      /* VARIANTS */
+
       const bottom =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
+
 
       bottom.className =
         "design-bottom";
@@ -2090,7 +2277,10 @@ function renderDesigns() {
         (variant, variantIndex) => {
 
           const row =
-            document.createElement("div");
+            document.createElement(
+              "div"
+            );
+
 
           row.className =
             "variant-row";
@@ -2105,27 +2295,32 @@ function renderDesigns() {
               ${escapeHtml(design.name)}
             </span>
 
+
             <span
-              class="design-size ${
-                variant.size
-                  ? "has-size"
-                  : ""
-              }"
+              class="design-size"
             >
               ${escapeHtml(
-                variant.size || "Standard"
+                variant.size
               )}
             </span>
 
-            <span class="design-price">
-              ₹${variant.price}
+
+            <span
+              class="design-price"
+            >
+              ₹${formatPrice(
+                variant.price
+              )}
             </span>
 
-            <div class="variant-actions">
+
+            <div
+              class="variant-actions"
+            >
 
               <label
                 class="select-label"
-                title="Select design"
+                title="Select"
               >
 
                 <input
@@ -2147,7 +2342,9 @@ function renderDesigns() {
               </label>
 
 
-              <div class="quantity-controls">
+              <div
+                class="quantity-controls"
+              >
 
                 <button
                   type="button"
@@ -2194,21 +2391,754 @@ function renderDesigns() {
 
           `;
 
-          bottom.appendChild(row);
+
+          bottom.appendChild(
+            row
+          );
 
         }
       );
 
 
-      card.appendChild(bottom);
+      card.appendChild(
+        bottom
+      );
 
-      grid.appendChild(card);
+
+      grid.appendChild(
+        card
+      );
 
     }
   );
 
 }
 
+
+/* =========================================================
+   PRICE FORMAT
+========================================================= */
+
+function formatPrice(price) {
+
+  return Number(price)
+    .toLocaleString(
+      "en-IN"
+    );
+
+}
+
+
+/* =========================================================
+   CART KEY
+========================================================= */
+
+function getCartKey(
+  designId,
+  variantIndex
+) {
+
+  return `${designId}-${variantIndex}`;
+
+}
+
+
+/* =========================================================
+   TOGGLE VARIANT
+========================================================= */
+
+function toggleVariant(
+  designId,
+  variantIndex,
+  selected
+) {
+
+  const key =
+    getCartKey(
+      designId,
+      variantIndex
+    );
+
+
+  if (selected) {
+
+    cart[key] =
+      cart[key] || 1;
+
+  }
+
+  else {
+
+    delete cart[key];
+
+  }
+
+
+  updateVariantUI(
+    designId,
+    variantIndex
+  );
+
+
+  updateCardSelection(
+    designId
+  );
+
+
+  updateCart();
+
+}
+
+
+/* =========================================================
+   CHANGE QUANTITY
+========================================================= */
+
+function changeQuantity(
+  designId,
+  variantIndex,
+  amount
+) {
+
+  const key =
+    getCartKey(
+      designId,
+      variantIndex
+    );
+
+
+  let quantity =
+    cart[key] || 0;
+
+
+  quantity += amount;
+
+
+  if (quantity <= 0) {
+
+    delete cart[key];
+
+  }
+
+  else {
+
+    cart[key] =
+      quantity;
+
+  }
+
+
+  updateVariantUI(
+    designId,
+    variantIndex
+  );
+
+
+  updateCardSelection(
+    designId
+  );
+
+
+  updateCart();
+
+}
+
+
+/* =========================================================
+   UPDATE VARIANT UI
+========================================================= */
+
+function updateVariantUI(
+  designId,
+  variantIndex
+) {
+
+  const key =
+    getCartKey(
+      designId,
+      variantIndex
+    );
+
+
+  const quantity =
+    cart[key] || 0;
+
+
+  const quantityElement =
+    document.getElementById(
+      `qty-${designId}-${variantIndex}`
+    );
+
+
+  if (quantityElement) {
+
+    quantityElement.textContent =
+      quantity;
+
+  }
+
+
+  const card =
+    document.getElementById(
+      `card-${designId}`
+    );
+
+
+  if (!card) {
+    return;
+  }
+
+
+  const rows =
+    card.querySelectorAll(
+      ".variant-row"
+    );
+
+
+  const row =
+    rows[variantIndex];
+
+
+  if (!row) {
+    return;
+  }
+
+
+  const checkbox =
+    row.querySelector(
+      'input[type="checkbox"]'
+    );
+
+
+  if (checkbox) {
+
+    checkbox.checked =
+      quantity > 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   UPDATE CARD SELECTION
+========================================================= */
+
+function updateCardSelection(
+  designId
+) {
+
+  const card =
+    document.getElementById(
+      `card-${designId}`
+    );
+
+
+  if (!card) {
+    return;
+  }
+
+
+  const design =
+    designs.find(
+      item =>
+        item.id === designId
+    );
+
+
+  if (!design) {
+    return;
+  }
+
+
+  const selected =
+    design.variants.some(
+      (_, variantIndex) => {
+
+        const key =
+          getCartKey(
+            designId,
+            variantIndex
+          );
+
+
+        return (
+          (cart[key] || 0) > 0
+        );
+
+      }
+    );
+
+
+  card.classList.toggle(
+    "selected",
+    selected
+  );
+
+}
+
+
+/* =========================================================
+   CART TOTAL
+========================================================= */
+
+function getCartTotal() {
+
+  let total = 0;
+
+
+  designs.forEach(
+    design => {
+
+      design.variants.forEach(
+        (variant, variantIndex) => {
+
+          const key =
+            getCartKey(
+              design.id,
+              variantIndex
+            );
+
+
+          const quantity =
+            cart[key] || 0;
+
+
+          total +=
+            variant.price *
+            quantity;
+
+        }
+      );
+
+    }
+  );
+
+
+  return total;
+
+}
+
+
+/* =========================================================
+   CART COUNT
+========================================================= */
+
+function getCartItemCount() {
+
+  return Object.values(
+    cart
+  )
+  .reduce(
+    (total, quantity) =>
+      total + quantity,
+    0
+  );
+
+}
+
+
+/* =========================================================
+   UPDATE CART
+========================================================= */
+
+function updateCart() {
+
+  const total =
+    getCartTotal();
+
+
+  const count =
+    getCartItemCount();
+
+
+  const cartCount =
+    document.getElementById(
+      "cartCount"
+    );
+
+
+  const cartTotal =
+    document.getElementById(
+      "cartTotal"
+    );
+
+
+  const modalTotal =
+    document.getElementById(
+      "modalTotal"
+    );
+
+
+  if (cartCount) {
+
+    cartCount.textContent =
+      count === 1
+        ? "1 item"
+        : `${count} items`;
+
+  }
+
+
+  if (cartTotal) {
+
+    cartTotal.textContent =
+      `₹${formatPrice(total)}`;
+
+  }
+
+
+  if (modalTotal) {
+
+    modalTotal.textContent =
+      `₹${formatPrice(total)}`;
+
+  }
+
+}
+
+
+/* =========================================================
+   OPEN CART
+========================================================= */
+
+function openCart() {
+
+  const orderItems =
+    document.getElementById(
+      "orderItems"
+    );
+
+
+  orderItems.innerHTML = "";
+
+
+  if (
+    Object.keys(cart).length === 0
+  ) {
+
+    orderItems.innerHTML = `
+
+      <div class="empty-cart">
+
+        Your cart is empty.
+
+        <br><br>
+
+        Select a design to start
+        your order.
+
+      </div>
+
+    `;
+
+  }
+
+  else {
+
+    designs.forEach(
+      design => {
+
+        design.variants.forEach(
+          (variant, variantIndex) => {
+
+            const key =
+              getCartKey(
+                design.id,
+                variantIndex
+              );
+
+
+            const quantity =
+              cart[key] || 0;
+
+
+            if (
+              quantity <= 0
+            ) {
+              return;
+            }
+
+
+            const subtotal =
+              variant.price *
+              quantity;
+
+
+            const item =
+              document.createElement(
+                "div"
+              );
+
+
+            item.className =
+              "order-item";
+
+
+            item.innerHTML = `
+
+              <div
+                class="order-thumb-wrapper"
+              >
+
+                <img
+                  class="order-thumb"
+                  alt="${escapeHtml(design.name)}"
+                >
+
+              </div>
+
+
+              <div
+                class="order-details"
+              >
+
+                <p
+                  class="order-design"
+                >
+                  ${escapeHtml(
+                    design.name
+                  )}
+                </p>
+
+
+                <span
+                  class="order-size"
+                >
+                  Size:
+                  ${escapeHtml(
+                    variant.size
+                  )}
+                </span>
+
+
+                <span
+                  class="order-qty"
+                >
+                  Quantity:
+                  ${quantity}
+                </span>
+
+              </div>
+
+
+              <div
+                class="order-price"
+              >
+                ₹${formatPrice(subtotal)}
+              </div>
+
+            `;
+
+
+            orderItems.appendChild(
+              item
+            );
+
+
+            const thumbnail =
+              item.querySelector(
+                ".order-thumb"
+              );
+
+
+            setupImageFallback(
+              thumbnail,
+              design.image
+            );
+
+          }
+        );
+
+      }
+    );
+
+  }
+
+
+  updateCart();
+
+
+  document
+    .getElementById(
+      "orderModal"
+    )
+    .classList.add(
+      "show"
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE CART
+========================================================= */
+
+function closeCart() {
+
+  document
+    .getElementById(
+      "orderModal"
+    )
+    .classList.remove(
+      "show"
+    );
+
+}
+
+
+/* =========================================================
+   PLACE WHATSAPP ORDER
+========================================================= */
+
+function placeOrder() {
+
+  if (
+    Object.keys(cart).length === 0
+  ) {
+
+    alert(
+      "Please select at least one design before placing your order."
+    );
+
+    return;
+
+  }
+
+
+  let message =
+    "Hi Swapnali 👋\n\n";
+
+
+  message +=
+    "I would like to place an order for these Rangoli designs:\n\n";
+
+
+  designs.forEach(
+    design => {
+
+      design.variants.forEach(
+        (variant, variantIndex) => {
+
+          const key =
+            getCartKey(
+              design.id,
+              variantIndex
+            );
+
+
+          const quantity =
+            cart[key] || 0;
+
+
+          if (
+            quantity <= 0
+          ) {
+            return;
+          }
+
+
+          const subtotal =
+            variant.price *
+            quantity;
+
+
+          message +=
+            `${design.name}\n`;
+
+
+          message +=
+            `Size: ${variant.size}\n`;
+
+
+          message +=
+            `Quantity: ${quantity}\n`;
+
+
+          message +=
+            `Price: ₹${formatPrice(variant.price)} each\n`;
+
+
+          message +=
+            `Subtotal: ₹${formatPrice(subtotal)}\n\n`;
+
+        }
+      );
+
+    }
+  );
+
+
+  const total =
+    getCartTotal();
+
+
+  message +=
+    `Total Order Value (Excluding Shipping Charges): ₹${formatPrice(total)}\n\n`;
+
+
+  message +=
+    "* Shipping Charges Applicable as per location.\n\n";
+
+
+  message +=
+    "Order will be dispatched within 10 to 12 days.\n\n";
+
+
+  message +=
+    "Please confirm availability and final shipping charges. Thank you! 🌸";
+
+
+  const whatsappURL =
+    "https://wa.me/917972313283?text=" +
+    encodeURIComponent(
+      message
+    );
+
+
+  window.open(
+    whatsappURL,
+    "_blank"
+  );
+
+}
+
+
+/* =========================================================
+   MODAL OUTSIDE CLICK
+========================================================= */
+
+const orderModal =
+  document.getElementById(
+    "orderModal"
+  );
+
+
+if (orderModal) {
+
+  orderModal.addEventListener(
+    "click",
+    function(event) {
+
+      if (
+        event.target === this
+      ) {
+
+        closeCart();
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+loadDesigns();
 
 /* =========================================================
    CART KEY
