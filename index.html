@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -8,9 +7,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Rangoli_By_Swapnali</title>
+<title>Swapnali's Rangoli</title>
 
 <style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 * {
   box-sizing: border-box;
@@ -260,7 +263,7 @@ body {
 
 
 /* =========================================================
-   MESSAGE
+   HEADER ORDER MESSAGE
 ========================================================= */
 
 .order-message {
@@ -294,6 +297,7 @@ body {
 
 /* =========================================================
    DISPATCH NOTE
+   ALWAYS SINGLE LINE
 ========================================================= */
 
 .dispatch-note {
@@ -301,7 +305,7 @@ body {
 
   padding:
     9px
-    12px;
+    8px;
 
   background: #f8edf2;
 
@@ -312,25 +316,26 @@ body {
 
   border-radius: 10px;
 
-  color: #73534a;
+  color: #5b1738;
 
   font-size: 11px;
 
-  font-weight: 600;
+  font-weight: 700;
 
-  line-height: 1.5;
+  line-height: 1.2;
 
   text-align: center;
-}
 
+  white-space: nowrap;
 
-.dispatch-note strong {
-  color: #5b1738;
+  overflow: hidden;
+
+  text-overflow: clip;
 }
 
 
 /* =========================================================
-   MASONRY DESIGN GRID
+   DESIGN GRID
 ========================================================= */
 
 .design-grid {
@@ -420,6 +425,19 @@ body {
   background: #f7f2f4;
 }
 
+.image-missing {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9a858d;
+  font-size: 11px;
+  text-align: center;
+  background: #f7f2f4;
+}
+
+
+
 
 /* =========================================================
    DESIGN INFORMATION
@@ -437,24 +455,14 @@ body {
 
 .variant-row {
   display: grid;
-
-  grid-template-columns:
-    1fr
-    1fr
-    1fr;
-
+  grid-template-columns: minmax(0, 1fr) max-content max-content;
   align-items: center;
-
-  gap: 5px;
-
-  padding:
-    8px
-    0;
-
-  border-bottom:
-    1px
-    solid
-    #f0e4e8;
+  column-gap: clamp(8px, 2vw, 18px);
+  width: 100%;
+  min-width: 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0e4e8;
+  white-space: nowrap;
 }
 
 
@@ -472,6 +480,10 @@ body {
 
   font-weight: 700;
 
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   text-align: left;
 }
 
@@ -483,9 +495,9 @@ body {
 
   font-weight: 600;
 
-  text-align: center;
-
+  min-width: max-content;
   white-space: nowrap;
+  text-align: center;
 }
 
 
@@ -507,9 +519,9 @@ body {
 
   font-weight: 700;
 
-  text-align: right;
-
+  min-width: max-content;
   white-space: nowrap;
+  text-align: right;
 }
 
 
@@ -925,12 +937,7 @@ body {
 }
 
 
-/* =========================================================
-   EACH ORDER ITEM
-========================================================= */
-
 .order-item {
-
   display: grid;
 
   grid-template-columns:
@@ -958,9 +965,7 @@ body {
 ========================================================= */
 
 .order-thumb-wrapper {
-
   width: 64px;
-
   height: 64px;
 
   border-radius: 10px;
@@ -985,9 +990,7 @@ body {
 
 
 .order-thumb {
-
   width: 100%;
-
   height: 100%;
 
   object-fit: contain;
@@ -1106,12 +1109,17 @@ body {
 }
 
 
+/* =========================================================
+   MODAL DISPATCH NOTE
+   ALWAYS SINGLE LINE
+========================================================= */
+
 .modal-dispatch-note {
   margin-top: 8px;
 
   padding:
     8px
-    10px;
+    5px;
 
   background: #f8edf2;
 
@@ -1122,20 +1130,21 @@ body {
 
   border-radius: 8px;
 
-  color: #73534a;
+  color: #5b1738;
 
   font-size: 10px;
 
-  font-weight: 600;
+  font-weight: 700;
+
+  line-height: 1.2;
 
   text-align: center;
 
-  line-height: 1.4;
-}
+  white-space: nowrap;
 
+  overflow: hidden;
 
-.modal-dispatch-note strong {
-  color: #5b1738;
+  text-overflow: clip;
 }
 
 
@@ -1242,6 +1251,16 @@ body {
   }
 
 
+  /* Single-line dispatch text */
+
+  .dispatch-note {
+    font-size: 9px;
+
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+
   .design-grid {
     column-count: 2;
 
@@ -1262,15 +1281,13 @@ body {
       7px
       8px;
   }
-
-
   .variant-row {
-    gap: 3px;
-
-    padding:
-      7px
-      0;
+    grid-template-columns: minmax(0, 1fr) max-content max-content;
+    column-gap: clamp(5px, 1.8vw, 10px);
+    padding: 7px 0;
+    white-space: nowrap;
   }
+
 
 
   .design-number {
@@ -1396,6 +1413,16 @@ body {
     border-radius: 18px;
   }
 
+
+  /* Single-line dispatch text */
+
+  .modal-dispatch-note {
+    font-size: 8.5px;
+
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
 }
 
 
@@ -1404,6 +1431,22 @@ body {
 ========================================================= */
 
 @media (max-width: 360px) {
+
+  .variant-row {
+    grid-template-columns: minmax(0, 1fr) max-content max-content;
+    column-gap: 5px;
+  }
+
+
+  .dispatch-note {
+    font-size: 8px;
+  }
+
+
+  .modal-dispatch-note {
+    font-size: 7.5px;
+  }
+
 
   .design-grid {
     column-gap: 7px;
@@ -1415,21 +1458,27 @@ body {
 
     border-radius: 12px;
   }
-
-
   .design-number {
     font-size: 8px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: clip;
   }
-
 
   .design-size {
     font-size: 8px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: clip;
   }
-
 
   .design-price {
     font-size: 9px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: clip;
   }
+
 
 
   .quantity-btn {
@@ -1485,7 +1534,7 @@ body {
 
 
   <h1 class="brand-name">
-    Rangoli by Swapnali
+    Swapnali's Rangoli
   </h1>
 
 
@@ -1538,9 +1587,11 @@ body {
   </div>
 
 
+  <!-- SINGLE LINE DISPATCH MESSAGE -->
+
   <div class="dispatch-note">
 
-    📦 <strong>Order will be dispatched within 10 to 12 days</strong>
+    Order will be dispatched within 10 to 12 days
 
   </div>
 
@@ -1573,31 +1624,7 @@ body {
      FOOTER
 ===================================================== -->
 
-<div class="footer">
 
-  © Swapnali's Rangoli
-
-  &nbsp; • &nbsp;
-
-  <a
-    href="https://www.instagram.com/rangoli_by_swapnali"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    @rangoli_by_swapnali
-  </a>
-
-  &nbsp; • &nbsp;
-
-  <a
-    href="https://wa.me/917972313283"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    WhatsApp: 7972313283
-  </a>
-
-</div>
 
 
 </main>
@@ -1722,9 +1749,12 @@ body {
 
       </div>
 
+
+      <!-- SINGLE LINE DISPATCH MESSAGE -->
+
       <div class="modal-dispatch-note">
 
-        📦 <strong>Order will be dispatched within 10 to 12 days</strong>
+        Order will be dispatched within 10 to 12 days
 
       </div>
 
@@ -1751,195 +1781,1138 @@ body {
 
 
 /* =========================================================
-   DESIGN DATA
+   JSON-DRIVEN DESIGN DATA
+   designs.json example:
+   [
+     "Design1 #18 inch # 300.jpg",
+     "Design1 #8 inch # 200.jpg",
+     "Design2 #15 inch # 599.jpg"
+   ]
 
-   Change prices/sizes here whenever required.
+   Each filename is parsed as:
+   Design Name # Size # Price.ext
 ========================================================= */
 
-const designs = [
+let designs = [];
 
-  {
-    id: 1,
+const cart = {};
 
-    variants: [
-      {
-        suffix: "",
-        size: "",
-        price: 299
-      }
-    ]
-  },
+/* =========================================================
+   IMAGE / JSON LOADING
+========================================================= */
 
+async function loadDesigns() {
+  try {
+    const response = await fetch("designs.json", { cache: "no-store" });
 
-  {
-    id: 2,
+    if (!response.ok) {
+      throw new Error(`Unable to load designs.json (${response.status})`);
+    }
 
-    variants: [
-      {
-        suffix: "",
-        size: "",
-        price: 349
-      }
-    ]
-  },
+    const filenames = await response.json();
 
+    if (!Array.isArray(filenames)) {
+      throw new Error("designs.json must contain a JSON array of filenames.");
+    }
 
-  {
-    id: 3,
+    designs = buildDesignsFromFilenames(filenames);
 
-    variants: [
+    renderDesigns();
+    updateCart();
 
-      {
-        suffix: "A",
-        size: "8 inch",
-        price: 349
-      },
+  } catch (error) {
+    console.error(error);
 
-      {
-        suffix: "B",
-        size: "15 inch",
-        price: 699
-      }
+    const grid = document.getElementById("designGrid");
 
-    ]
-  },
-
-
-  {
-    id: 4,
-
-    variants: [
-      {
-        suffix: "",
-        size: "",
-        price: 449
-      }
-    ]
-  },
+    grid.innerHTML = `
+      <div style="
+        grid-column: 1 / -1;
+        padding: 25px;
+        text-align: center;
+        background: #fff;
+        border-radius: 16px;
+        color: #8b5268;
+        box-shadow: 0 6px 18px rgba(91,23,56,0.10);
+      ">
+        <strong>Unable to load designs.</strong>
+        <br><br>
+        Please make sure <b>designs.json</b> is in the same folder as this HTML
+        and the website is opened through a local web server.
+        <br><br>
+        <small>${escapeHtml(error.message)}</small>
+      </div>
+    `;
+  }
+}
 
 
-  {
-    id: 5,
+/* =========================================================
+   PARSE FILENAMES
+========================================================= */
 
-    variants: [
+function buildDesignsFromFilenames(filenames) {
 
-      {
-        suffix: "A",
-        size: "8 inch",
-        price: 299
-      },
+  const grouped = new Map();
 
-      {
-        suffix: "B",
-        size: "15 inch",
-        price: 599
-      },
+  filenames.forEach((filename) => {
 
-      {
-        suffix: "C",
-        size: "2 feet",
-        price: 999
-      }
+    if (typeof filename !== "string") {
+      return;
+    }
 
-    ]
-  },
+    const cleanFilename = filename.trim();
 
+    if (!cleanFilename) {
+      return;
+    }
 
-  {
-    id: 6,
+    const parsed = parseFilename(cleanFilename);
 
-    variants: [
-      {
-        suffix: "",
-        size: "",
-        price: 379
-      }
-    ]
-  },
+    if (!parsed) {
+      console.warn(
+        "Skipping invalid design filename:",
+        cleanFilename
+      );
+      return;
+    }
 
+    if (!grouped.has(parsed.designName)) {
 
-  {
-    id: 7,
+      grouped.set(
+        parsed.designName,
+        {
+          id: parsed.designName,
+          name: parsed.designName,
+          image: cleanFilename,
+          variants: []
+        }
+      );
 
-    variants: [
-      {
-        suffix: "",
-        size: "",
-        price: 499
-      }
-    ]
-  },
+    }
 
+    const design = grouped.get(parsed.designName);
 
-  {
-    id: 8,
+    design.variants.push({
+      suffix: "",
+      size: parsed.size,
+      price: parsed.price,
+      filename: cleanFilename
+    });
 
-    variants: [
+  });
 
-      {
-        suffix: "A",
-        size: "12 inch",
-        price: 549
-      },
+  return Array.from(grouped.values()).map(
+    (design, index) => {
 
-      {
-        suffix: "B",
-        size: "18 inch",
-        price: 849
-      }
+      design.id = index + 1;
 
-    ]
-  },
+      return design;
+    }
+  );
+}
 
 
-  {
-    id: 9,
+/* =========================================================
+   PARSE ONE FILENAME
 
-    variants: [
-      {
-        suffix: "",
-        size: "",
-        price: 249
-      }
-    ]
-  },
+   Example:
+   Design1 #18 inch # 300.jpg
 
+   Result:
+   {
+      designName: "Design1",
+      size: "18 inch",
+      price: 300
+   }
+========================================================= */
 
-  {
-    id: 10,
+function parseFilename(filename) {
 
-    variants: [
+  const lastDot = filename.lastIndexOf(".");
 
-      {
-        suffix: "A",
-        size: "15 inch",
-        price: 599
-      },
+  const withoutExtension =
+    lastDot > -1
+      ? filename.substring(0, lastDot)
+      : filename;
 
-      {
-        suffix: "B",
-        size: "2 feet",
-        price: 999
-      }
+  const parts =
+    withoutExtension
+      .split("#")
+      .map(part => part.trim());
 
-    ]
-  },
-
-
-  {
-    id: 11,
-
-    variants: [
-      {
-        suffix: "",
-        size: "",
-        price: 449
-      }
-    ]
+  if (parts.length < 3) {
+    return null;
   }
 
-];
+  const designName = parts[0];
+  const size = parts[1];
 
+  const priceText = parts.slice(2).join("#").trim();
+
+  const priceMatch =
+    priceText.match(/[\d,.]+/);
+
+  if (!designName || !priceMatch) {
+    return null;
+  }
+
+  const price =
+    Number(
+      priceMatch[0].replace(/,/g, "")
+    );
+
+  if (!Number.isFinite(price)) {
+    return null;
+  }
+
+  return {
+    designName,
+    size: size || "Standard",
+    price
+  };
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(value) {
+
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+
+/* =========================================================
+   IMAGE LOADING
+========================================================= */
+
+function setupImageFallback(img, filename) {
+
+  img.src =
+    "Images/" +
+    encodeURIComponent(filename);
+
+  img.onerror = function() {
+
+    img.onerror = null;
+
+    img.style.display = "none";
+
+    const wrapper =
+      img.parentElement;
+
+    if (wrapper) {
+
+      wrapper.classList.add(
+        "image-missing"
+      );
+
+      wrapper.innerHTML += `
+        <span>Image unavailable</span>
+      `;
+    }
+
+  };
+}
+
+
+/* =========================================================
+   DESIGN LABEL
+========================================================= */
+
+function getDesignLabel(design, variant) {
+
+  return design.name;
+}
+
+
+/* =========================================================
+   RENDER DESIGN GRID
+========================================================= */
+
+function renderDesigns() {
+
+  const grid =
+    document.getElementById(
+      "designGrid"
+    );
+
+  grid.innerHTML = "";
+
+  designs.forEach(
+    design => {
+
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "design-card";
+
+      card.id =
+        `card-${design.id}`;
+
+
+      const image =
+        document.createElement("img");
+
+      image.className =
+        "design-image";
+
+      image.alt =
+        design.name;
+
+      image.loading =
+        "lazy";
+
+      card.appendChild(image);
+
+      setupImageFallback(
+        image,
+        design.image
+      );
+
+
+      const bottom =
+        document.createElement("div");
+
+      bottom.className =
+        "design-bottom";
+
+
+      design.variants.forEach(
+        (variant, variantIndex) => {
+
+          const row =
+            document.createElement("div");
+
+          row.className =
+            "variant-row";
+
+
+          row.innerHTML = `
+
+            <span
+              class="design-number"
+              title="${escapeHtml(design.name)}"
+            >
+              ${escapeHtml(design.name)}
+            </span>
+
+            <span
+              class="design-size ${
+                variant.size
+                  ? "has-size"
+                  : ""
+              }"
+            >
+              ${escapeHtml(
+                variant.size || "Standard"
+              )}
+            </span>
+
+            <span class="design-price">
+              ₹${variant.price}
+            </span>
+
+            <div class="variant-actions">
+
+              <label
+                class="select-label"
+                title="Select design"
+              >
+
+                <input
+                  type="checkbox"
+
+                  data-design-id="${design.id}"
+
+                  data-variant-index="${variantIndex}"
+
+                  onchange="
+                    toggleVariant(
+                      ${design.id},
+                      ${variantIndex},
+                      this.checked
+                    )
+                  "
+                >
+
+              </label>
+
+
+              <div class="quantity-controls">
+
+                <button
+                  type="button"
+                  class="quantity-btn"
+
+                  onclick="
+                    changeQuantity(
+                      ${design.id},
+                      ${variantIndex},
+                      -1
+                    )
+                  "
+                >
+                  −
+                </button>
+
+
+                <span
+                  class="quantity-value"
+                  id="qty-${design.id}-${variantIndex}"
+                >
+                  0
+                </span>
+
+
+                <button
+                  type="button"
+                  class="quantity-btn"
+
+                  onclick="
+                    changeQuantity(
+                      ${design.id},
+                      ${variantIndex},
+                      1
+                    )
+                  "
+                >
+                  +
+                </button>
+
+              </div>
+
+            </div>
+
+          `;
+
+          bottom.appendChild(row);
+
+        }
+      );
+
+
+      card.appendChild(bottom);
+
+      grid.appendChild(card);
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   CART KEY
+========================================================= */
+
+function getCartKey(
+  designId,
+  variantIndex
+) {
+
+  return `${designId}-${variantIndex}`;
+
+}
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+function toggleVariant(
+  designId,
+  variantIndex,
+  selected
+) {
+
+  const key =
+    getCartKey(
+      designId,
+      variantIndex
+    );
+
+
+  if (selected) {
+
+    cart[key] = 1;
+
+  }
+
+  else {
+
+    delete cart[key];
+
+  }
+
+
+  updateVariantUI(
+    designId,
+    variantIndex
+  );
+
+
+  updateCardSelection(
+    designId
+  );
+
+
+  updateCart();
+
+}
+
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+function changeQuantity(
+  designId,
+  variantIndex,
+  amount
+) {
+
+  const key =
+    getCartKey(
+      designId,
+      variantIndex
+    );
+
+
+  let quantity =
+    cart[key] || 0;
+
+
+  quantity += amount;
+
+
+  if (quantity <= 0) {
+
+    delete cart[key];
+
+  }
+
+  else {
+
+    cart[key] =
+      quantity;
+
+  }
+
+
+  updateVariantUI(
+    designId,
+    variantIndex
+  );
+
+
+  updateCardSelection(
+    designId
+  );
+
+
+  updateCart();
+
+}
+
+
+/* =========================================================
+   UPDATE VARIANT UI
+========================================================= */
+
+function updateVariantUI(
+  designId,
+  variantIndex
+) {
+
+  const key =
+    getCartKey(
+      designId,
+      variantIndex
+    );
+
+
+  const quantity =
+    cart[key] || 0;
+
+
+  const quantityElement =
+    document.getElementById(
+      `qty-${designId}-${variantIndex}`
+    );
+
+
+  if (quantityElement) {
+
+    quantityElement.textContent =
+      String(quantity);
+
+  }
+
+
+  const card =
+    document.getElementById(
+      `card-${designId}`
+    );
+
+
+  if (!card) {
+
+    return;
+
+  }
+
+
+  const rows =
+    card.querySelectorAll(
+      ".variant-row"
+    );
+
+
+  const row =
+    rows[variantIndex];
+
+
+  if (!row) {
+
+    return;
+
+  }
+
+
+  const checkbox =
+    row.querySelector(
+      'input[type="checkbox"]'
+    );
+
+
+  if (checkbox) {
+
+    checkbox.checked =
+      quantity > 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   UPDATE CARD SELECTION
+========================================================= */
+
+function updateCardSelection(
+  designId
+) {
+
+  const card =
+    document.getElementById(
+      `card-${designId}`
+    );
+
+
+  if (!card) {
+
+    return;
+
+  }
+
+
+  const design =
+    designs.find(
+      item =>
+        item.id === designId
+    );
+
+
+  if (!design) {
+
+    return;
+
+  }
+
+
+  let selected = false;
+
+
+  design.variants.forEach(
+    (variant, variantIndex) => {
+
+      const key =
+        getCartKey(
+          designId,
+          variantIndex
+        );
+
+
+      if (
+        (cart[key] || 0) > 0
+      ) {
+
+        selected = true;
+
+      }
+
+    }
+  );
+
+
+  card.classList.toggle(
+    "selected",
+    selected
+  );
+
+}
+
+
+/* =========================================================
+   CART TOTAL
+========================================================= */
+
+function getCartTotal() {
+
+  let total = 0;
+
+
+  designs.forEach(
+    design => {
+
+      design.variants.forEach(
+        (variant, variantIndex) => {
+
+          const key =
+            getCartKey(
+              design.id,
+              variantIndex
+            );
+
+
+          const quantity =
+            cart[key] || 0;
+
+
+          total +=
+            variant.price *
+            quantity;
+
+        }
+      );
+
+    }
+  );
+
+
+  return total;
+
+}
+
+
+/* =========================================================
+   CART ITEM COUNT
+========================================================= */
+
+function getCartItemCount() {
+
+  let count = 0;
+
+
+  Object.values(
+    cart
+  ).forEach(
+    quantity => {
+
+      count += quantity;
+
+    }
+  );
+
+
+  return count;
+
+}
+
+
+/* =========================================================
+   UPDATE CART
+========================================================= */
+
+function updateCart() {
+
+  const total =
+    getCartTotal();
+
+
+  const count =
+    getCartItemCount();
+
+
+  document.getElementById(
+    "cartCount"
+  ).textContent =
+
+    count === 1
+      ? "1 item"
+      : `${count} items`;
+
+
+  document.getElementById(
+    "cartTotal"
+  ).textContent =
+    `₹${total}`;
+
+
+  document.getElementById(
+    "modalTotal"
+  ).textContent =
+    `₹${total}`;
+
+}
+
+
+/* =========================================================
+   OPEN CART
+========================================================= */
+
+function openCart() {
+
+  const orderItems =
+    document.getElementById(
+      "orderItems"
+    );
+
+
+  orderItems.innerHTML = "";
+
+
+  if (
+    Object.keys(cart).length === 0
+  ) {
+
+    orderItems.innerHTML = `
+
+      <div class="empty-cart">
+
+        Your cart is empty.
+
+        <br><br>
+
+        Select a design to start
+        your order.
+
+      </div>
+
+    `;
+
+  }
+
+  else {
+
+    designs.forEach(
+      design => {
+
+        design.variants.forEach(
+          (variant, variantIndex) => {
+
+            const key =
+              getCartKey(
+                design.id,
+                variantIndex
+              );
+
+
+            const quantity =
+              cart[key] || 0;
+
+
+            if (
+              quantity <= 0
+            ) {
+
+              return;
+
+            }
+
+
+            const label =
+              getDesignLabel(
+                design,
+                variant
+              );
+
+
+            const subtotal =
+              variant.price *
+              quantity;
+
+
+            const item =
+              document.createElement(
+                "div"
+              );
+
+
+            item.className =
+              "order-item";
+
+
+            item.innerHTML = `
+
+              <div
+                class="order-thumb-wrapper"
+              >
+
+                <img
+                  class="order-thumb"
+                  alt="${escapeHtml(label)}"
+                >
+
+              </div>
+
+
+              <div class="order-details">
+
+                <p class="order-design">
+                  ${escapeHtml(label)}
+                </p>
+
+
+                <span class="order-size">
+                  Size: ${escapeHtml(variant.size || "Standard")}
+                </span>
+
+
+                <span class="order-qty">
+                  Quantity: ${quantity}
+                </span>
+
+              </div>
+
+
+              <div class="order-price">
+                ₹${subtotal}
+              </div>
+
+            `;
+
+
+            orderItems.appendChild(
+              item
+            );
+
+
+            const thumbnail =
+              item.querySelector(
+                ".order-thumb"
+              );
+
+
+            setupImageFallback(
+              thumbnail,
+              variant.filename
+            );
+
+          }
+        );
+
+      }
+    );
+
+  }
+
+
+  updateCart();
+
+
+  document
+    .getElementById(
+      "orderModal"
+    )
+    .classList.add(
+      "show"
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE CART
+========================================================= */
+
+function closeCart() {
+
+  document
+    .getElementById(
+      "orderModal"
+    )
+    .classList.remove(
+      "show"
+    );
+
+}
+
+
+/* =========================================================
+   PLACE ORDER
+========================================================= */
+
+function placeOrder() {
+
+  if (
+    Object.keys(cart).length === 0
+  ) {
+
+    alert(
+      "Please select at least one design before placing your order."
+    );
+
+    return;
+
+  }
+
+
+  let message =
+    "Hi Swapnali 👋\n\n";
+
+
+  message +=
+    "I would like to place an order for these Rangoli designs:\n\n";
+
+
+  designs.forEach(
+    design => {
+
+      design.variants.forEach(
+        (variant, variantIndex) => {
+
+          const key =
+            getCartKey(
+              design.id,
+              variantIndex
+            );
+
+
+          const quantity =
+            cart[key] || 0;
+
+
+          if (
+            quantity <= 0
+          ) {
+
+            return;
+
+          }
+
+
+          const label =
+            getDesignLabel(
+              design,
+              variant
+            );
+
+
+          const subtotal =
+            variant.price *
+            quantity;
+
+
+          message +=
+            `${label}\n`;
+
+
+          message +=
+            `Size: ${variant.size || "Standard"}\n`;
+
+
+          message +=
+            `Quantity: ${quantity}\n`;
+
+
+          message +=
+            `Price: ₹${variant.price} each\n`;
+
+
+          message +=
+            `Subtotal: ₹${subtotal}\n\n`;
+
+        }
+      );
+
+    }
+  );
+
+
+  const total =
+    getCartTotal();
+
+
+  message +=
+    `Total Order Value (Excluding Shipping Charges): ₹${total}\n\n`;
+
+
+  message +=
+    "* Shipping Charges Applicable as per location.\n\n";
+
+
+  message +=
+    "Order will be dispatched within 10 to 12 days.\n\n";
+
+
+  message +=
+    "Please confirm availability and final shipping charges. Thank you! 🌸";
+
+
+  const whatsappURL =
+    "https://wa.me/917972313283?text=" +
+    encodeURIComponent(
+      message
+    );
+
+
+  window.open(
+    whatsappURL,
+    "_blank"
+  );
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+========================================================= */
+
+document
+  .getElementById(
+    "orderModal"
+  )
+  .addEventListener(
+    "click",
+    function(event) {
+
+      if (
+        event.target === this
+      ) {
+
+        closeCart();
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+loadDesigns();
 
 /* =========================================================
    CART
@@ -2061,8 +3034,6 @@ function renderDesigns() {
         `card-${design.id}`;
 
 
-      /* IMAGE */
-
       const image =
         document.createElement(
           "img"
@@ -2091,8 +3062,6 @@ function renderDesigns() {
         design.id
       );
 
-
-      /* BOTTOM INFORMATION */
 
       const bottom =
         document.createElement(
@@ -2130,11 +3099,8 @@ function renderDesigns() {
           row.innerHTML = `
 
             <span class="design-number">
-
               ${label}
-
             </span>
-
 
             <span
               class="design-size ${
@@ -2143,25 +3109,18 @@ function renderDesigns() {
                   : ""
               }"
             >
-
-              size : ${
+              ${
                 variant.size
                   ? variant.size
                   : "Standard"
               }
-
             </span>
-
 
             <span class="design-price">
-
               ₹${variant.price}
-
             </span>
 
-
             <div class="variant-actions">
-
 
               <label
                 class="select-label"
@@ -2189,7 +3148,6 @@ function renderDesigns() {
 
               <div class="quantity-controls">
 
-
                 <button
                   type="button"
                   class="quantity-btn"
@@ -2202,9 +3160,7 @@ function renderDesigns() {
                     )
                   "
                 >
-
                   −
-
                 </button>
 
 
@@ -2212,9 +3168,7 @@ function renderDesigns() {
                   class="quantity-value"
                   id="qty-${design.id}-${variantIndex}"
                 >
-
                   0
-
                 </span>
 
 
@@ -2230,14 +3184,10 @@ function renderDesigns() {
                     )
                   "
                 >
-
                   +
-
                 </button>
 
-
               </div>
-
 
             </div>
 
@@ -2466,7 +3416,7 @@ function updateVariantUI(
 
 
 /* =========================================================
-   UPDATE CARD
+   UPDATE CARD SELECTION
 ========================================================= */
 
 function updateCardSelection(
@@ -2530,7 +3480,7 @@ function updateCardSelection(
 
 
 /* =========================================================
-   TOTAL
+   CART TOTAL
 ========================================================= */
 
 function getCartTotal() {
@@ -2575,7 +3525,7 @@ function getCartTotal() {
 
 
 /* =========================================================
-   TOTAL ITEM COUNT
+   CART ITEM COUNT
 ========================================================= */
 
 function getCartItemCount() {
@@ -2600,7 +3550,7 @@ function getCartItemCount() {
 
 
 /* =========================================================
-   UPDATE CART TOTAL
+   UPDATE CART
 ========================================================= */
 
 function updateCart() {
@@ -2637,7 +3587,7 @@ function updateCart() {
 
 
 /* =========================================================
-   OPEN CART / PREVIEW
+   OPEN CART
 ========================================================= */
 
 function openCart() {
@@ -2742,9 +3692,7 @@ function openCart() {
               <div class="order-details">
 
                 <p class="order-design">
-
                   ${label}
-
                 </p>
 
 
@@ -2752,9 +3700,7 @@ function openCart() {
                   variant.size
                     ? `
                       <span class="order-size">
-
                         Size: ${variant.size}
-
                       </span>
                     `
                     : ""
@@ -2762,18 +3708,14 @@ function openCart() {
 
 
                 <span class="order-qty">
-
                   Quantity: ${quantity}
-
                 </span>
 
               </div>
 
 
               <div class="order-price">
-
                 ₹${subtotal}
-
               </div>
 
             `;
@@ -2819,7 +3761,7 @@ function openCart() {
 
 
 /* =========================================================
-   CLOSE MODAL
+   CLOSE CART
 ========================================================= */
 
 function closeCart() {
@@ -2855,7 +3797,7 @@ function placeOrder() {
 
 
   let message =
-    "Hi @rangoli_by_swapnali 👋\n\n";
+    "Hi Swapnali 👋\n\n";
 
 
   message +=
@@ -2948,7 +3890,7 @@ function placeOrder() {
 
 
   message +=
-    "📦 Order will be dispatched within 10 to 12 days.\n\n";
+    "Order will be dispatched within 10 to 12 days.\n\n";
 
 
   message +=
@@ -3007,4 +3949,3 @@ updateCart();
 </body>
 
 </html>
-```
