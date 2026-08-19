@@ -538,9 +538,9 @@ body {
 ========================================================= */
 
 .design-size {
-  color: #806b74;
+  color: #5f4650;
 
-  font-size: 11px;
+  font-size: 13px;
 
   font-weight: 600;
 
@@ -550,9 +550,11 @@ body {
 
   text-align: center;
 
-  background: #faf0f4;
+  background: #fff7fa;
 
-  border-radius: 6px;
+  border: 1px solid #eadde2;
+
+  border-radius: 8px;
 
   padding:
     4px
@@ -567,9 +569,9 @@ body {
 ========================================================= */
 
 .design-price {
-  color: #9b2d62;
+  color: #8b1e3f;
 
-  font-size: 12px;
+  font-size: 16px;
 
   font-weight: 700;
 
@@ -579,7 +581,19 @@ body {
 
   text-align: right;
 
-  margin-left: 18px;
+  margin-left: 0;
+
+  background: #fff7fa;
+
+  border: 1px solid #eadde2;
+
+  border-radius: 8px;
+
+  padding: 6px 10px;
+
+  min-height: 38px;
+
+  box-sizing: border-box;
 }
 
 
@@ -1501,7 +1515,7 @@ body {
 
 
   .design-size {
-    font-size: 8px;
+    font-size: 10px;
 
     margin-left: 4px;
 
@@ -1512,7 +1526,7 @@ body {
 
 
   .design-price {
-    font-size: 9px;
+    font-size: 13px;
 
     margin-left: 5px;
   }
@@ -2269,6 +2283,24 @@ function renderDesigns() {
 
           row.innerHTML = `
 
+            <label
+              class="select-label"
+              title="Select design"
+            >
+              <input
+                type="checkbox"
+                data-design-id="${design.id}"
+                data-variant-index="${variantIndex}"
+                onchange="
+                  toggleVariant(
+                    ${design.id},
+                    ${variantIndex},
+                    this.checked
+                  )
+                "
+              >
+            </label>
+
             <span
               class="design-size"
             >
@@ -2293,36 +2325,7 @@ function renderDesigns() {
 
 
             <div
-              class="variant-actions"
-            >
-
-
-              <label
-                class="select-label"
-                title="Select design"
-              >
-
-                <input
-                  type="checkbox"
-
-                  data-design-id="${design.id}"
-
-                  data-variant-index="${variantIndex}"
-
-                  onchange="
-                    toggleVariant(
-                      ${design.id},
-                      ${variantIndex},
-                      this.checked
-                    )
-                  "
-                >
-
-              </label>
-
-
-              <div
-                class="quantity-controls"
+              class="quantity-controls"
               >
 
 
@@ -2373,9 +2376,6 @@ function renderDesigns() {
 
 
               </div>
-
-
-            </div>
 
           `;
 
