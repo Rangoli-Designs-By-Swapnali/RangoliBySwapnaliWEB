@@ -506,7 +506,6 @@ body {
 
   grid-template-columns:
     1fr
-    auto
     auto;
 
   align-items: center;
@@ -529,29 +528,6 @@ body {
   border-bottom: none;
 
   padding-bottom: 0;
-}
-
-
-/* =========================================================
-   DESIGN NAME
-========================================================= */
-
-.design-number {
-  color: #6f1d45;
-
-  font-size: 11px;
-
-  font-weight: 700;
-
-  min-width: 0;
-
-  overflow: hidden;
-
-  text-overflow: ellipsis;
-
-  white-space: nowrap;
-
-  text-align: left;
 }
 
 
@@ -616,7 +592,7 @@ body {
 
 .variant-actions {
   grid-column:
-    1 / 4;
+    1 / 3;
 
   display: flex;
 
@@ -2282,33 +2258,16 @@ function renderDesigns() {
 
 
           /*
-             IMPORTANT:
-
-             This structure preserves
-             the old behaviour.
+             VARIANT LAYOUT:
 
              TOP:
-             Design1 | Size | Price
+             Size | Price
 
              BOTTOM:
              Checkbox | Quantity
           */
 
           row.innerHTML = `
-
-            <span
-              class="design-number"
-              title="${escapeHtml(
-                design.name
-              )}"
-            >
-
-              ${escapeHtml(
-                design.name
-              )}
-
-            </span>
-
 
             <span
               class="design-size"
