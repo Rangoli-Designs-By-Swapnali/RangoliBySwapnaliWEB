@@ -508,7 +508,7 @@ body {
 
   align-items: center;
 
-  column-gap: clamp(10px, 2vw, 20px);
+  column-gap: clamp(7px, 1.5vw, 14px);
 
   width: 100%;
 
@@ -542,7 +542,6 @@ body {
 ========================================================= */
 
 .design-size {
-  margin-left: 10px;
   color: #5f4650;
 
   font-size: 13px;
@@ -1404,7 +1403,6 @@ body {
 
 
   .design-size {
-    margin-left: 8px;
     font-size: 9px;padding:
       3px
       4px;
@@ -1649,7 +1647,6 @@ body {
   }
 
   .design-size {
-    margin-left: 7px;
     font-size: 11px;
     padding: 4px 5px;
   }
@@ -1667,6 +1664,44 @@ body {
 
   .quantity-value {
     width: 28px;
+  }
+}
+
+
+
+/* =========================================================
+   FINAL SIZE BLOCK SPACING
+   Keeps the size block visually separated from the checkbox
+   and price on every screen size.
+========================================================= */
+
+.design-size {
+  margin-left: 7px !important;
+  margin-right: 7px !important;
+  width: calc(100% - 14px) !important;
+}
+
+@media (max-width: 600px) {
+  .design-size {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    width: calc(100% - 10px) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .design-size {
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+    width: calc(100% - 8px) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .design-size {
+    margin-left: 3px !important;
+    margin-right: 3px !important;
+    width: calc(100% - 6px) !important;
   }
 }
 
