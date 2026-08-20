@@ -243,7 +243,7 @@
   }
   ,{
     "design": "Design23",
-    "image": "Design23.jpg",
+    "image": "Design23.png",
     "variants": [
       {
         "size": "3 feet",
@@ -254,7 +254,7 @@
 ,
 {
     "design": "Design24",
-    "image": "Design24.jpg",
+    "image": "Design24.png",
     "variants": [
       {
         "size": "3 feet",
@@ -265,7 +265,7 @@
 ,
 {
     "design": "Design25",
-    "image": "Design25.jpg",
+    "image": "Design25.png",
     "variants": [
       {
         "size": "7 x 32 inch",
@@ -280,7 +280,7 @@
 ,
 {
     "design": "Design26-A",
-    "image": "Design26-A.jpg",
+    "image": "Design26-A.png",
     "variants": [
       {
         "size": "16 inch",
@@ -291,7 +291,7 @@
 ,
 {
     "design": "Design26-B",
-    "image": "Design26-B.jpg",
+    "image": "Design26-B.png",
     "variants": [
       {
         "size": "16 inch (3 pc Combo)",
@@ -302,7 +302,7 @@
 ,
 {
     "design": "Design27",
-    "image": "Design27.jpg",
+    "image": "Design27.png",
     "variants": [
       {
         "size": "32 inch",
@@ -313,7 +313,7 @@
 ,
 {
     "design": "Design28",
-    "image": "Design28.jpg",
+    "image": "Design28.png",
     "variants": [
       {
         "size": "32 inch",
@@ -324,7 +324,7 @@
 ,
 {
     "design": "Design29",
-    "image": "Design29.jpg",
+    "image": "Design29.png",
     "variants": [
       {
         "size": "32 inch",
@@ -335,7 +335,7 @@
 ,
 {
     "design": "Design30-A",
-    "image": "Design30-A.jpg",
+    "image": "Design30-A.png",
     "variants": [
       {
         "size": "10 inch",
@@ -346,7 +346,7 @@
 ,
 {
     "design": "Design30-B",
-    "image": "Design30-B.jpg",
+    "image": "Design30-B.png",
     "variants": [
       {
         "size": "10 inch (2pc)",
@@ -357,7 +357,7 @@
 ,
 {
     "design": "Design31-A",
-    "image": "Design31-A.jpg",
+    "image": "Design31-A.png",
     "variants": [
       {
         "size": "Regular",
@@ -368,7 +368,7 @@
 ,
 {
     "design": "Design31-B",
-    "image": "Design31-B.jpg",
+    "image": "Design31-B.png",
     "variants": [
       {
         "size": "Regular (2pc)",
@@ -379,7 +379,7 @@
 ,
 {
     "design": "Design32",
-    "image": "Design32.jpg",
+    "image": "Design32.png",
     "variants": [
       {
         "size": "9 inch",
@@ -390,7 +390,7 @@
 ,
 {
     "design": "Design33",
-    "image": "Design33.jpg",
+    "image": "Design33.png",
     "variants": [
       {
         "size": "14 inch",
@@ -401,7 +401,7 @@
 ,
 {
     "design": "Design34",
-    "image": "Design34.jpg",
+    "image": "Design34.png",
     "variants": [
       {
         "size": "8.5 x 16 inch",
@@ -412,7 +412,7 @@
 ,
 {
     "design": "Design35",
-    "image": "Design35.jpg",
+    "image": "Design35.png",
     "variants": [
       {
         "size": "11 inch",
@@ -423,7 +423,7 @@
 ,
 {
     "design": "Design36",
-    "image": "Design36.jpg",
+    "image": "Design36.png",
     "variants": [
       {
         "size": "11 x 7.5 inch",
@@ -438,7 +438,7 @@
 ,
 {
     "design": "Design37",
-    "image": "Design37.jpg",
+    "image": "Design37.png",
     "variants": [
       {
         "size": "7 x 10 inch",
@@ -449,7 +449,7 @@
 ,
 {
     "design": "Design38",
-    "image": "Design38.jpg",
+    "image": "Design38.png",
     "variants": [
       {
         "size": "base A3 (full set)",
@@ -460,7 +460,7 @@
 ,
 {
     "design": "Design39-A",
-    "image": "Design39-A.jpg",
+    "image": "Design39-A.png",
     "variants": [
       {
         "size": "Regular",
@@ -471,7 +471,7 @@
 ,
 {
     "design": "Design39-B",
-    "image": "Design39-B.jpg",
+    "image": "Design39-B.png",
     "variants": [
       {
         "size": "Regular",
@@ -482,7 +482,7 @@
 ,
 {
     "design": "Design40",
-    "image": "Design40.jpg",
+    "image": "Design40.png",
     "variants": [
       {
         "size": "Regular",
@@ -493,7 +493,7 @@
 ,
 {
     "design": "Design41",
-    "image": "Design41.jpg",
+    "image": "Design41.png",
     "variants": [
       {
         "size": "Regular",
@@ -504,7 +504,7 @@
 ,
 {
     "design": "Design42",
-    "image": "Design42.jpg",
+    "image": "Design42.png",
     "variants": [
       {
         "size": "A3 full set",
@@ -515,7 +515,7 @@
 ,
 {
     "design": "Design43",
-    "image": "Design43.jpg",
+    "image": "Design43.png",
     "variants": [
       {
         "size": "14.5 x 11.5 inch",
@@ -526,7 +526,7 @@
 ,
 {
     "design": "Design44",
-    "image": "Design44.jpg",
+    "image": "Design44.png",
     "variants": [
       {
         "size": "10 x 5 inch,
@@ -537,7 +537,7 @@
 ,
 {
     "design": "Design45",
-    "image": "Design45.jpg",
+    "image": "Design45.png",
     "variants": [
       {
         "size": "8 x 5.5 inch",
@@ -548,7 +548,7 @@
 ,
 {
     "design": "Design46",
-    "image": "Design46.jpg",
+    "image": "Design46.png",
     "variants": [
       {
         "size": "11.5 x 4.8 inch (2pc)",
@@ -559,7 +559,7 @@
 ,
 {
     "design": "Design47",
-    "image": "Design47.jpg",
+    "image": "Design47.png",
     "variants": [
       {
         "size": "10 x 7 inch",
@@ -570,7 +570,7 @@
 ,
 {
     "design": "Design48",
-    "image": "Design48.jpg",
+    "image": "Design48.png",
     "variants": [
       {
         "size": "Regular",
@@ -581,7 +581,7 @@
 ,
 {
     "design": "Design49",
-    "image": "Design49.jpg",
+    "image": "Design49.png",
     "variants": [
       {
         "size": "Regular (2pc)",
@@ -592,7 +592,7 @@
 ,
 {
     "design": "Design50",
-    "image": "Design50.jpg",
+    "image": "Design50.png",
     "variants": [
       {
         "size": "Regular",
@@ -603,7 +603,7 @@
 ,
 {
     "design": "Design51",
-    "image": "Design51.jpg",
+    "image": "Design51.png",
     "variants": [
       {
         "size": "A3 Regular",
@@ -614,7 +614,7 @@
 ,
 {
     "design": "Design52-A",
-    "image": "Design52-A.jpg",
+    "image": "Design52-A.png",
     "variants": [
       {
         "size": "Regular",
@@ -625,7 +625,7 @@
 ,
 {
     "design": "Design52-B",
-    "image": "Design52-B.jpg",
+    "image": "Design52-B.png",
     "variants": [
       {
         "size": "Regular",
@@ -636,7 +636,7 @@
 ,
 {
     "design": "Design53",
-    "image": "Design53.jpg",
+    "image": "Design53.png",
     "variants": [
       {
         "size": "12 x 12 inch",
@@ -647,7 +647,7 @@
 ,
 {
     "design": "Design54",
-    "image": "Design54.jpg",
+    "image": "Design54.png",
     "variants": [
       {
         "size": "7 inch height",
@@ -662,7 +662,7 @@
 ,
 {
     "design": "Design55",
-    "image": "Design55.jpg",
+    "image": "Design55.png",
     "variants": [
       {
         "size": "9 inch height",
@@ -677,7 +677,7 @@
 ,
 {
     "design": "Design56",
-    "image": "Design56.jpg",
+    "image": "Design56.png",
     "variants": [
       {
         "size": "A3 Regular",
@@ -688,7 +688,7 @@
 ,
 {
     "design": "Design57",
-    "image": "Design57.jpg",
+    "image": "Design57.png",
     "variants": [
       {
         "size": "Regular",
@@ -699,7 +699,7 @@
 ,
 {
     "design": "Design58",
-    "image": "Design58.jpg",
+    "image": "Design58.png",
     "variants": [
       {
         "size": "11.5 x 10 inch",
@@ -710,7 +710,7 @@
 ,
 {
     "design": "Design59",
-    "image": "Design59.jpg",
+    "image": "Design59.png",
     "variants": [
       {
         "size": "10 x 8 inch",
@@ -721,7 +721,7 @@
 ,
 {
     "design": "Design60",
-    "image": "Design60.jpg",
+    "image": "Design60.png",
     "variants": [
       {
         "size": "A3 Regular",
@@ -732,7 +732,7 @@
 ,
 {
     "design": "Design61",
-    "image": "Design61.jpg",
+    "image": "Design61.png",
     "variants": [
       {
         "size": "7.5 inch",
@@ -743,7 +743,7 @@
 ,
 {
     "design": "Design62-A",
-    "image": "Design62-A.jpg",
+    "image": "Design62-A.png",
     "variants": [
       {
         "size": "32 inch",
@@ -754,7 +754,7 @@
 ,
 {
     "design": "Design62-B",
-    "image": "Design62-B.jpg",
+    "image": "Design62-B.png",
     "variants": [
       {
         "size": "16 inch (1pc)",
@@ -765,7 +765,7 @@
 ,
 {
     "design": "Design63-A",
-    "image": "Design63-A.jpg",
+    "image": "Design63-A.png",
     "variants": [
       {
         "size": "30 inch",
@@ -776,7 +776,7 @@
 ,
 {
     "design": "Design63-B",
-    "image": "Design63-B.jpg",
+    "image": "Design63-B.png",
     "variants": [
       {
         "size": "15 inch (1pc)",
@@ -787,7 +787,7 @@
 ,
 {
     "design": "Design64",
-    "image": "Design64.jpg",
+    "image": "Design64.png",
     "variants": [
       {
         "size": "9.5 inch, Base 10",
@@ -798,7 +798,7 @@
 ,
 {
     "design": "Design65",
-    "image": "Design65.jpg",
+    "image": "Design65.png",
     "variants": [
       {
         "size": "8.5 inch",
@@ -809,7 +809,7 @@
 ,
 {
     "design": "Design66",
-    "image": "Design66.jpg",
+    "image": "Design66.png",
     "variants": [
       {
         "size": "12 inch (full set)",
@@ -820,7 +820,7 @@
 ,
 {
     "design": "Design67",
-    "image": "Design67.jpg",
+    "image": "Design67.png",
     "variants": [
       {
         "size": "12 inch (full set)",
