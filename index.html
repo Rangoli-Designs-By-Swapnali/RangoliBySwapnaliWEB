@@ -1704,7 +1704,73 @@ body {
     width: calc(100% - 6px) !important;
   }
 }
+/* =========================================================
+   PRINT / SAVE AS PDF
+   Hide checkbox, quantity, View Order and Place Order
+   Keep Design Name, Size and Price
+========================================================= */
 
+@media print {
+
+  /* Hide checkbox */
+  .select-label {
+    display: none !important;
+  }
+
+  /* Hide quantity controls: − 0 + */
+  .quantity-controls {
+    display: none !important;
+  }
+
+  /* Hide View Order / Cart and Place Order */
+  .bottom-cart {
+    display: none !important;
+  }
+
+  /* Hide Download PDF and Instagram buttons */
+  .actions {
+    display: none !important;
+  }
+
+  /* Remove empty space created by hidden controls */
+  .variant-row {
+    grid-template-columns: 1fr max-content !important;
+    column-gap: 12px !important;
+  }
+
+  /* Keep Size */
+  .variant-row > .design-size {
+    display: block !important;
+    grid-column: 1 !important;
+  }
+
+  /* Keep Price */
+  .variant-row > .design-price {
+    display: block !important;
+    grid-column: 2 !important;
+  }
+
+  /* Keep Design Name / Number */
+  .design-title {
+    display: block !important;
+  }
+
+  /* Keep each complete design together */
+  .design-card {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Remove fixed-cart spacing */
+  body {
+    padding-bottom: 0 !important;
+  }
+
+  .page {
+    padding-bottom: 20px !important;
+  }
+}
+  /* PRINT AREA */
 </style>
 
 </head>
