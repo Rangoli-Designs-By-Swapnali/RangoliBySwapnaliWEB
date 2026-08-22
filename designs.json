@@ -828,4 +828,70 @@
       }
     ]
 }
+,
+{
+    "design": "Design68",
+    "image": "Design68.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 250 
+      }
+    ]
+}
+,
+{
+    "design": "Design69",
+    "image": "Design69.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 200 
+      }
+    ]
+}
+,
+{
+    "design": "Design70",
+    "image": "Design70.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 150 
+      }
+    ]
+}
+,
+{
+    "design": "Design71",
+    "image": "Design71.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 180 
+      }
+    ]
+}
+,
+{
+    "design": "Design72",
+    "image": "Design72.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 150 
+      }
+    ]
+}
+,
+{
+    "design": "Design73",
+    "image": "Design73.png",
+    "variants": [
+      {
+        "size": "Regular",
+        "price": 250 
+      }
+    ]
+}
 ]
