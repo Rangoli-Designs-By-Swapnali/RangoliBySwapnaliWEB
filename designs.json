@@ -1,5 +1,36 @@
 [
   {
+    "design": "Design1-A",
+    "image": "Design1-A.png",
+    "variants": [
+      {
+        "size": "13 inch",
+        "price": 350
+      }
+    ]
+  },
+	{
+    "design": "Design1-B",
+    "image": "Design1-B.png",
+    "variants": [
+      {
+        "size": "14 inch",
+        "price": 300
+      }
+    ]
+  },
+	,
+	{
+    "design": "Design1-C",
+    "image": "Design1-C.png",
+    "variants": [
+      {
+        "size": "10.5 inch",
+        "price": 500
+      }
+    ]
+  },
+  {
     "design": "Design1",
     "image": "Design1.png",
     "variants": [
