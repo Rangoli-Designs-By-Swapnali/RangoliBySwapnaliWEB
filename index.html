@@ -1140,6 +1140,7 @@ body {
 
 .modal-header {
   position: relative;
+  margin-bottom: 0;
 
   display: flex;
 
@@ -1207,7 +1208,7 @@ body {
 ========================================================= */
 
 .order-items {
-  padding: 10px 15px;
+  padding: 0 15px 10px 15px;
   overflow-y: auto;
   flex: 1;
   min-height: 0;
@@ -1223,7 +1224,7 @@ body {
   gap: 11px;
   align-items: center;
   padding: 9px 0;
-  margin-bottom: 2px;
+  margin: 0;
   background: #fff;
   border-bottom: 2px solid #ead8e0;
   color: #5b1738;
@@ -1923,6 +1924,32 @@ body {
 <style>
   .modal-box {
     width: min(100%, 720px);
+  }
+</style>
+
+<style>
+  /* Final cart-header + sticky-column-header attachment */
+  .modal-header {
+    margin-bottom: 0 !important;
+    border-bottom: 0 !important;
+  }
+
+  .order-items {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .order-items-header {
+    top: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    border-top: 1px solid #ead8e0;
+    border-bottom: 2px solid #ead8e0;
+    background: #fff;
+  }
+
+  .modal-title {
+    margin-bottom: 0 !important;
   }
 </style>
 </head>
