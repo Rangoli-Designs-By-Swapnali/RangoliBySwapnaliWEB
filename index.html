@@ -57,7 +57,7 @@ body {
 .page {
   width: 100%;
 
-  max-width: 850px;
+  max-width: 1100px;
 
   margin: auto;
 
@@ -157,7 +157,7 @@ body {
 
   color: #5b1738;
 
-  font-size: 27px;
+  font-size: 32px;
 
   font-weight: 700;
 
@@ -172,9 +172,11 @@ body {
 
   color: #806b74;
 
-  font-size: 13px;
+  font-size: 16px;
 
-  line-height: 1.5;
+  line-height: 1.3;
+
+  white-space: nowrap;
 }
 
 
@@ -215,7 +217,7 @@ body {
 
   text-decoration: none;
 
-  font-size: 12px;
+  font-size: 15px;
 
   font-weight: 700;
 
@@ -288,7 +290,7 @@ body {
 
   color: #73534a;
 
-  font-size: 11px;
+  font-size: 14px;
 
   line-height: 1.5;
 }
@@ -320,7 +322,7 @@ body {
 
   color: #5b1738;
 
-  font-size: 11px;
+  font-size: 14px;
 
   font-weight: 700;
 
@@ -338,15 +340,19 @@ body {
 
 /* =========================================================
    DESIGN GRID
-   ONE COLUMN ONLY
+   2 COLUMNS ON LAPTOP / BIG SCREENS
 ========================================================= */
 
 .design-grid {
-  column-count: 1;
+  display: grid;
 
-  column-gap: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
 
   width: 100%;
+
+  align-items: start;
 }
 
 
@@ -357,20 +363,9 @@ body {
 ========================================================= */
 
 .design-card {
-  display: inline-block;
-
   width: 100%;
 
-  margin:
-    0
-    0
-    14px;
-
-  break-inside: avoid;
-
-  -webkit-column-break-inside: avoid;
-
-  page-break-inside: avoid;
+  margin: 0;
 
   background: #ffffff;
 
@@ -471,7 +466,7 @@ body {
 
   color: #6e2f4b;
 
-  font-size: 14px;
+  font-size: 17px;
 }
 
 
@@ -492,23 +487,23 @@ body {
 /* =========================================================
    VARIANT ROW
 
-   ALWAYS ONE HORIZONTAL LINE:
+   THIS SECTION IS KEPT IN THE OLD BEHAVIOUR:
 
-   CHECKBOX | SIZE | PRICE | QUANTITY
+   ROW 1:
+   Design1                 Size: 18 inch   ₹300
+
+   ROW 2:
+   checkbox                -  0  +
 ========================================================= */
 
 .variant-row {
   display: grid;
 
   grid-template-columns:
-    38px
-    minmax(0, 1fr)
-    max-content
-    max-content;
+    1fr
+    auto;
 
   align-items: center;
-
-  column-gap: clamp(7px, 1.5vw, 14px);
 
   width: 100%;
 
@@ -522,10 +517,6 @@ body {
     1px
     solid
     #f0e4e8;
-
-  white-space: nowrap;
-
-  box-sizing: border-box;
 }
 
 .variant-row:last-child {
@@ -544,21 +535,15 @@ body {
 .design-size {
   color: #5f4650;
 
-  font-size: 13px;
+  font-size: 16px;
 
   font-weight: 600;
 
-  min-width: 0;
-
-  width: 100%;
+  min-width: max-content;
 
   white-space: nowrap;
 
-  overflow: hidden;
-
-  text-overflow: ellipsis;
-
-  text-align: left;
+  text-align: center;
 
   background: #fff7fa;
 
@@ -568,11 +553,9 @@ body {
 
   padding:
     4px
-    7px;
+    5px;
 
-  margin: 0;
-
-  box-sizing: border-box;
+  margin-left: 10px;
 }
 
 
@@ -583,7 +566,7 @@ body {
 .design-price {
   color: #8b1e3f;
 
-  font-size: 16px;
+  font-size: 18px;
 
   font-weight: 700;
 
@@ -593,7 +576,7 @@ body {
 
   text-align: right;
 
-  margin: 0;
+  margin-left: 0;
 
   background: #fff7fa;
 
@@ -601,9 +584,7 @@ body {
 
   border-radius: 8px;
 
-  padding:
-    6px
-    9px;
+  padding: 6px 10px;
 
   min-height: 38px;
 
@@ -619,9 +600,18 @@ body {
 ========================================================= */
 
 .variant-actions {
+  grid-column:
+    1 / 3;
+
   display: flex;
 
   align-items: center;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-top: 5px;
 
   gap: 6px;
 
@@ -642,8 +632,8 @@ body {
 
   justify-content: center;
 
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
 
   border-radius: 9px;
 
@@ -658,8 +648,8 @@ body {
 }
 
 .select-label input {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
 
   margin: 0;
 
@@ -681,12 +671,6 @@ body {
 
   align-items: center;
 
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  min-width: max-content;
-
   border:
     1px
     solid
@@ -697,14 +681,12 @@ body {
   overflow: hidden;
 
   background: #fff9fb;
-
-  white-space: nowrap;
 }
 
 
 .quantity-btn {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
 
   border: none;
 
@@ -730,13 +712,13 @@ body {
 }
 
 .quantity-value {
-  width: 38px;
+  width: 42px;
 
   text-align: center;
 
   color: #5b1738;
 
-  font-size: 12px;
+  font-size: 15px;
 
   font-weight: 700;
 }
@@ -973,8 +955,12 @@ body {
   align-items: center;
 
   padding:
-    15px
-    17px;
+    5px
+    12px;
+
+  min-height: 38px;
+
+  height: 38px;
 
   background: #faf0f4;
 
@@ -990,13 +976,15 @@ body {
 
   color: #5b1738;
 
-  font-size: 18px;
+  font-size: 15px;
+
+  line-height: 1;
 }
 
 
 .close-modal {
-  width: 32px;
-  height: 32px;
+  width: 25px;
+  height: 25px;
 
   border: none;
 
@@ -1006,7 +994,7 @@ body {
 
   color: #5b1738;
 
-  font-size: 19px;
+  font-size: 16px;
 
   cursor: pointer;
 }
@@ -1300,6 +1288,8 @@ body {
     font-size: 11px;
 
     margin-bottom: 14px;
+
+    white-space: nowrap;
   }
 
 
@@ -1325,34 +1315,15 @@ body {
   }
 
 
-
-  .select-label {
-    width: 32px;
-    height: 32px;
-  }
-
-  .select-label input {
-    width: 18px;
-    height: 18px;
-  }
-
-  .quantity-btn {
-    width: 30px;
-    height: 32px;
-  }
-
-  .quantity-value {
-    width: 28px;
-  }
-
   .dispatch-note {
     font-size: 9px;
   }
 
 
-  /* ONE COLUMN ONLY */
+  /* ONE COLUMN ONLY ON MOBILE */
   .design-grid {
-    column-count: 1;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
 
@@ -1384,12 +1355,9 @@ body {
   /* KEEP OLD VARIANT STRUCTURE */
   .variant-row {
     grid-template-columns:
-      34px
       minmax(0, 1fr)
-      max-content
-      max-content;
-
-    column-gap: 6px;
+      auto
+      auto;
 
     padding:
       7px
@@ -1403,7 +1371,11 @@ body {
 
 
   .design-size {
-    font-size: 9px;padding:
+    font-size: 9px;
+
+    margin-left: 7px;
+
+    padding:
       3px
       4px;
   }
@@ -1517,6 +1489,23 @@ body {
     border-radius: 18px;
   }
 
+  .modal-header {
+    padding: 3px 10px;
+    min-height: 34px;
+    height: 34px;
+  }
+
+  .modal-title {
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .close-modal {
+    width: 23px;
+    height: 23px;
+    font-size: 15px;
+  }
+
 
   .modal-dispatch-note {
     font-size: 8.5px;
@@ -1533,16 +1522,11 @@ body {
 
   .variant-row {
     grid-template-columns:
-      32px
       minmax(0, 1fr)
-      max-content
-      max-content;
+      auto
+      auto;
 
-    column-gap: 4px;
-
-    padding:
-      6px
-      0;
+    column-gap: 3px;
   }
 
 
@@ -1551,31 +1535,21 @@ body {
   }
 
 
-   .design-size {
-    font-size: 9px;
+  .design-size {
+    font-size: 10px;
+
+    margin-left: 4px;
 
     padding:
       3px
-      5px;
-
-    margin-left: 0;
-
-    min-width: 0;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
+      3px;
   }
 
 
-   .design-price {
-    font-size: 11px;
+  .design-price {
+    font-size: 13px;
 
-    margin-left: 0;
-
-    padding:
-      5px
-      6px;
+    margin-left: 5px;
   }
 
 
@@ -1606,171 +1580,6 @@ body {
 
 }
 
-
-/* =========================================================
-   FINAL ONE-LINE VARIANT SAFETY
-========================================================= */
-
-.variant-row > .select-label,
-.variant-row > .design-size,
-.variant-row > .design-price,
-.variant-row > .quantity-controls {
-  grid-row: 1;
-  align-self: center;
-}
-
-.variant-row > .select-label {
-  grid-column: 1;
-}
-
-.variant-row > .design-size {
-  grid-column: 2;
-}
-
-.variant-row > .design-price {
-  grid-column: 3;
-}
-
-.variant-row > .quantity-controls {
-  grid-column: 4;
-}
-
-@media (max-width: 420px) {
-  .variant-row {
-    grid-template-columns:
-      32px
-      minmax(0, 1fr)
-      max-content
-      max-content;
-
-    column-gap: 5px;
-  }
-
-  .design-size {
-    font-size: 11px;
-    padding: 4px 5px;
-  }
-
-  .design-price {
-    font-size: 13px;
-    padding: 5px 6px;
-    min-height: 34px;
-  }
-
-  .quantity-btn {
-    width: 30px;
-    height: 34px;
-  }
-
-  .quantity-value {
-    width: 28px;
-  }
-}
-
-
-
-/* =========================================================
-   FINAL SIZE BLOCK SPACING
-   Keeps the size block visually separated from the checkbox
-   and price on every screen size.
-========================================================= */
-
-.design-size {
-  margin-left: 7px !important;
-  margin-right: 7px !important;
-  width: calc(100% - 14px) !important;
-}
-
-@media (max-width: 600px) {
-  .design-size {
-    margin-left: 5px !important;
-    margin-right: 5px !important;
-    width: calc(100% - 10px) !important;
-  }
-}
-
-@media (max-width: 420px) {
-  .design-size {
-    margin-left: 4px !important;
-    margin-right: 4px !important;
-    width: calc(100% - 8px) !important;
-  }
-}
-
-@media (max-width: 360px) {
-  .design-size {
-    margin-left: 3px !important;
-    margin-right: 3px !important;
-    width: calc(100% - 6px) !important;
-  }
-}
-/* =========================================================
-   PRINT / SAVE AS PDF
-   Hide checkbox, quantity, View Order and Place Order
-   Keep Design Name, Size and Price
-========================================================= */
-
-@media print {
-
-  /* Hide checkbox */
-  .select-label {
-    display: none !important;
-  }
-
-  /* Hide quantity controls: − 0 + */
-  .quantity-controls {
-    display: none !important;
-  }
-
-  /* Hide View Order / Cart and Place Order */
-  .bottom-cart {
-    display: none !important;
-  }
-
-  /* Hide Download PDF and Instagram buttons */
-  .actions {
-    display: none !important;
-  }
-
-  /* Remove empty space created by hidden controls */
-  .variant-row {
-    grid-template-columns: 1fr max-content !important;
-    column-gap: 12px !important;
-  }
-
-  /* Keep Size */
-  .variant-row > .design-size {
-    display: block !important;
-    grid-column: 1 !important;
-  }
-
-  /* Keep Price */
-  .variant-row > .design-price {
-    display: block !important;
-    grid-column: 2 !important;
-  }
-
-  /* Keep Design Name / Number */
-  .design-title {
-    display: block !important;
-  }
-
-  /* Keep each complete design together */
-  .design-card {
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-  }
-
-  /* Remove fixed-cart spacing */
-  body {
-    padding-bottom: 0 !important;
-  }
-
-  .page {
-    padding-bottom: 20px !important;
-  }
-}
-  /* PRINT AREA */
 </style>
 
 </head>
@@ -2484,9 +2293,13 @@ function renderDesigns() {
 
 
           /*
-             VARIANT LAYOUT — ALWAYS ONE LINE:
+             VARIANT LAYOUT:
 
-             Checkbox | Size | Price | Quantity
+             TOP:
+             Size | Price
+
+             BOTTOM:
+             Checkbox | Quantity
           */
 
           row.innerHTML = `
@@ -3152,7 +2965,7 @@ function openCart() {
                 >
 
                   Quantity:
-                  ${quantity}
+                  ${quantity} × ₹${formatPrice(variant.price)} each
 
                 </span>
 
@@ -3328,7 +3141,15 @@ function placeOrder() {
 
 
   message +=
-    "* Please confirm availability and final shipping charges. Thank you! 🌸.\n\n";
+    "* Shipping Charges Applicable as per location.\n\n";
+
+
+  message +=
+    "Order will be dispatched within 10 to 12 days.\n\n";
+
+
+  message +=
+    "Please confirm availability and final shipping charges. Thank you! 🌸";
 
 
   const whatsappURL =
