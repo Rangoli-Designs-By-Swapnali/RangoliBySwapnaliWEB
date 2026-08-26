@@ -1432,6 +1432,47 @@ body {
 }
 
 
+/* =========================================================
+   CONTINUE SHOPPING BUTTON
+========================================================= */
+
+.continue-shopping-btn {
+  width: 100%;
+
+  margin-top: 8px;
+
+  min-height: 43px;
+
+  border: 1px solid #ead5df;
+
+  border-radius: 9px;
+
+  background: #f7edf2;
+
+  color: #5b1738;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.continue-shopping-btn:hover {
+  transform: translateY(-1px);
+
+  background: #ead8e0;
+}
+
+
+/* =========================================================
+   EMPTY CART
+========================================================= */
+
 .empty-cart {
   text-align: center;
 
@@ -1711,6 +1752,12 @@ body {
 
   .modal-dispatch-note {
     font-size: 8.5px;
+  }
+
+  .continue-shopping-btn,
+  .modal-place-btn {
+    min-height: 42px;
+    font-size: 11px;
   }
 
 }
@@ -2034,6 +2081,15 @@ body {
 
       </div>
 
+
+      <button
+        class="continue-shopping-btn"
+        onclick="continueShopping()"
+      >
+
+        🛍️ Continue Shopping
+
+      </button>
 
       <button
         class="modal-place-btn"
@@ -3215,6 +3271,36 @@ function openCart() {
   updateCart();
 
 
+  /*
+     Add a history entry only for the cart preview.
+     Browser Back will therefore close the preview first.
+     The cart object is never cleared.
+  */
+  if (!cartPreviewHistoryActive) {
+
+    history.pushState(
+      { cartPreview: true },
+      "",
+      window.location.href
+    );
+
+    cartPreviewHistoryActive = true;
+
+  }
+
+  showCartModal();
+
+}
+
+
+/* =========================================================
+   CLOSE CART
+========================================================= */
+
+let cartPreviewHistoryActive = false;
+
+function showCartModal() {
+
   document
     .getElementById(
       "orderModal"
@@ -3225,12 +3311,7 @@ function openCart() {
 
 }
 
-
-/* =========================================================
-   CLOSE CART
-========================================================= */
-
-function closeCart() {
+function hideCartModal() {
 
   document
     .getElementById(
@@ -3241,6 +3322,64 @@ function closeCart() {
     );
 
 }
+
+function closeCart(fromBrowserBack = false) {
+
+  /*
+     IMPORTANT:
+     Closing the preview cart must NOT clear the cart object.
+     If the browser Back button is pressed while the preview is open,
+     only the preview modal is closed and all selected items remain.
+  */
+
+  if (
+    !fromBrowserBack &&
+    cartPreviewHistoryActive
+  ) {
+
+    cartPreviewHistoryActive = false;
+
+    history.back();
+
+    return;
+
+  }
+
+  cartPreviewHistoryActive = false;
+
+  hideCartModal();
+
+}
+
+function continueShopping() {
+
+  closeCart();
+
+}
+
+/*
+   Create one temporary browser-history entry whenever the preview cart
+   opens. This makes the browser Back button behave like "close preview"
+   instead of navigating away/reloading the shopping page.
+*/
+window.addEventListener(
+  "popstate",
+  function() {
+
+    if (
+      cartPreviewHistoryActive
+    ) {
+
+      cartPreviewHistoryActive = false;
+
+      hideCartModal();
+
+      updateCart();
+
+    }
+
+  }
+);
 
 
 /* =========================================================
