@@ -2084,7 +2084,7 @@ body {
 
       <button
         class="continue-shopping-btn"
-        onclick="continueShopping()"
+        onclick="continueShopping(event)"
       >
 
         🛍️ Continue Shopping
@@ -3327,33 +3327,44 @@ function closeCart(fromBrowserBack = false) {
 
   /*
      IMPORTANT:
-     Closing the preview cart must NOT clear the cart object.
-     If the browser Back button is pressed while the preview is open,
-     only the preview modal is closed and all selected items remain.
+     Closing the preview cart must NEVER clear the cart object.
+     The modal is hidden immediately so the button responds on the
+     first click. The temporary history entry is then removed.
   */
 
+  const wasOpenInHistory =
+    cartPreviewHistoryActive;
+
+  // Close the preview immediately.
+  hideCartModal();
+
+  // Mark it inactive BEFORE history.back() so the popstate handler
+  // does not try to close it a second time.
+  cartPreviewHistoryActive = false;
+
+  // If this was a normal UI close (× / Continue Shopping), remove
+  // the temporary history entry. Do not do this for browser Back.
   if (
     !fromBrowserBack &&
-    cartPreviewHistoryActive
+    wasOpenInHistory
   ) {
-
-    cartPreviewHistoryActive = false;
 
     history.back();
 
-    return;
-
   }
-
-  cartPreviewHistoryActive = false;
-
-  hideCartModal();
 
 }
 
-function continueShopping() {
+function continueShopping(event) {
 
-  closeCart();
+  // Prevent any default button/form behaviour.
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  // Close immediately on the FIRST click.
+  closeCart(false);
 
 }
 
