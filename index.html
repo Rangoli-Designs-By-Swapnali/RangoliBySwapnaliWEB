@@ -537,7 +537,7 @@ body {
   grid-column: 1;
   grid-row: 1;
 
-  justify-self: center;
+  justify-self: start;
 }
 
 .select-label {
@@ -1139,6 +1139,8 @@ body {
 ========================================================= */
 
 .modal-header {
+  position: relative;
+
   display: flex;
 
   justify-content: center;
@@ -1175,7 +1177,7 @@ body {
 
 .close-modal {
   position: absolute;
-  right: 12px;
+  right: 15px;
 
   width: 25px;
   height: 25px;
@@ -1549,9 +1551,10 @@ body {
   /* KEEP OLD VARIANT STRUCTURE */
   .variant-row {
     grid-template-columns:
+      38px
       minmax(0, 1fr)
-      auto
-      auto;
+      max-content
+      max-content;
 
     padding:
       7px
@@ -1684,6 +1687,7 @@ body {
   }
 
   .modal-header {
+    position: relative;
     padding: 3px 10px;
     min-height: 34px;
     height: 34px;
@@ -1700,6 +1704,10 @@ body {
     font-size: 15px;
   }
 
+
+  .close-modal {
+    right: 15px;
+  }
 
   .modal-dispatch-note {
     font-size: 8.5px;
