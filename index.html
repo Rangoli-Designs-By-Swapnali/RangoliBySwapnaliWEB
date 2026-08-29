@@ -3483,7 +3483,7 @@ function openCart() {
                 type="button"
                 class="quantity-btn"
                 aria-label="Decrease quantity"
-                onclick="changePreviewQuantity('${key}', -1)"
+                onclick="changePreviewQuantity(${design.id}, ${variantIndex}, -1, event)"
               >−</button>
 
               <span class="quantity-value">${quantity}</span>
@@ -3492,7 +3492,7 @@ function openCart() {
                 type="button"
                 class="quantity-btn"
                 aria-label="Increase quantity"
-                onclick="changePreviewQuantity('${key}', 1)"
+                onclick="changePreviewQuantity(${design.id}, ${variantIndex}, 1, event)"
               >+</button>
             </div>
           </div>
@@ -3521,66 +3521,65 @@ function openCart() {
    CHANGE QUANTITY FROM PREVIEW
 ========================================================= */
 
-function changePreviewQuantity(key, change) {
-  const currentQuantity = cart[key] || 0;
-  const newQuantity = Math.max(0, currentQuantity + change);
+function changePreviewQuantity(
+  designId,
+  variantIndex,
+  amount,
+  event
+) {
 
-  if (newQuantity <= 0) {
-    delete cart[key];
-  } else {
-    cart[key] = newQuantity;
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
   }
 
-  syncCartKeyToPage(key);
+  const key =
+    getCartKey(
+      designId,
+      variantIndex
+    );
+
+  let quantity =
+    cart[key] || 0;
+
+  quantity += amount;
+
+  if (quantity <= 0) {
+    delete cart[key];
+  }
+  else {
+    cart[key] = quantity;
+  }
+
+  /*
+     Keep the quantity and checkbox on the main shopping page
+     synchronized with the quantity changed inside the preview.
+  */
+  updateVariantUI(
+    designId,
+    variantIndex
+  );
+
+  updateCardSelection(
+    designId
+  );
+
   updateCart();
 
-  /* Rebuild preview immediately after one click. */
-  openCart();
+  /*
+     Re-render the preview using the same cart object.
+     This keeps the changed quantity and subtotal correct
+     when the user continues shopping, closes the preview,
+     or opens the preview again.
+  */
+  renderCartPreview();
+
+  /*
+     renderCartPreview() rebuilds the preview contents but does
+     not hide the modal, so it remains open after the click.
+  */
 }
 
-/* =========================================================
-   SYNC PREVIEW QUANTITY WITH MAIN PAGE
-========================================================= */
-
-function syncCartKeyToPage(key) {
-  const parts = key.split("_");
-  const designId = parts[0];
-  const variantIndex = Number(parts[1]);
-
-  const card = document.querySelector(
-    `[data-design-id="${CSS.escape(String(designId))}"]`
-  );
-
-  if (!card) return;
-
-  const variantControl = card.querySelector(
-    `[data-variant-index="${variantIndex}"]`
-  );
-
-  if (!variantControl) return;
-
-  const quantity = cart[key] || 0;
-
-  const quantityValue = variantControl.querySelector(".quantity-value");
-  if (quantityValue) {
-    quantityValue.textContent = quantity;
-  }
-
-  const checkbox = variantControl.querySelector(
-    'input[type="checkbox"]'
-  );
-
-  if (checkbox) {
-    checkbox.checked = quantity > 0;
-  }
-
-  card.classList.toggle(
-    "selected",
-    Object.keys(cart).some(k =>
-      k.startsWith(`${designId}_`) && cart[k] > 0
-    )
-  );
-}
 
 /* =========================================================
    CLOSE CART
