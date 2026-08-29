@@ -278,6 +278,10 @@
       {
         "size": "3 feet",
         "price": 350
+      },
+	  {
+        "size": "16 inch (150/pc)",
+        "price": 150
       }
     ]
 }
@@ -290,6 +294,11 @@
         "size": "3 feet",
         "price": 400 
       }
+	  ,
+	  {
+        "size": "16 inch (200/pc)",
+        "price": 200
+      }	
     ]
 }
 ,
@@ -379,7 +388,7 @@
     "image": "Design30-B.png",
     "variants": [
       {
-        "size": "10 inch (2pc)",
+        "size": "10 inch (2pc combo)",
         "price": 550 
       }
     ]
@@ -401,7 +410,7 @@
     "image": "Design31-B.png",
     "variants": [
       {
-        "size": "Regular (2pc)",
+        "size": "Regular (2pc combo)",
         "price": 850 
       }
     ]
@@ -875,7 +884,7 @@
     "image": "Design69.png",
     "variants": [
       {
-        "size": "Regular",
+        "size": "10 inch",
         "price": 200 
       }
     ]
@@ -897,8 +906,13 @@
     "image": "Design71.png",
     "variants": [
       {
-        "size": "Regular",
+        "size": "8 x 9 inch",
         "price": 180 
+      }
+	  ,
+	   {
+        "size": "5.5 x 6.3 inch",
+        "price": 150 
       }
     ]
 }
@@ -919,7 +933,7 @@
     "image": "Design73.png",
     "variants": [
       {
-        "size": "Regular",
+        "size": "11.5 inch",
         "price": 250 
       }
     ]
