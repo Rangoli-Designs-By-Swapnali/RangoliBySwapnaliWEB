@@ -895,7 +895,7 @@
     "image": "Design70.png",
     "variants": [
       {
-        "size": "Regular",
+        "size": "11.5 inch",
         "price": 150 
       }
     ]
@@ -933,7 +933,7 @@
     "image": "Design73.png",
     "variants": [
       {
-        "size": "11.5 inch",
+        "size": "Regular",
         "price": 250 
       }
     ]
