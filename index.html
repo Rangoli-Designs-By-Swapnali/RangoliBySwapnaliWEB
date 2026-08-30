@@ -3216,14 +3216,14 @@ function updateCart() {
 
 /* =========================================================
    RENDER CART PREVIEW
+   Keep the preview layout fixed:
+   Image | Design Details | Quantity | Subtotal
 ========================================================= */
 
 function renderCartPreview() {
 
   const orderItems =
-    document.getElementById(
-      "orderItems"
-    );
+    document.getElementById("orderItems");
 
   orderItems.innerHTML = "";
 
@@ -3246,6 +3246,7 @@ function renderCartPreview() {
     return;
   }
 
+  /* Fixed four-column header */
   const header =
     document.createElement("div");
 
@@ -3253,207 +3254,43 @@ function renderCartPreview() {
     "order-items-header";
 
   header.innerHTML = `
-    <span class="order-header-image">Image</span>
-    <span class="order-header-design">Design Number</span>
-    <span class="order-header-size">Size</span>
-    <span class="order-header-price">Price each</span>
-    <span class="order-header-quantity">Quantity</span>
-    <span class="order-header-subtotal">Subtotal</span>
+    <span class="header-image">Image</span>
+    <span class="header-details">Design Number</span>
+    <span class="header-quantity">Quantity</span>
+    <span class="header-subtotal">Subtotal</span>
   `;
 
   orderItems.appendChild(header);
 
   designs.forEach(design => {
 
-    design.variants.forEach((variant, variantIndex) => {
+    design.variants.forEach(
+      (variant, variantIndex) => {
 
-      const key =
-        getCartKey(
-          design.id,
-          variantIndex
-        );
+        const key =
+          getCartKey(
+            design.id,
+            variantIndex
+          );
 
-      const quantity =
-        cart[key] || 0;
+        const quantity =
+          cart[key] || 0;
 
-      if (quantity <= 0) {
-        return;
-      }
+        if (quantity <= 0) {
+          return;
+        }
 
-      const subtotal =
-        variant.price * quantity;
+        const subtotal =
+          variant.price * quantity;
 
-      const item =
-        document.createElement("div");
+        const item =
+          document.createElement("div");
 
-      item.className =
-        "order-item";
+        item.className =
+          "order-item";
 
-      item.innerHTML = `
-
-        <div class="order-thumb-wrapper">
-          <img
-            class="order-thumb"
-            alt="${escapeHtml(design.name)}"
-          >
-        </div>
-
-        <div class="order-design-cell">
-          <p class="order-design" title="${escapeHtml(design.name)}">
-            ${escapeHtml(design.name)}
-          </p>
-        </div>
-
-        <div class="order-size-cell">
-          <span class="order-size" title="${escapeHtml(variant.size)}">
-            ${escapeHtml(variant.size)}
-          </span>
-        </div>
-
-        <div class="order-price-each-cell">
-          <span class="order-price-each">
-            ₹${formatPrice(variant.price)}
-          </span>
-        </div>
-
-        <div
-          class="order-quantity-controls"
-          aria-label="Quantity for ${escapeHtml(design.name)}"
-        >
-          <button
-            type="button"
-            class="order-quantity-btn"
-            aria-label="Decrease quantity"
-            onclick="changePreviewQuantity(${design.id}, ${variantIndex}, -1, event)"
-          >−</button>
-
-          <span class="order-quantity-value">
-            ${quantity}
-          </span>
-
-          <button
-            type="button"
-            class="order-quantity-btn"
-            aria-label="Increase quantity"
-            onclick="changePreviewQuantity(${design.id}, ${variantIndex}, 1, event)"
-          >+</button>
-        </div>
-
-        <div class="order-price">
-          ₹${formatPrice(subtotal)}
-        </div>
-
-      `;
-
-      orderItems.appendChild(item);
-
-      const thumbnail =
-        item.querySelector(
-          ".order-thumb"
-        );
-
-      setupImageFallback(
-        thumbnail,
-        design.image
-      );
-
-    });
-
-  });
-
-  updateCart();
-}
-
-
-/* =========================================================
-   CHANGE QUANTITY FROM CART PREVIEW
-========================================================= */
-
-function changePreviewQuantity(
-  designId,
-  variantIndex,
-  amount,
-  event
-) {
-
-  if (event) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-
-  const key =
-    getCartKey(
-      designId,
-      variantIndex
-    );
-
-  let quantity =
-    cart[key] || 0;
-
-  quantity += amount;
-
-  if (quantity <= 0) {
-    delete cart[key];
-  }
-  else {
-    cart[key] = quantity;
-  }
-
-  // Keep the main shopping page quantity counter and checkbox
-  // synchronized with the preview cart.
-  updateVariantUI(
-    designId,
-    variantIndex
-  );
-
-  updateCardSelection(
-    designId
-  );
-
-  // Re-render the preview so quantity and subtotal update immediately.
-  // If quantity reaches zero, that item disappears from the preview.
-  renderCartPreview();
-}
-
-
-/* =========================================================
-   OPEN CART
-========================================================= */
-
-function openCart() {
-  const orderItems = document.getElementById("orderItems");
-  orderItems.innerHTML = "";
-
-  if (Object.keys(cart).length === 0) {
-    orderItems.innerHTML = `
-      <div class="empty-cart">
-        Your cart is empty.
-        <br><br>
-        Select a design to start your order.
-      </div>
-    `;
-  } else {
-    orderItems.innerHTML = `
-      <div class="order-items-header">
-        <div class="header-image">Image</div>
-        <div class="header-details">Design Number</div>
-        <div class="header-quantity">Quantity</div>
-        <div class="header-subtotal">Subtotal</div>
-      </div>
-    `;
-
-    designs.forEach(design => {
-      design.variants.forEach((variant, variantIndex) => {
-        const key = getCartKey(design.id, variantIndex);
-        const quantity = cart[key] || 0;
-
-        if (quantity <= 0) return;
-
-        const subtotal = variant.price * quantity;
-        const item = document.createElement("div");
-
-        item.className = "order-item";
-        item.dataset.cartKey = key;
+        item.dataset.cartKey =
+          key;
 
         item.innerHTML = `
           <div class="order-thumb-wrapper">
@@ -3464,11 +3301,17 @@ function openCart() {
           </div>
 
           <div class="order-details">
-            <p class="order-design">
+            <p
+              class="order-design"
+              title="${escapeHtml(design.name)}"
+            >
               ${escapeHtml(design.name)}
             </p>
 
-            <span class="order-size">
+            <span
+              class="order-size"
+              title="${escapeHtml(variant.size)}"
+            >
               Size: ${escapeHtml(variant.size)}
             </span>
 
@@ -3477,22 +3320,41 @@ function openCart() {
             </span>
           </div>
 
-          <div class="order-quantity">
+          <div
+            class="order-quantity"
+            aria-label="Quantity for ${escapeHtml(design.name)}"
+          >
             <div class="preview-quantity-control">
               <button
                 type="button"
                 class="quantity-btn"
                 aria-label="Decrease quantity"
-                onclick="changePreviewQuantity(${design.id}, ${variantIndex}, -1, event)"
+                onclick="
+                  changePreviewQuantity(
+                    ${design.id},
+                    ${variantIndex},
+                    -1,
+                    event
+                  )
+                "
               >−</button>
 
-              <span class="quantity-value">${quantity}</span>
+              <span class="quantity-value">
+                ${quantity}
+              </span>
 
               <button
                 type="button"
                 class="quantity-btn"
                 aria-label="Increase quantity"
-                onclick="changePreviewQuantity(${design.id}, ${variantIndex}, 1, event)"
+                onclick="
+                  changePreviewQuantity(
+                    ${design.id},
+                    ${variantIndex},
+                    1,
+                    event
+                  )
+                "
               >+</button>
             </div>
           </div>
@@ -3504,21 +3366,24 @@ function openCart() {
 
         orderItems.appendChild(item);
 
-        const thumbnail = item.querySelector(".order-thumb");
-        setupImageFallback(thumbnail, design.image);
-      });
-    });
-  }
+        const thumbnail =
+          item.querySelector(".order-thumb");
+
+        setupImageFallback(
+          thumbnail,
+          design.image
+        );
+      }
+    );
+  });
 
   updateCart();
-
-  document
-    .getElementById("orderModal")
-    .classList.add("show");
 }
 
+
 /* =========================================================
-   CHANGE QUANTITY FROM PREVIEW
+   CHANGE QUANTITY FROM CART PREVIEW
+   The preview is re-rendered using the SAME fixed structure.
 ========================================================= */
 
 function changePreviewQuantity(
@@ -3551,10 +3416,7 @@ function changePreviewQuantity(
     cart[key] = quantity;
   }
 
-  /*
-     Keep the quantity and checkbox on the main shopping page
-     synchronized with the quantity changed inside the preview.
-  */
+  /* Synchronize the main shopping page */
   updateVariantUI(
     designId,
     variantIndex
@@ -3564,121 +3426,26 @@ function changePreviewQuantity(
     designId
   );
 
-  updateCart();
-
-  /*
-     Re-render the preview using the same cart object.
-     This keeps the changed quantity and subtotal correct
-     when the user continues shopping, closes the preview,
-     or opens the preview again.
-  */
+  /* Rebuild only the preview contents.
+     The modal itself stays open and the
+     quantity control keeps exactly the
+     same position and styling. */
   renderCartPreview();
-
-  /*
-     renderCartPreview() rebuilds the preview contents but does
-     not hide the modal, so it remains open after the click.
-  */
 }
 
 
 /* =========================================================
-   CLOSE CART
+   OPEN CART
 ========================================================= */
 
-let cartPreviewHistoryActive = false;
+function openCart() {
 
-function showCartModal() {
-
-  document
-    .getElementById(
-      "orderModal"
-    )
-    .classList.add(
-      "show"
-    );
-
-}
-
-function hideCartModal() {
+  renderCartPreview();
 
   document
-    .getElementById(
-      "orderModal"
-    )
-    .classList.remove(
-      "show"
-    );
-
+    .getElementById("orderModal")
+    .classList.add("show");
 }
-
-function closeCart(fromBrowserBack = false) {
-
-  /*
-     IMPORTANT:
-     Closing the preview cart must NEVER clear the cart object.
-     The modal is hidden immediately so the button responds on the
-     first click. The temporary history entry is then removed.
-  */
-
-  const wasOpenInHistory =
-    cartPreviewHistoryActive;
-
-  // Close the preview immediately.
-  hideCartModal();
-
-  // Mark it inactive BEFORE history.back() so the popstate handler
-  // does not try to close it a second time.
-  cartPreviewHistoryActive = false;
-
-  // If this was a normal UI close (× / Continue Shopping), remove
-  // the temporary history entry. Do not do this for browser Back.
-  if (
-    !fromBrowserBack &&
-    wasOpenInHistory
-  ) {
-
-    history.back();
-
-  }
-
-}
-
-function continueShopping(event) {
-
-  // Prevent any default button/form behaviour.
-  if (event) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-
-  // Close immediately on the FIRST click.
-  closeCart(false);
-
-}
-
-/*
-   Create one temporary browser-history entry whenever the preview cart
-   opens. This makes the browser Back button behave like "close preview"
-   instead of navigating away/reloading the shopping page.
-*/
-window.addEventListener(
-  "popstate",
-  function() {
-
-    if (
-      cartPreviewHistoryActive
-    ) {
-
-      cartPreviewHistoryActive = false;
-
-      hideCartModal();
-
-      updateCart();
-
-    }
-
-  }
-);
 
 
 /* =========================================================
