@@ -3421,74 +3421,17 @@ function changePreviewQuantity(
 ========================================================= */
 
 function openCart() {
+
+  /*
+     Use the exact same renderer for the first preview display
+     and for every quantity update. This keeps the quantity
+     counter in the same position and with the same styling.
+  */
   renderCartPreview();
 
   document
     .getElementById("orderModal")
     .classList.add("show");
-}
-
-/* =========================================================
-   CHANGE QUANTITY FROM PREVIEW
-========================================================= */
-
-function changePreviewQuantity(
-  designId,
-  variantIndex,
-  amount,
-  event
-) {
-
-  if (event) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-
-  const key =
-    getCartKey(
-      designId,
-      variantIndex
-    );
-
-  let quantity =
-    cart[key] || 0;
-
-  quantity += amount;
-
-  if (quantity <= 0) {
-    delete cart[key];
-  }
-  else {
-    cart[key] = quantity;
-  }
-
-  /*
-     Keep the quantity and checkbox on the main shopping page
-     synchronized with the quantity changed inside the preview.
-  */
-  updateVariantUI(
-    designId,
-    variantIndex
-  );
-
-  updateCardSelection(
-    designId
-  );
-
-  updateCart();
-
-  /*
-     Re-render the preview using the same cart object.
-     This keeps the changed quantity and subtotal correct
-     when the user continues shopping, closes the preview,
-     or opens the preview again.
-  */
-  renderCartPreview();
-
-  /*
-     renderCartPreview() rebuilds the preview contents but does
-     not hide the modal, so it remains open after the click.
-  */
 }
 
 
