@@ -1113,5 +1113,15 @@
         "price": 1900
       }
     ]
+},
+{
+    "design": "Design83",
+    "image": "Design83.png",
+    "variants": [
+      {
+        "size": "12 inch",
+        "price": 350
+      }
+    ]
 }
 ]
